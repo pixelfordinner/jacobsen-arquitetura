@@ -1,0 +1,31 @@
+### Miscellaneous
+.Spotlight-V100
+.Trashes
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+### Composer
+composer.lock
+/vendor/
+
+### IDE
+.idea/
+
+### Wordpress
+/htdocs/cms/*
+!/htdocs/cms/.gitkeep
+/htdocs/content/mu-plugins/themosis-framework/
+/htdocs/content/themes/themosis-theme/
+/htdocs/content/uploads/
+/htdocs/content/upgrade/
+/htdocs/content/plugins/*
+/htdocs/content/plugins/!.gitkeep
+/htdocs/content/languages/admin-*
+/htdocs/content/languages/continents-cities-*
+/htdocs/content/languages/pt_BR*
+
+
+### Environment Credentials
+.env.*.php
