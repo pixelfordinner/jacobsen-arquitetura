@@ -1,0 +1,28 @@
+{
+  "name": "babilonia",
+  "version": "0.1.0",
+  "authors": [
+    "Karl Fathi <karl.fathi@gmail.com>"
+  ],
+    "description": "Sass boilerplate to kickstart projects",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "sass",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {}
+}
