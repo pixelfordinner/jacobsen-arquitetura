@@ -41,8 +41,8 @@ var paths = {
         out: '/styles',
         files: '/**/*.{scss,sass}',
         includePaths: [
-            '/styles/sass/node_modules',
-            '/styles/sass/bower_components',
+            'src/styles/sass/node_modules',
+            'src/styles/sass/bower_components',
             'node_modules',
             'bower_components'
         ]
