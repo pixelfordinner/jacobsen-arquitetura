@@ -1,0 +1,29 @@
+// Typography
+
+@mixin fonts($index, $attribute, $sub-attribute: null) {
+  @if map-has-key($fonts, $index) {
+    $map: map-get($fonts, $index);
+
+    @if map-has-key($map, $attribute) {
+
+      @if $sub-attribute != null {
+        $map: map-get($map, $attribute);
+
+        @if map-has-key($map, $sub-attribute) {
+          @return map-get($map, $sub-attribute);
+        }
+      } @else {
+        @return map-get($map, $attribute);
+      }
+    }
+  }
+  @warn '@fonts: attribute(s) not found.';
+  @return null;
+}
+
+@mixin colors($color) {
+  @if map-has-key($colors, $color) {
+    @return map-get($colors, $color);
+  }
+  @return null;
+}
