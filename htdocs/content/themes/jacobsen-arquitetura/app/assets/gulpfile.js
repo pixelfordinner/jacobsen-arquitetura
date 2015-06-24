@@ -39,7 +39,7 @@ var paths = {
       sass: {
         path: '/styles/sass',
         out: '/styles',
-        files: '/**/*.{scss,sass}',
+        files: '/*.{scss,sass}',
         includePaths: [
             'src/styles/sass/node_modules',
             'src/styles/sass/bower_components',
