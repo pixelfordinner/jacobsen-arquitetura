@@ -12,6 +12,7 @@ composer.lock
 
 ### IDE
 .idea/
+*.cache
 
 ### Wordpress
 /htdocs/cms/*

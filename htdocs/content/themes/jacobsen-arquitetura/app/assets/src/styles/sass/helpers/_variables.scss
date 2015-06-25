@@ -1,83 +1,128 @@
-// Breakpoints and screen-related
+// Typography
 
-$breakpoints: (
-  'xxsmall': 320px,
-  'xsmall': 480px,
-  'small': 700px,
-  'medium': 1024px,
-  'large': 1280px,
-  'xlarge': 1600px,
-  'xxlarge': 1920px,
-  'hidpi': 'min-resolution 1.5dppx'
+// Note           : For the following Sass maps enter values as if they would be px units.
+
+// Breakpoint sizes from px to ems. Add more values here to add more breakpoints.
+// Change names if you prefer, it wont break the mixin as long as they are strings not just numbers.
+$breakpoints      : (
+  mobile          : 0,     // 0px       Mobile first
+  tablet          : 640,   // 640px   ~ Small tablet up
+  tablet-large    : 800,   // 800px   ~ Large tablet up
+  desktop         : 1024,  // 1024px  ~ Desktop up
+  desktop-large   : 1600   // 1600px  ~ Large desktop up
+);
+
+// Root font-sizes for each breakpoint. Set to half desired line-height of body text.
+// ! Make sure to have as many sizes as breakpoints above.
+$rootsizes        : (
+  rootsize-0      : 12,   // 24px line-height body text
+  rootsize-1      : 14,   // 28px line-height body text
+  rootsize-2      : 15,   // 30px line-height body text
+  rootsize-3      : 17,   // 34px line-height body text
+  rootsize-4      : 19    // 38px line-height body text
 );
 
 // Colors
 
-$colors: (
-  'white': #fff,
-  'yellow': #ffd800,
-  'grey-dark': #4a4a4a,
-  'grey': #9b9b9b,
-  'grey-light': #ebebeb
+$colors           : (
+  'white'         : #fff,
+  'yellow'        : #ffd800,
+  'grey-dark'     : #4a4a4a,
+  'grey'          : #9b9b9b,
+  'grey-light'    : #ebebeb
+);
+
+$elements-colors  :(
+  body-text       : get-color('grey-dark'),
+  body-background : get-color('white'),
+  heading-text    : get-color('grey-dark'),
+  link-text       : get-color('grey-dark'),
+  link-text-hover : get-color('grey')
 );
 
 // Fonts
 
-$fonts: (
-  'primary': (
-    'family': 'expo-serif-pro, serif',
-    'weight': (
-      'regular': 400
+// Gutter widths
+$gutterwidths     : (
+  small           : 1rem,
+  medium          : 2rem,
+  large           : 4rem
+);
+
+// Add typefaces here.
+// Add weight and style details too.
+// ! Set cap height to set to the baseline.
+$bodytype         : (
+  font-family     : 'expo-serif-pro, serif',
+  regular         : 400,
+  bold            : 700,
+  italic          : italic,
+  cap-height      : .625
+);
+
+$headingtype      : (
+  font-family     : 'geogrotesque, Helvetica Neue, Helvetica, Arial, sans',
+  thin            : 300,
+  regular         : 400,
+  bold            : 600,
+  cap-height      : .625
+);
+
+$fonts            : (
+  'primary'       : (
+    'family'      : 'expo-serif-pro, serif',
+    'weight'      : (
+      'regular'   : 400
     )
   ),
-  'secondary': (
-    'family': 'geogrotesque, Helvetica Neue, Helvetica, Arial, sans',
-    'weight': (
-      'light': 300,
-      'regular': 400,
-      'bold': 600
+  'secondary'     : (
+    'family'      : 'geogrotesque, Helvetica Neue, Helvetica, Arial, sans',
+    'weight'      : (
+      'light'     : 300,
+      'regular'   : 400,
+      'bold'      : 600
     )
   )
 );
 
-$font-sizes: (
-  'text': (
-    null: 14px,
-    'xsmall': 15px,
-    'small': 16px,
-    'large': 18px,
-    'xlarge': 20px
-  ),
-  'h1': (
-    null: 28px,
-    'xsmall': 32px,
-    'small': 36px,
-    'large': 41px,
-    'xlarge': 46px
-  ),
-  'h2': (
-    null: 20px,
-    'xsmall': 22px,
-    'small': 25px,
-    'large': 28px,
-    'xlarge': 32px
-  ),
-  'h3': (
-    null: 18px,
-    'xsmall': 20px,
-    'small': 22px,
-    'large': 25px,
-    'xlarge': 28px
-  ),
-  'h4': (
-    null: 16px,
-    'small': 18px,
-    'large': 20px,
-    'xlarge': 22px
-  ),
-  'h5': (
-    null: 15px,
-    'small': 16px,
-    'large': 18px
-  )
-);
+// $font-sizes       : (
+//   'text'          : (
+//     null          : 14px,
+//     'xsmall'      : 15px,
+//     'small'       : 16px,
+//     'large'       : 18px,
+//     'xlarge'      : 20px
+//   ),
+//   'h1'            : (
+//     null          : 28px,
+//     'xsmall'      : 32px,
+//     'small'       : 36px,
+//     'large'       : 41px,
+//     'xlarge'      : 46px
+//   ),
+//   'h2'            : (
+//     null          : 20px,
+//     'xsmall'      : 22px,
+//     'small'       : 25px,
+//     'large'       : 28px,
+//     'xlarge'      : 32px
+//   ),
+//   'h3'            : (
+//     null          : 18px,
+//     'xsmall'      : 20px,
+//     'small'       : 22px,
+//     'large'       : 25px,
+//     'xlarge'      : 28px
+//   ),
+//   'h4'            : (
+//     null          : 16px,
+//     'small'       : 18px,
+//     'large'       : 20px,
+//     'xlarge'      : 22px
+//   ),
+//   'h5'            : (
+//     null          : 15px,
+//     'small'       : 16px,
+//     'large'       : 18px
+//   )
+// );
