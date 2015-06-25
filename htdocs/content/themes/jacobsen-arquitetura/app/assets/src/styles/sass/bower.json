@@ -4,7 +4,7 @@
   "authors": [
     "Karl Fathi <karl.fathi@gmail.com>"
   ],
-    "description": "Sass boilerplate to kickstart projects",
+  "description": "Sass boilerplate to kickstart projects",
   "main": "",
   "moduleType": [
     "globals"
@@ -22,7 +22,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "meyer-reset": "*"
+  }
 }

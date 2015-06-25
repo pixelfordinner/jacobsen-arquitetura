@@ -19,7 +19,7 @@
   "devDependencies": {
     "bower": "^1.3.12",
     "breakpoint-sass": "^2.6.1",
-    "normalize-scss-vanilla": "^1.0.1",
+    "sassline": "^2.1.0",
     "scut": "^1.2.0"
   },
   "dependencies": {}
