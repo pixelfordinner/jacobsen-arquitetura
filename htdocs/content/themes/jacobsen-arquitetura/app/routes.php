@@ -11,6 +11,6 @@
 
 Route::get('home', function(){
 
-    return View::make('welcome');
+    return View::make('pages.home');
 
 });
