@@ -69,20 +69,26 @@ $headingtype      : (
 );
 
 $fonts            : (
-  'primary'       : (
-    'family'      : 'expo-serif-pro, serif',
-    'weight'      : (
-      'regular'   : 400
+  primary         : (
+    family        : 'expo-serif-pro, serif',
+    weight        : (
+      regular     : 400
     )
   ),
-  'secondary'     : (
-    'family'      : 'geogrotesque, Helvetica Neue, Helvetica, Arial, sans',
-    'weight'      : (
-      'light'     : 300,
-      'regular'   : 400,
-      'bold'      : 600
+  secondary       : (
+    family        : 'geogrotesque, Helvetica Neue, Helvetica, Arial, sans',
+    weight        : (
+      light       : 300,
+      regular     : 400,
+      bold        : 600
     )
   )
+);
+
+//  Paths
+
+$paths            : (
+  fonts           : '../fonts'
 );
 
 // $font-sizes       : (

@@ -1,19 +1,17 @@
-// Colors
+// Simplified map-getters
 
 @function get-color($name) {
-  @if map-has-key($colors, $name) {
-    @return map-get($colors, $name);
-  }
+  @return map-get($colors, $name);
 }
 
 @function get-element-color($name) {
-  @if map-has-key($elements-colors, $name) {
-    @return map-get($elements-colors, $name);
-  }
+  @return map-get($elements-colors, $name);
 }
 
 @function get-breakpoint($name) {
-  @if map-has-key($breakpoints, $name) {
-    @return map-get($breakpoints, $name);
-  }
+  @return map-get($breakpoints, $name);
+}
+
+@function get-path($name) {
+  @return map-get($paths, $name);
 }
