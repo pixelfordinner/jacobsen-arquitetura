@@ -58,6 +58,7 @@ var paths = {
         entry: '/index.js',
         files: '/**/*.js',
         includePaths: [
+            './src/scripts/js/modules',
             './node_modules',
             './bower_components',
             './../../../node_modules',
