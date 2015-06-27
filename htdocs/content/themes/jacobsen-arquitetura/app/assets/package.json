@@ -30,6 +30,7 @@
     "browserify": "^10.0.0",
     "cheerio": "^0.19.0",
     "del": "^1.1.1",
+    "fontfaceobserver": "^1.4.12",
     "gulp": "^3.8.11",
     "gulp-debug": "^2.0.1",
     "gulp-if": "^1.2.5",
@@ -53,6 +54,5 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

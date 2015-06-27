@@ -1,5 +1,5 @@
 'use strict';
 
-var greetings = require('./modules/greetings.js');
+var fontloader = require('fonts/loader');
 
-console.log(greetings('world'));
+fontloader();
