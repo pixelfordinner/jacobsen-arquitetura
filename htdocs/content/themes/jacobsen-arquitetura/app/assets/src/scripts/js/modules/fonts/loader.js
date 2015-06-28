@@ -1,14 +1,16 @@
-/* global FontFaceObserver */
+/* global FontFaceObserver, Typekit */
 'use strict';
 
 require('fontfaceobserver');
-var webfontloader = require('webfontloader');
+var loadJS = require('helpers/loadJS');
 
 module.exports = function() {
-  // Font Loader
+  // Typekit Loader
 
-  webfontloader.load({
-    typekit: {id:'idx2gzm'}
+  var kit = 'idx2gzm';
+  console.log(loadJS);
+  loadJS('//use.typekit.net/' + kit + '.js', function() {
+    try { Typekit.load({id: kit}); } catch (e) {}
   });
 
   // Font Observer
