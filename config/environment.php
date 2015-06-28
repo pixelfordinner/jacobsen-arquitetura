@@ -6,6 +6,7 @@
 return array(
 
     'local'         => 'Jack.local',
-    'production'    => 'your-production-hostname'
+    'staging'       => 'staging.pixelfordinner.com',
+    'production'    => 'jacobsenarquitetura.com'
 
 );
