@@ -86,7 +86,7 @@ return array(
             'path'                             => getenv('TH_ASSET_BASE') . '/styles',
             'files'                            => array(
                 array(
-                    'handle'                   => 'theme-main',
+                    'handle'                   => 'theme-styles',
                     'src'                      => 'main.css',
                     'deps'                     => array(),
                     'ver'                      => '1.0',
@@ -98,7 +98,7 @@ return array(
             'path'                             => getenv('TH_ASSET_BASE') . '/scripts',
             'files'                            => array(
                 array(
-                    'handle'                   => 'theme-bundle',
+                    'handle'                   => 'theme-scripts',
                     'src'                      => 'bundle.js',
                     'deps'                     => array(),
                     'ver'                      => '1.0',
@@ -118,8 +118,11 @@ return array(
         'fonts'                                => array(
             'path'                             => getenv('TH_ASSET_BASE') . '/fonts'
         ),
-            'favicons'                         => array(
-                'path'                         => getenv('TH_ASSET_BASE') . '/favicons'
-            ),
+        'favicons'                             => array(
+            'path'                             => getenv('TH_ASSET_BASE') . '/favicons'
+        ),
+    ),
+    'dns-prefetch'                             => array(
+        '//use.typekit.net'
     )
 );

@@ -48,3 +48,15 @@ if (is_array($assets)) {
     }
 
 }
+
+// DNS prefetch
+
+add_action('wp_head', function() {
+    $dnsPrefetch = Application::get('dns-prefetch');
+
+    if (is_array($dnsPrefetch)) {
+        foreach ($dnsPrefetch as $dns) {
+            echo '<link ref="dns-prefetch" href="'.$dns.'">'."\n";
+        }
+    }
+}, 0);
