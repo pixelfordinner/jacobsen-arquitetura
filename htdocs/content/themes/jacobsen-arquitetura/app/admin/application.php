@@ -60,3 +60,11 @@ add_action('wp_head', function() {
         }
     }
 }, 0);
+
+// Limit global number of revisions.
+
+if (is_int(Application::get('revisions'))) {
+    add_filter('wp_revisions_to_keep', function($num, $post) {
+        return Application::get('revisions');
+    }, 10,2);
+}
