@@ -40,6 +40,7 @@ var paths = {
         path: '/styles/sass',
         out: '/styles',
         files: '/*.{scss,sass}',
+        watch: '/**/*.{scss,sass}',
         includePaths: [
             'src/styles/sass/node_modules',
             'src/styles/sass/bower_components',
@@ -65,6 +66,11 @@ var paths = {
             './../../../bower_components'
         ]
       }
+    },
+    fonts: {
+      path: '/fonts',
+      out: '/fonts',
+      files: '/**/*.{ttf,otf,svg,eot,woff,woff2}'
     },
     images: {
       path: '/images',
@@ -283,6 +289,15 @@ gulp.task('js', ['clean'], function () {
   return bundle();
 });
 
+// Fonts
+
+gulp.task('copy:fonts', ['clean'], function () {
+  gulp.src(paths.base.src +
+    paths.assets.fonts.path +
+    paths.assets.fonts.files)
+    .pipe(gulp.dest(env.build + paths.assets.fonts.out));
+});
+
 // Images
 
 // Imagemin
@@ -343,6 +358,7 @@ gulp.task('browsersync', ['build'], function () {
 
 gulp.task('styles', ['sass']);
 gulp.task('scripts', ['js']);
+gulp.task('fonts', ['copy:fonts']);
 gulp.task('images', ['imagemin']);
 gulp.task('icons', ['svg', 'favicons']);
 gulp.task('templates', []);
@@ -358,14 +374,21 @@ gulp.task('clean', function (cb) {
   }
 });
 
-gulp.task('build', ['styles', 'scripts', 'images', 'icons', 'templates']);
+gulp.task('build', [
+  'styles',
+  'scripts',
+  'fonts',
+  'images',
+  'icons',
+  'templates'
+]);
 
 // Watch tasks
 
 gulp.task('watch:styles', function () {
   gulp.watch(paths.base.src +
     paths.assets.styles.sass.path +
-    paths.assets.styles.sass.files, ['sass']);
+    paths.assets.styles.sass.watch, ['sass']);
 });
 
 gulp.task('watch:images', function () {
