@@ -10,21 +10,27 @@ html {
 body {
   @include fontsize(zeta, all);
   line-height: 2rem;
-  color: get-element-color("body-text");
+  color: get-element-color('body-text');
 }
 
 // Links.
 a {
   transition: color .1s, background-color .1s;
-  color: get-element-color("link-text");
+  color: get-element-color('link-text');
   text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
-    color: get-element-color("link-text-hover");
+    color: get-element-color('link-text-hover');
     text-decoration: none;
   }
+}
+
+.type__grid {
+  background-repeat: repeat-y;
+  background-size: 100% 1rem;
+  background-image: linear-gradient(rgb(0, 255, 255) 0, rgba(255, 255, 255, 0) 1px);
 }
 
 // Font-face defered loading
@@ -73,19 +79,19 @@ a {
 // Nice underlines for text links.
 p a,
 li a {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten(get-element-color("link-text"), 20%) 50%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten(get-element-color('link-text'), 20%) 50%);
   background-position: 0 93%;
   background-repeat: repeat-x;
   background-size: 100% .15rem;
-  text-shadow: 0.1rem 0 get-element-color("body-background"),
-               0.15rem 0 get-element-color("body-background"),
-               -0.1rem 0 get-element-color("body-background"),
-               -0.15rem 0 get-element-color("body-background");
+  text-shadow: .1rem 0 get-element-color('body-background'),
+               .15rem 0 get-element-color('body-background'),
+               -.1rem 0 get-element-color('body-background'),
+               -.15rem 0 get-element-color('body-background');
 
   &:hover,
   &:active,
   &:focus {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten(get-element-color("link-text-hover"), 20%) 50%);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten(get-element-color('link-text-hover'), 20%) 50%);
   }
 }
 
@@ -101,7 +107,7 @@ p {
 .heading--delta,
 .heading--epsilon,
 .heading--zeta {
-  color: get-element-color("heading-text");
+  color: get-element-color('heading-text');
 }
 
 // Heading level 1.
