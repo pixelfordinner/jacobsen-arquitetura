@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" <?php language_attributes(); ?>>
+<html class="no-js<?php font_classes() ?>" <?php language_attributes(); ?>>
 @include('layouts.partials.head')
     <body>
 @include('layouts.partials.header')

@@ -1,10 +1,30 @@
 <?php
 
+// Typekit CSS retrieval from cookie.
+if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
+    add_action('wp_enqueue_scripts', function() {
+        $typekitUrl = strip_tags($_COOKIE['_fonts_typekit_url']);
+        wp_enqueue_style('typekit-styles', $typekitUrl, array(), '', 'all');
+    });
+}
+
+function font_classes() {
+    $classes = Application::get('font-classes');
+
+    if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
+        echo ' '.$classes['body'];
+    }
+
+    if (array_key_exists('_fonts_self_loaded', $_COOKIE)) {
+        echo ' '.$classes['headings'];
+    }
+}
+
 // Assets
 $assets = Application::get('assets');
 
 if (is_array($assets)) {
-// Styles
+    // Styles
     if (array_key_exists('styles', $assets) &&
         array_key_exists('files', $assets['styles'])) {
         $styles = $assets['styles'];
@@ -21,7 +41,7 @@ if (is_array($assets)) {
         }
     }
 
-// Scripts
+    // Scripts
     if (array_key_exists('scripts', $assets) &&
         array_key_exists('files', $assets['scripts'])) {
         $scripts = $assets['scripts'];
