@@ -26,3 +26,11 @@ Route::get('template', array('media', function(){
 Route::get('template', array('contact', function(){
     return View::make('pages.contact');
 }));
+
+Route::get('postTypeArchive', array('projects', function() {
+    return View::make('cpt.projects.archive');
+}));
+
+Route::get('singular', array('projects', function() {
+    return View::make('cpt.projects.single');
+}));
