@@ -9,8 +9,20 @@
  *
  */
 
-Route::get('home', function(){
+// Main pages
 
+Route::get('template', array('home', function(){
     return View::make('pages.home');
+}));
 
-});
+Route::get('template', array('studio', function(){
+    return View::make('pages.studio');
+}));
+
+Route::get('template', array('media', function(){
+    return View::make('pages.media');
+}));
+
+Route::get('template', array('contact', function(){
+    return View::make('pages.contact');
+}));

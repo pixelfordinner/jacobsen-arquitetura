@@ -9,6 +9,8 @@ return array(
 	* Simply define a template slug.
 	*/
 
-	'custom-template'
-
+	'home',
+    'studio',
+    'media',
+    'contact'
 );
