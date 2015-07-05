@@ -19,10 +19,6 @@ Route::get('template', array('studio', function(){
     return View::make('pages.studio');
 }));
 
-Route::get('template', array('media', function(){
-    return View::make('pages.media');
-}));
-
 Route::get('template', array('contact', function(){
     return View::make('pages.contact');
 }));
@@ -33,4 +29,12 @@ Route::get('postTypeArchive', array('projects', function() {
 
 Route::get('singular', array('projects', function() {
     return View::make('cpt.projects.single');
+}));
+
+Route::get('postTypeArchive', array('media', function() {
+    return View::make('cpt.media.archive');
+}));
+
+Route::get('singular', array('media', function() {
+    return View::make('cpt.media.archive');
 }));

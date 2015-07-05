@@ -46,8 +46,7 @@ return array(
 		'administrator',
 		'editor',
 		'author',
-		'contributor',
-		'subscriber'
+		'contributor'
 	),
 
 	/* --------------------------------------------------------------- */
