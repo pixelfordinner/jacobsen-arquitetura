@@ -15,3 +15,11 @@
 @function get-path($name) {
   @return map-get($paths, $name);
 }
+
+@function get-transition($name) {
+  @return map-get($transitions, $name);
+}
+
+@function get-easing($name) {
+  @return unquote(map-get($easings, $name));
+}
