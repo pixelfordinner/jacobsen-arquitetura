@@ -12,5 +12,6 @@ return array(
 	'home',
     'studio',
     'media',
-    'contact'
+    'contact',
+    'styleguide'
 );

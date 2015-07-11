@@ -38,3 +38,13 @@ Route::get('postTypeArchive', array('media', function() {
 Route::get('singular', array('media', function() {
     return View::make('cpt.media.archive');
 }));
+
+Route::get('template', array('styleguide', function() {
+    $assets = Application::get('assets');
+
+    if (array_key_exists('styles', $assets)) {
+        Asset::add('styleguide', $assets['styles']['path'].'/styleguide.css');
+    }
+
+    return View::make('pages.styleguide');
+}));
