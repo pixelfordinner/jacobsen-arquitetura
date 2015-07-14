@@ -24,6 +24,14 @@ function font_classes() {
 $assets = Application::get('assets');
 
 if (is_array($assets)) {
+    // Make asset configuration available for all views
+    View::share('assets', $assets);
+
+    if (array_key_exists('icons', $assets)) {
+        // Create a shortcut for symbols for all views
+        View::share('icons-path', $assets['icons']['path'].'/'.$assets['icons']['files'][0]);
+    }
+
     // Styles
     if (array_key_exists('styles', $assets) &&
         array_key_exists('files', $assets['styles'])) {
