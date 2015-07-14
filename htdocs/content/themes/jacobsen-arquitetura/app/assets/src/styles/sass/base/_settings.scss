@@ -1,3 +1,5 @@
+// Box Model
+
 html {
   box-sizing: border-box;
 }
@@ -6,4 +8,10 @@ html {
 *:before
 *:after {
   box-sizing: inherit;
+}
+
+// Pointer Events
+
+svg {
+  pointer-events: none;
 }

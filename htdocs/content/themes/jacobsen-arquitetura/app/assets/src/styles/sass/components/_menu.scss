@@ -1,0 +1,78 @@
+%menu-toggle-symbols {
+  position: absolute;
+  width: 1rem;
+  height: .375rem;
+  left: 0;
+  background-color: get-color('yellow');
+  transition: all .6s get-easing('swiftly');
+  will-change: transform;
+}
+
+.menu-toggle__symbol--left,
+.menu-toggle__symbol--right {
+  @extend %menu-toggle-symbols;
+
+  top: 50%;
+  margin-top: -.1875rem;
+}
+
+.menu-toggle__symbol--left::after,
+.menu-toggle__symbol--right::after {
+  @extend %menu-toggle-symbols;
+
+  content: '';
+  top: .75rem;
+}
+
+.menu-toggle__symbol--left::before,
+.menu-toggle__symbol--right::before {
+  @extend %menu-toggle-symbols;
+
+  content: ' ';
+  top: -.75rem;
+}
+
+.menu-toggle__symbol--right,
+.menu-toggle__symbol--right::before,
+.menu-toggle__symbol--right::after {
+  left: auto;
+  right: 0;
+}
+
+.button {
+  &.menu-toggle--open {
+    background-color: get-color('yellow');
+    border-color: get-color('grey-light');
+
+    &:hover {
+      border-color: get-color('white');
+    }
+  }
+}
+
+.menu-toggle--open {
+  .menu-toggle__symbol--left,
+  .menu-toggle__symbol--right {
+    background-color: transparent;
+  }
+
+  .menu-toggle__symbol--left::before,
+  .menu-toggle__symbol--left::after,
+  .menu-toggle__symbol--right::before,
+  .menu-toggle__symbol--right::after {
+    background-color: get-color('white');
+  }
+
+  .menu-toggle__symbol--left::before {
+    transform: rotateZ(45deg) scaleX(1.4) translate(.2rem, .2rem);
+  }
+  .menu-toggle__symbol--left::after {
+    transform: rotateZ(-45deg) scaleX(1.4) translate(.2rem, -.2rem);
+  }
+  .menu-toggle__symbol--right::before {
+    transform: rotateZ(-45deg) scaleX(1.4) translate(-.2rem, .2rem);
+  }
+  .menu-toggle__symbol--right::after {
+    transform: rotateZ(45deg) scaleX(1.4) translate(-.2rem, -.2rem);
+  }
+}

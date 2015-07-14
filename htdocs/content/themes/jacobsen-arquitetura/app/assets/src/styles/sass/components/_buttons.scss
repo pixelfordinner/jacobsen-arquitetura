@@ -1,0 +1,110 @@
+// Defaults
+
+$button-border-color: #000 !default;
+$button-border-color-hover: #999 !default;
+$button-border-size: 1px !default;
+$button-border-style: solid !default;
+$button-border-radius: .5rem !default;
+$button-transition-duration: .3s !default;
+$button-transition-easing: linear !default;
+$button-background-color: transparent !default;
+
+// Main button styles
+
+.button {
+  display: inline-block;
+  border: $button-border-size $button-border-style $button-border-color;
+  border-radius: $button-border-radius;
+  padding: .375rem 1rem;
+  margin: 1rem 0;
+
+  transition: border-color $button-transition-duration $button-transition-easing,
+              color $button-transition-duration $button-transition-easing,
+              background-color $button-transition-duration $button-transition-easing;
+
+  background-color: $button-background-color;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    border-color: $button-border-color-hover;
+
+    .button__symbol {
+      fill: $button-border-color-hover;
+    }
+  }
+
+  &--active {
+    border: $button-border-size $button-border-style $button-border-color-hover;
+  }
+}
+
+// Buttons with icon
+
+.button__symbol {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  margin-left: -.5em;
+  vertical-align: bottom;
+  display: inline-block;
+  position: relative;
+  fill: $button-border-color;
+  transition: $button-transition-duration $button-transition-easing;
+}
+
+.button--small {
+  .button__symbol {
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
+    margin-left: -.5rem;
+  }
+}
+
+// Button groups
+
+.button__group {
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 1rem 0;
+
+  > .button {
+    margin: 0;
+    float: left;
+
+    &:hover {
+      border-color: $button-border-color;
+      background-color: rgba(255, 255, 255, .5);
+    }
+
+    &:first-child:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:last-child:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child) {
+      border-left-width: 0;
+    }
+  }
+}
+
+// Filter buttons
+
+.button--filter:not(.button--active) {
+  background-color: $button-border-color;
+
+  &:hover {
+    background-color: $button-background-color;
+  }
+}

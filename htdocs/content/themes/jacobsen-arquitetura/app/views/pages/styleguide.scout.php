@@ -30,8 +30,79 @@
 
     <h2 class="heading--beta">Buttons</h2>
 
-    <a href="#" class="button heading--zeta">Presskit</a>
-    <a href="#" class="button heading--zeta uppercase">Presskit</a>
+    <h3 class="heading--gamma">Normal</h3>
 
+    <button class="button">Presskit</button>
+    <a href="#" class="button uppercase">Presskit</a>
+    <a href="#" class="button uppercase"><?php Macro::symbol('symbols-download', 'Download', array('button__symbol')) ?>Presskit</a>
+
+    <h3 class="heading--gamma">Small</h3>
+
+    <button class="button button--small">Presskit</button>
+    <a href="#" class="button button--small uppercase">Presskit</a>
+    <a href="#" class="button button--small uppercase"><?php Macro::symbol('symbols-download', 'Download', array('button__symbol')) ?>Presskit</a>
+
+    <h3 class="heading--gamma">Filters</h3>
+    <button class="button button--small button--filter button--active uppercase">Residential</button>
+    <button class="button button--small button--filter uppercase">Commercial</button>
+    <button class="button button--small button--filter uppercase">Cultural</button>
+
+
+    <h3 class="heading--gamma">Menu</h3>
+
+    <button class="button menu-toggle uppercase">
+        <span class="button__symbol">
+            <span class="menu-toggle__symbol--left"></span>
+            <span class="menu-toggle__symbol--right"></span>
+        </span>Menu
+    </button>
+    <button class="button menu-toggle button--active menu-toggle--open uppercase">
+        <span class="button__symbol">
+            <span class="menu-toggle__symbol--left"></span>
+            <span class="menu-toggle__symbol--right"></span>
+        </span>Menu
+    </button>
+
+    <h3 class="heading--gamma">Groups</h3>
+
+    <div class="button__group" role="group" aria-label="Button group example">
+        <button class="button uppercase">FR</button>
+        <button class="button uppercase">EN</button>
+        <button class="button uppercase">PT</button>
+    </div>
+
+    <div class="button__group" role="group" aria-label="Button group example">
+        <button class="button uppercase">EN</button>
+        <button class="button uppercase">PT</button>
+    </div>
+
+    <br>
+
+    <div class="button__group" role="group" aria-label="Small button group example">
+        <button class="button button--small uppercase">FR</button>
+        <button class="button button--small uppercase">EN</button>
+        <button class="button button--small uppercase">PT</button>
+    </div>
+
+    <div class="button__group" role="group" aria-label="Small button group example">
+        <button class="button button--small uppercase">EN</button>
+        <button class="button button--small uppercase">PT</button>
+    </div>
+
+    <h3 class="heading--gamma">Groups with icons</h3>
+
+    <div class="button__group" role="group" aria-label="Button group with icons example">
+        <button class="button uppercase"><?php Macro::symbol('symbols-download', 'Language', array('button__symbol')) ?>FR</button>
+        <button class="button uppercase"><?php Macro::symbol('symbols-download', 'Language', array('button__symbol')) ?>EN</button>
+        <button class="button uppercase"><?php Macro::symbol('symbols-download', 'Language', array('button__symbol')) ?>PT</button>
+    </div>
+
+    <br>
+
+    <div class="button__group" role="group" aria-label="Small button group with icons example">
+        <button class="button button--small uppercase"><?php Macro::symbol('symbols-marker', 'Language', array('button__symbol')) ?>FR</button>
+        <button class="button button--small uppercase"><?php Macro::symbol('symbols-marker', 'Language', array('button__symbol')) ?>EN</button>
+        <button class="button button--small uppercase"><?php Macro::symbol('symbols-marker', 'Language', array('button__symbol')) ?>PT</button>
+    </div>
     <hr>
 @overwrite

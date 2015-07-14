@@ -127,8 +127,13 @@ h6,
   @include sassline(zeta, $headingtype, 2, 0, all);
 }
 
+// Buttons
 .button {
   @include sassline(theta, $headingtype, 2, 0, all);
+}
+
+.button--small {
+  @include sassline(theta, $headingtype, 1, 0, all);
 }
 
 // Nice underlines for text links.
