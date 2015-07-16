@@ -1,0 +1,34 @@
+// Min/max viable widths (Mostly for 4K screens)
+
+body {
+  min-width: 320px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Grid
+
+@include breakpoint-set('to ems', true);
+@include breakpoint-set('base font size', $base-font-size);
+
+.row {
+
+  &--vpadded,
+  &--padded {
+    padding-top: get-padding(vertical);
+    padding-bottom: get-padding(vertical);
+  }
+
+  &--hpadded,
+  &--padded {
+    padding-left: get-padding(horizontal);
+    padding-right: get-padding(horizontal);
+  }
+
+  .text {
+    max-width: $text-max-length;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

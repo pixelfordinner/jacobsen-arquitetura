@@ -13,9 +13,10 @@ $button-background-color: transparent !default;
 
 .button {
   display: inline-block;
+  vertical-align: baseline;
   border: $button-border-size $button-border-style $button-border-color;
   border-radius: $button-border-radius;
-  padding: .375rem 1rem;
+  padding: .37rem 1rem;
   margin: 1rem 0;
 
   transition: border-color $button-transition-duration $button-transition-easing,
@@ -27,11 +28,19 @@ $button-background-color: transparent !default;
   cursor: pointer;
   user-select: none;
 
-  &:hover {
+  @include breakpoint(screen get-breakpoint('desktop')) {
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
     border-color: $button-border-color-hover;
+    outline: none;
 
     .button__symbol {
-      fill: $button-border-color-hover;
+      color: $button-border-color-hover;
     }
   }
 
@@ -50,7 +59,7 @@ $button-background-color: transparent !default;
   vertical-align: bottom;
   display: inline-block;
   position: relative;
-  fill: $button-border-color;
+  color: $button-border-color;
   transition: $button-transition-duration $button-transition-easing;
 }
 
@@ -74,7 +83,9 @@ $button-background-color: transparent !default;
     margin: 0;
     float: left;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       border-color: $button-border-color;
       background-color: rgba(255, 255, 255, .5);
     }
@@ -104,7 +115,9 @@ $button-background-color: transparent !default;
 .button--filter:not(.button--active) {
   background-color: $button-border-color;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: $button-background-color;
   }
 }

@@ -9,7 +9,7 @@
 }
 
 @function get-breakpoint($name) {
-  @return map-get($breakpoints, $name);
+  @return map-get($breakpoints, $name) * 1px;
 }
 
 @function get-path($name) {
@@ -22,4 +22,8 @@
 
 @function get-easing($name) {
   @return unquote(map-get($easings, $name));
+}
+
+@function get-padding($name) {
+  @return map-get($paddings, $name);
 }

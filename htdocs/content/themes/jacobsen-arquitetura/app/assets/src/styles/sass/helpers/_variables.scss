@@ -1,5 +1,8 @@
 // Typography
 
+$base-font-size             : 16px;
+$use-breakpoint             : true;
+
 // Note                     : For the following Sass maps enter values as if they would be px units.
 
 // Breakpoint sizes from px to ems. Add more values here to add more breakpoints.
@@ -42,12 +45,15 @@ $elements-colors            :(
 
 // Fonts
 
-// Gutter widths
-$gutterwidths               : (
-  small                     : 1rem,
-  medium                    : 2rem,
-  large                     : 4rem
+// Padding widths for rows
+$paddings                   : (
+  vertical                  : 1rem,
+  horizontal                : 2rem
 );
+
+
+// Max row paragraph length (~80 chars / line)
+$text-max-length            : (720px / $base-font-size) * 1rem;
 
 // Add typefaces here.
 // Add weight and style details too.

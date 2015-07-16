@@ -1,0 +1,43 @@
+.logo__type--collapsed {
+  display: inline-block;
+  width: 9.5rem;
+  height: 9.5rem;
+}
+
+.logo__type--expanded {
+  display: block;
+  width: 40rem;
+  height: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  .logo__type--collapsed {
+    @include breakpoint(screen get-breakpoint('desktop')) {
+      display: none;
+    }
+  }
+
+  .logo__type--expanded {
+    display: none;
+
+    @include breakpoint(screen get-breakpoint('desktop')) {
+      display: block;
+    }
+  }
+}
+
+.footer {
+  .logo__type--expanded {
+    width: 24rem;
+
+    @include breakpoint(screen get-breakpoint('tablet')) {
+      width: 32rem;
+    }
+
+    @include breakpoint(screen get-breakpoint('tablet-large')) {
+      width: 40rem;
+    }
+  }
+}

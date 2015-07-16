@@ -15,3 +15,11 @@ html {
 svg {
   pointer-events: none;
 }
+
+// Selection
+
+::selection {
+  color: get-color('white');
+  background-color: get-color('yellow');
+  text-shadow: none;
+}
