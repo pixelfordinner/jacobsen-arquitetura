@@ -2,7 +2,7 @@
 'use strict';
 
 var cookies = require('cookies-js');
-var loadJS = require('helpers/loadJS');
+var loadJS = require('helpers/load-js');
 
 var typekitService = function(availableClass, unavailableClass) {
   if (!cookies.enabled ||
