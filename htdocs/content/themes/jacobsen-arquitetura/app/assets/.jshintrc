@@ -17,6 +17,5 @@
     "unused": true,
     "globalstrict": true,
     "trailing": true,
-    "smarttabs": true,
-    "jquery": true
+    "smarttabs": true
 }
