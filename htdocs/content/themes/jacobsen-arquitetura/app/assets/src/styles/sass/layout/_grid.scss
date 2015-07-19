@@ -14,14 +14,16 @@ body {
 
 .container {
   .row {
-    max-width: $container-max-length;
+    max-width: $container-max-width;
     margin-left: auto;
     margin-right: auto;
 
     &--vpadded,
     &--hpadded,
     &--padded {
-      @include breakpoint(screen ($container-max-length + (get-padding('horizontal') * 2))) {
+      $container-total-width: $container-max-width + (get-padding('horizontal') * 2);
+
+      @include breakpoint(screen $container-total-width) {
         padding-left: 0;
         padding-right: 0;
       }
