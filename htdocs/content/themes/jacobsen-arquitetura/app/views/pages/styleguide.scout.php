@@ -40,13 +40,13 @@
 
                     <button class="button">Presskit</button>
                     <a href="#" class="button uppercase">Presskit</a>
-                    <a href="#" class="button uppercase"><?php Macro::symbol('symbols-download', 'Download', array('button__symbol')) ?>Presskit</a>
+                    <a href="#" class="button uppercase">{{ Macro::symbol('symbols-download', 'Download', array('button__symbol')) }}Presskit</a>
 
                     <h3 class="heading--gamma">Small</h3>
 
                     <button class="button button--small">Presskit</button>
                     <a href="#" class="button button--small uppercase">Presskit</a>
-                    <a href="#" class="button button--small uppercase"><?php Macro::symbol('symbols-download', 'Download', array('button__symbol')) ?>Presskit</a>
+                    <a href="#" class="button button--small uppercase">{{ Macro::symbol('symbols-download', 'Download', array('button__symbol')) }}Presskit</a>
 
                     <h3 class="heading--gamma">Filters</h3>
                     <button class="button button--small button--filter button--active uppercase">Residential</button>
@@ -98,17 +98,17 @@
                     <h3 class="heading--gamma">Groups with icons</h3>
 
                     <div class="button__group" role="group" aria-label="Button group with icons example">
-                        <button class="button uppercase"><?php Macro::symbol('symbols-download', 'Language', array('button__symbol')) ?>FR</button>
-                        <button class="button uppercase"><?php Macro::symbol('symbols-download', 'Language', array('button__symbol')) ?>EN</button>
-                        <button class="button uppercase"><?php Macro::symbol('symbols-download', 'Language', array('button__symbol')) ?>PT</button>
+                        <button class="button uppercase">{{ Macro::symbol('symbols-download', 'Language', array('button__symbol')) }}FR</button>
+                        <button class="button uppercase">{{ Macro::symbol('symbols-download', 'Language', array('button__symbol')) }}EN</button>
+                        <button class="button uppercase">{{ Macro::symbol('symbols-download', 'Language', array('button__symbol')) }}PT</button>
                     </div>
 
                     <br>
 
                     <div class="button__group" role="group" aria-label="Small button group with icons example">
-                        <button class="button button--small uppercase"><?php Macro::symbol('symbols-marker', 'Language', array('button__symbol')) ?>FR</button>
-                        <button class="button button--small uppercase"><?php Macro::symbol('symbols-marker', 'Language', array('button__symbol')) ?>EN</button>
-                        <button class="button button--small uppercase"><?php Macro::symbol('symbols-marker', 'Language', array('button__symbol')) ?>PT</button>
+                        <button class="button button--small uppercase">{{ Macro::symbol('symbols-marker', 'Language', array('button__symbol')) }}FR</button>
+                        <button class="button button--small uppercase">{{ Macro::symbol('symbols-marker', 'Language', array('button__symbol')) }}EN</button>
+                        <button class="button button--small uppercase">{{ Macro::symbol('symbols-marker', 'Language', array('button__symbol')) }}PT</button>
                     </div>
                 </div>
             </div>
