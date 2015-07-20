@@ -20,6 +20,26 @@ function font_classes() {
     }
 }
 
+function browser_features_classes() {
+    $features = Application::get('browser-features');
+    $features_classes = Application::get('browser-features-classes');
+    $class_prefix = $features_classes['prefix'];
+    $cookie_prefix = '_feat_';
+    $classes = '';
+
+    foreach ($features as $feature) {
+        if (array_key_exists($cookie_prefix.$feature, $_COOKIE)) {
+            $classes .= ' '.$class_prefix.($_COOKIE[$cookie_prefix.$feature] === 'true' ? '' : 'no-').$feature;
+        } else {
+            return;
+        }
+    }
+
+    echo $classes;
+
+    View::share('_browser_features', true);
+}
+
 // Assets
 $assets = Application::get('assets');
 
