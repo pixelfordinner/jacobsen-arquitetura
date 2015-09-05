@@ -27,9 +27,7 @@ Route::get('postTypeArchive', array('projects', function() {
     return View::make('cpt.projects.archive');
 }));
 
-Route::get('singular', array('projects', function() {
-    return View::make('cpt.projects.single');
-}));
+Route::get('singular', array('projects', 'uses' => 'ProjectController@index'));
 
 Route::get('postTypeArchive', array('media', function() {
     return View::make('cpt.media.archive');
