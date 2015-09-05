@@ -74,7 +74,8 @@ a {
   h5,
   .heading--epsilon,
   h6,
-  .heading--zeta {
+  .heading--zeta,
+  .heading--eta {
     @extend %type-heading;
   }
 
@@ -82,6 +83,14 @@ a {
     font-family: unquote(map-get($headingtype, font-family));
     font-style: normal;
     font-weight: map-get($headingtype, regular);
+  }
+
+  .heading--light {
+    font-weight: map-get($headingtype, light);
+  }
+
+  .heading--bold {
+    font-weight: map-get($headingtype, bold);
   }
 
   // Button component
@@ -125,6 +134,10 @@ h5,
 h6,
 .heading--zeta {
   @include sassline(zeta, $headingtype, 2, 0, all);
+}
+
+.heading--eta {
+  @include sassline(eta, $headingtype, 2, 0, all);
 }
 
 // Buttons
@@ -204,6 +217,10 @@ small {
 .uppercase {
   letter-spacing: .1rem;
   text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 // Real small caps.
