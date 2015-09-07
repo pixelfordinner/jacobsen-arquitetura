@@ -19,9 +19,9 @@ selfService._data = {
 
 selfService.observeFonts = function(availableClass, unavailableClass) {
   var _this = this;
-  var geogrotesque300 = new FontFaceObserver('geogrotesque', {weight:300});
-  var geogrotesque400 = new FontFaceObserver('geogrotesque', {weight:400});
-  var geogrotesque600 = new FontFaceObserver('geogrotesque', {weight:600});
+  var geogrotesque300 = new FontFaceObserver('geogrotesque', {weight: 300});
+  var geogrotesque400 = new FontFaceObserver('geogrotesque', {weight: 400});
+  var geogrotesque600 = new FontFaceObserver('geogrotesque', {weight: 600});
 
   Promise.all([
       geogrotesque300.check(),
