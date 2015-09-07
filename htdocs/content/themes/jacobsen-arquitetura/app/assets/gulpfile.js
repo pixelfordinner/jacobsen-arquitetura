@@ -221,7 +221,7 @@ function handleError(task) {
 
 // Sass
 
-gulp.task('sass', ['clean'], function () {
+gulp.task('sass', ['clean'], function() {
   gulp.src(paths.base.src +
     paths.assets.styles.sass.path +
     paths.assets.styles.sass.files)
@@ -229,7 +229,7 @@ gulp.task('sass', ['clean'], function () {
         .on('error', handleError('sass'))
       .pipe(pleeease(env.options.pleeease))
       .pipe(gulp.dest(env.build + paths.assets.styles.sass.out))
-      .pipe(reload({stream:true}));
+      .pipe(reload({stream: true}));
 });
 
 // Templates
@@ -247,7 +247,7 @@ function jsLint(taskName, files) {
     .pipe(jshint.reporter('jshint-stylish'));
 }
 
-gulp.task('js:lint', function () {
+gulp.task('js:lint', function() {
   jsLint('js:lint', paths.base.src +
     paths.assets.scripts.js.path +
     paths.assets.scripts.js.files);
@@ -255,7 +255,7 @@ gulp.task('js:lint', function () {
 
 // Browserify
 
-gulp.task('js', ['clean'], function () {
+gulp.task('js', ['clean'], function() {
   var b = env.production === true ?
     browserify(options.dist.browserify) :
     watchify(browserify(
@@ -264,7 +264,7 @@ gulp.task('js', ['clean'], function () {
       options.dev.browserify))
   );
 
-  var bundle = function () {
+  var bundle = function() {
     jsLint('js', paths.base.src +
       paths.assets.scripts.js.path +
       paths.assets.scripts.js.files);
@@ -278,7 +278,7 @@ gulp.task('js', ['clean'], function () {
         .on('error', handleError('js'))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(env.build + paths.assets.scripts.js.out.path))
-      .pipe(reload({stream:true}));
+      .pipe(reload({stream: true}));
   };
 
   if (env.production !== true) {
@@ -291,7 +291,7 @@ gulp.task('js', ['clean'], function () {
 
 // Fonts
 
-gulp.task('copy:fonts', ['clean'], function () {
+gulp.task('copy:fonts', ['clean'], function() {
   gulp.src(paths.base.src +
     paths.assets.fonts.path +
     paths.assets.fonts.files)
@@ -302,23 +302,23 @@ gulp.task('copy:fonts', ['clean'], function () {
 
 // Imagemin
 
-gulp.task('imagemin', ['clean'], function () {
+gulp.task('imagemin', ['clean'], function() {
   gulp.src(paths.base.src +
     paths.assets.images.path +
     paths.assets.images.files)
       .pipe(imagemin(env.options.imagemin))
       .pipe(gulp.dest(env.build + paths.assets.images.out))
-      .pipe(reload({stream:true}));
+      .pipe(reload({stream: true}));
 });
 
 // Icons
 
 // SVG
 
-gulp.task('svg', ['clean'], function () {
+gulp.task('svg', ['clean'], function() {
   gulp.src(paths.base.src + paths.assets.icons.path + paths.assets.icons.files)
     .pipe(imagemin(env.options.imagemin))
-      .pipe(rename(function (file) {
+      .pipe(rename(function(file) {
         var name = file.dirname !== '.' ? file.dirname.split(path.sep) : [];
         name.push(file.basename);
         file.basename = name.join('-').toLocaleLowerCase();
@@ -330,7 +330,7 @@ gulp.task('svg', ['clean'], function () {
 
 // Favicons
 
-gulp.task('favicons', ['clean'], function () {
+gulp.task('favicons', ['clean'], function() {
   // Copy non-icon files
   gulp.src(paths.base.src +
     paths.assets.favicons.path +
@@ -350,7 +350,7 @@ gulp.task('favicons', ['clean'], function () {
 
 // BrowserSync
 
-gulp.task('browsersync', ['build'], function () {
+gulp.task('browsersync', ['build'], function() {
   browserSync(env.options.browserSync);
 });
 
@@ -363,15 +363,14 @@ gulp.task('images', ['imagemin']);
 gulp.task('icons', ['svg', 'favicons']);
 gulp.task('templates', []);
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', function(cb) {
 
   if (paths.data.clean.init === true) {
     del([env.build + '/**'], cb);
     gutil.log('Cleaned build directory.');
     paths.data.clean.init = false;
-  } else {
-    cb();
   }
+  cb();
 });
 
 gulp.task('build', [
@@ -385,19 +384,19 @@ gulp.task('build', [
 
 // Watch tasks
 
-gulp.task('watch:styles', function () {
+gulp.task('watch:styles', function() {
   gulp.watch(paths.base.src +
     paths.assets.styles.sass.path +
     paths.assets.styles.sass.watch, ['sass']);
 });
 
-gulp.task('watch:images', function () {
+gulp.task('watch:images', function() {
   gulp.watch(paths.base.src +
     paths.assets.images.path +
     paths.assets.images.files, ['imagemin']);
 });
 
-gulp.task('watch:icons', function () {
+gulp.task('watch:icons', function() {
   gulp.watch(paths.base.src +
     paths.assets.icons.path +
     paths.assets.icons.files, ['svg']);
@@ -407,7 +406,7 @@ gulp.task('watch:icons', function () {
     paths.assets.favicons.files, ['favicons']);
 });
 
-gulp.task('watch:templates', function () {
+gulp.task('watch:templates', function() {
 
 });
 
@@ -418,7 +417,7 @@ gulp.task('watch', ['watch:styles',
 
 // Env Tasks
 
-gulp.task('env:dist', function () {
+gulp.task('env:dist', function() {
   env.build = paths.base.dist;
   env.options = options.dist;
   env.production = true;
