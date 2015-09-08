@@ -1,6 +1,6 @@
 <?php
 
-class Macro {
+class Macros {
     /**
      * Outputs an <svg> tag that uses a symbol in global svg file
      *
