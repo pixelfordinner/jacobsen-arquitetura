@@ -8,6 +8,7 @@ if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
     });
 }
 
+// Append font classes to root element
 function font_classes() {
     $classes = Application::get('font-classes');
 
@@ -20,6 +21,7 @@ function font_classes() {
     }
 }
 
+// Append detected browser features to root element
 function browser_features_classes() {
     $features = Application::get('browser-features');
     $features_classes = Application::get('browser-features-classes');
@@ -39,6 +41,9 @@ function browser_features_classes() {
 
     View::share('_browser_features', true);
 }
+
+// Share screen breakpoint information with all views.
+View::share('_screen_breakpoints', Application::get('screen-breakpoints'));
 
 // Assets
 $assets = Application::get('assets');
