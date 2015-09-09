@@ -1,7 +1,4 @@
 .dl {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
   &--projects {
     max-width: (672px / $base-font-size) * 1rem;
   }
@@ -15,8 +12,11 @@
   @extend %dl-text-format;
 
   height: 3rem;
-  border-top: 1px solid get-color('grey-light');
   border-bottom: 1px solid get-color('grey-light');
+
+  &:not(:first-of-type) {
+    border-top: 1px solid get-color('grey-light');
+  }
 }
 
 .dl__content {
@@ -34,4 +34,8 @@
   @extend %dl-text-format;
 
   width: 50%;
+
+  &.heading--iota {
+    color: get-color('grey');
+  }
 }

@@ -114,32 +114,7 @@
                 <div class="row row--padded">
                     <h2 class="heading--beta">Definition Lists</h2>
 
-                    <div class="dl dl--projects dl--centered">
-                        <div class="dl__title">
-                            <h3 class="heading--zeta heading--light uppercase">Credits</h3>
-                        </div>
-                        <dl class="dl__content">
-                            <dt class="dl__dt heading--eta heading--light uppercase">Studio</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">Jacobsen Arquitetura</dd>
-                            <dt class="dl__dt heading--eta heading--light uppercase">Authors</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">Paulo Jacobsen, Bernardo Jacbosen</dd>
-                            <dt class="dl__dt heading--eta heading--light uppercase">Equipe</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">Edgar Murata, Christian Rojas, Veridiana Ruzzante. Rafael de Oliveira.</dd>
-                        </dl>
-                        <div class="dl__title">
-                            <h3 class="heading--zeta heading--light uppercase">Technical Data</h3>
-                        </div>
-                        <dl class="dl__content">
-                            <dt class="dl__dt heading--eta heading--light uppercase">Terrain</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">746,00m²</dd>
-                            <dt class="dl__dt heading--eta heading--light uppercase">Constructed area</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">708,00m²</dd>
-                            <dt class="dl__dt heading--eta heading--light uppercase">Project start</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">2012</dd>
-                            <dt class="dl__dt heading--eta heading--light uppercase">Project end</dt>
-                            <dd class="dl__dd heading--eta heading--light lowercase">2014</dd>
-                        </dl>
-                    </div>
+                    @include('components.dlist', ['dlist' => $dlist])
                 </div>
             </div>
 @overwrite
