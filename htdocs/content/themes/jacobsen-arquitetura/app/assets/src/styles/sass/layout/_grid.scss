@@ -23,16 +23,21 @@ body {
     &--padded {
       $container-total-width: $container-max-width + (get-padding('horizontal') * 2);
 
-      @include breakpoint(screen $container-total-width) {
+      @include breakpoint($container-total-width) {
         padding-left: 0;
         padding-right: 0;
       }
+    }
+
+    &--stretch {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
     }
   }
 }
 
 .row {
-
   &--vpadded,
   &--padded {
     padding-top: get-padding(vertical);
@@ -49,5 +54,19 @@ body {
     max-width: $text-max-length;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.column {
+  @include breakpoint($container-max-width) {
+    &--half {
+      width: percentage(1/2);
+    }
+    &--third {
+      width: percentage(1/3);
+    }
+    &--fourth {
+      width: percentage(1/4);
+    }
   }
 }
