@@ -1,0 +1,32 @@
+.project-title {
+  padding: 2rem;
+}
+
+.project-location__name--wrapper {
+  height: 3rem;
+  background-color: get-color('yellow');
+}
+
+// Location
+
+.project-location__name {
+  padding-left: 2rem;
+}
+
+.project-location {
+  position: relative;
+}
+
+.project-location__map {
+  position: absolute !important;
+  top: 3rem;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  .gmnoprint,
+  .gmnoscreen,
+  .gm-style-cc {
+    opacity: .3 !important;
+  }
+}
