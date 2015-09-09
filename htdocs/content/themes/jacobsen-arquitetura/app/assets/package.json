@@ -32,6 +32,7 @@
     "cookies-js": ">=1.2.1",
     "del": ">=1.1.1",
     "fontfaceobserver": ">=1.4.12",
+    "google-maps": "^3.1.0",
     "gulp": ">=3.8.11",
     "gulp-debug": ">=2.0.1",
     "gulp-if": ">=1.2.5",
