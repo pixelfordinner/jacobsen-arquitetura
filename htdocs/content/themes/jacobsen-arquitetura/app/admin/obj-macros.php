@@ -1,6 +1,15 @@
 <?php
 
 class Macros {
+    public static function get_image_path($name) {
+        $assets = Application::get('assets');
+        return themosis_assets().'/'.$assets['images']['path'].'/'.$name;
+    }
+
+    public static function get_symbol_path($id) {
+        $assets = Application::get('assets');
+        return themosis_assets().'/'.$assets['icons']['path'].'/'.$assets['icons']['files'][0].'#'.$id;
+    }
     /**
      * Outputs an <svg> tag that uses a symbol in global svg file
      *
@@ -11,19 +20,31 @@ class Macros {
      */
     public static function symbol($id, $title, $classes = null) {
         $classes = is_array($classes) ? ' class="'.implode(', ', $classes).'"' : '';
-        $assets = Application::get('assets');
-        $path = themosis_assets().'/'.$assets['icons']['path'].'/'.$assets['icons']['files'][0];
+        $path = self::get_symbol_path($id);
         $title = __($title, Application::get('textdomain'));
 
-        echo '<svg role="img" title="'.$title.'"'.$classes.'><use xlink:href="'.$path.'#'.$id.'"></use></svg>';
+        echo '<svg role="img" title="'.$title.'"'.$classes.'><use xlink:href="'.$path.'"></use></svg>';
     }
 
+    /**
+     * Checks for Timber library plugin. If not loaded, throws an exception
+     */
     protected static function _timberCheck() {
         if (!class_exists('TimberImageHelper') || !class_exists('TimberImage')) {
             throw new Exception('Image resizing relies on the Timber plugin. Please install/activate it.');
         }
     }
 
+    /**
+     * Resizes an image (Cropping possible)
+     *
+     * @param  string $src The image's URL
+     * @param  int $w Resized width
+     * @param  int $h Resized width
+     * @param  string|array $crop Cropping type ([center, center] or [top, center])
+     * @param  bool $force Forces resize even if target already exists
+     * @return string Resized image URL
+     */
     public static function image_resize($src, $w, $h = 0, $crop = 'default', $force = false) {
         self::_timberCheck();
 
@@ -61,6 +82,14 @@ class Macros {
         echo "\n";
     }
 
+    /**
+     * Outputs styles for a responsive cover image
+     *
+     * @param  string $img The image's URL
+     * @param  string $selector Target CSS selector
+     * @param  bool $hidpi Output hidpi media query
+     * @return
+     */
     public static function cover_image_mq($img, $selector, $hidpi = true) {
         self::_timberCheck();
         $cover_image_sizes = Application::get('cover-image-sizes');
