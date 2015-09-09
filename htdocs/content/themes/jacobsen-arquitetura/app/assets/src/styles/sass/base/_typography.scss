@@ -75,7 +75,9 @@ a {
   .heading--epsilon,
   h6,
   .heading--zeta,
-  .heading--eta {
+  .heading--eta,
+  .heading--theta,
+  .heading--iota {
     @extend %type-heading;
   }
 
@@ -138,6 +140,14 @@ h6,
 
 .heading--eta {
   @include sassline(eta, $headingtype, 2, 0, all);
+}
+
+.heading--theta {
+  @include sassline(theta, $headingtype, 2, 0, all);
+}
+
+.heading--iota {
+  @include sassline(iota, $headingtype, 1.5, 0, all);
 }
 
 // Buttons
