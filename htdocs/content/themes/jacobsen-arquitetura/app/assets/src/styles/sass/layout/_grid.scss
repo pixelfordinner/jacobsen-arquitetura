@@ -29,10 +29,13 @@ body {
       }
     }
 
-    &--stretch {
+    &--flex {
       display: flex;
-      align-items: stretch;
       flex-wrap: wrap;
+    }
+
+    &--stretch {
+      align-items: stretch;
     }
   }
 }
@@ -58,14 +61,32 @@ body {
 }
 
 .column {
-  @include breakpoint($container-max-width) {
-    &--half {
+  &--half,
+  &--third,
+  &--fourth {
+    width: 100%;
+  }
+
+  @include breakpoint(get-breakpoint('desktop')) {
+    &--half.column--desktop {
       width: percentage(1/2);
     }
-    &--third {
+    &--third.column--desktop {
       width: percentage(1/3);
     }
-    &--fourth {
+    &--fourth.column--desktop {
+      width: percentage(1/4);
+    }
+  }
+
+  @include breakpoint(get-breakpoint('tablet')) {
+    &--half.column--tablet {
+      width: percentage(1/2);
+    }
+    &--third.column--tablet {
+      width: percentage(1/3);
+    }
+    &--fourth.column--tablet {
       width: percentage(1/4);
     }
   }
