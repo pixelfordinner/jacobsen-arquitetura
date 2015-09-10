@@ -106,4 +106,56 @@ class Macros {
             }
         }
     }
+
+    /**
+     * Outputs markup for responsive image
+     *
+     * @param  string $img The image's ID or URL
+     * @param  string $size Must match an array entry in application.config.php
+     * @param  array $classes Classes to apply to the img element
+     * @param  bool $hidpi Output hidpi sizes
+     * @return
+     */
+    public static function responsive_image($img, $size, $classes = array(), $hidpi = true) {
+        $mqs = Application::get('responsive-image-mqs');
+        $sizes = Application::get('responsive-image-sizes');
+
+        if (!array_key_exists($size, $mqs) || !array_key_exists($size, $sizes)) {
+            throw new Exception('Responsive image size missing from sizes or media queries in app configuration');
+        }
+
+        self::_timberCheck();
+
+        $img = new TimberImage($img);
+        $sizes = $sizes[$size];
+
+        if ($hidpi === true) {
+            $hidpi_sizes = array_map(function($e) { return $e * 2; }, $sizes);
+            $sizes = array_unique(array_merge($sizes, $hidpi_sizes), SORT_NUMERIC);
+            sort($sizes, SORT_NUMERIC);
+        }
+
+        echo '<img sizes="' . $mqs[$size] . '"'."\n";
+        echo '     src="' . self::image_resize($img, $sizes[0]) .'"'."\n";
+        echo '     srcset="';
+
+        for ($i = 0, $m = count($sizes); $i < $m; $i++) {
+            echo self::image_resize($img, $sizes[$i]) . ' ' . $sizes[$i] . 'w' . ($i + 1 < $m ? ",\n" : '');
+        }
+
+        echo '"';
+
+        if (count($classes) > 0) {
+            echo "\n     class=\"" . implode(' ', $classes) . '"';
+        }
+
+        $alt = $img->get_alt != '' ? $img->get_alt : $img->get_title;
+
+        if ($alt != '') {
+            echo "\n     alt=\"" . $alt . '"';
+        }
+
+        echo ">\n";
+
+    }
 }

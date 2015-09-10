@@ -1,0 +1,7 @@
+.image {
+  &--fullwidth,
+  &--halfwidth {
+  display: block;
+  width: 100%;
+  height: auto;
+}
