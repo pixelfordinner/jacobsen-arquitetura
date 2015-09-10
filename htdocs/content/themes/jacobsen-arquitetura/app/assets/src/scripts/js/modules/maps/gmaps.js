@@ -8,6 +8,8 @@ var settings = {
   scrollwheel: false,
   draggable: false,
   disableDefaultUI: true,
+  disableDoubleClickZoom: true,
+  keyboardShortcuts: false,
   styles: [{
     'featureType': 'landscape',
     'elementType': 'labels',
@@ -93,12 +95,16 @@ gmaps.iterateMaps = function(i, element) {
 
     var map = new google.maps.Map($element.get(0), settings);
 
+    // Center on resize
+    google.maps.event.addDomListener(window, 'resize', function() {
+      map.setCenter(coordinates);
+    });
+
     marker.position = coordinates;
     marker.map = map;
 
     new google.maps.Marker(marker);
 
-    console.log(marker);
   });
 };
 
