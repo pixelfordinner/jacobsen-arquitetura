@@ -15,10 +15,11 @@
 
 .project-location {
   position: relative;
+  min-height: 384px;
 }
 
 .project-location__map {
-  position: absolute !important;
+  position: absolute;
   top: 3rem;
   left: 0;
   bottom: 0;
@@ -27,6 +28,13 @@
   .gmnoprint,
   .gmnoscreen,
   .gm-style-cc {
-    opacity: .3 !important;
+    opacity: .25;
   }
+}
+
+// Content
+
+.project-content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }

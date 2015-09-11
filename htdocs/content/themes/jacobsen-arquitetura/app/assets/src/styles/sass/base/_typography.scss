@@ -38,7 +38,7 @@ a {
 %type-body {
   font-family: unquote(map-get($bodytype, font-family));
   font-style: normal;
-  font-weight: map-get($bodytype, regular);
+  font-weight: map-get($bodytype, light);
 }
 
 .type__body--available {
