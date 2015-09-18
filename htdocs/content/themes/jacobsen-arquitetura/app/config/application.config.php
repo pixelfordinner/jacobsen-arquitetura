@@ -102,8 +102,7 @@ return array(
                     'deps'                     => array(),
                     'ver'                      => '1.0',
                     'in_footer'                => true,
-                    // Extra can be async|defer|false
-                    'extra'                    => 'async'
+                    'extra'                    => 'async' // Extra can be async|defer|false
                 )
             )
         ),
@@ -200,7 +199,7 @@ return array(
     ),
     'responsive-image-mqs'                     => array(
         'fullwidth_image'                      => '(min-width: 1344px) 1344px, 100vw',
-        'halfwidth_images'                     => '(min-width: 1344px) 672px, (min-width: 640px) 50vw, 100vw    '
+        'halfwidth_images'                     => '(min-width: 1344px) 672px, (min-width: 640px) 50vw, 100vw'
     ),
     /*-----------------------------------------------------------------------------------------*/
     // Limit global number of revisions.
