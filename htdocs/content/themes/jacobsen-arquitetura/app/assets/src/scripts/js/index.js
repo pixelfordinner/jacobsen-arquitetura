@@ -5,6 +5,7 @@ var browserFeatures = require('helpers/browser-features');
 var fontloader = require('fonts/loader');
 var keyEvents = require('helpers/key-events');
 var gmaps = require('maps/gmaps');
+var slickCarousel = require('sliders/slick-carousel');
 
 // Vendor modules
 var $ = require('jquery');
@@ -16,4 +17,5 @@ $(document).ready(function() {
   picturefill();
   keyEvents();
   gmaps();
+  slickCarousel();
 });
