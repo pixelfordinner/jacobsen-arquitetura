@@ -28,8 +28,5 @@
   @extend %dl-text-format;
 
   width: 50%;
-
-  &.heading--iota {
-    color: get-color('grey');
-  }
+  color: get-color('grey');
 }

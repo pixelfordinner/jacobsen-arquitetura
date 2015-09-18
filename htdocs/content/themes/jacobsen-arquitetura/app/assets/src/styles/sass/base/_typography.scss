@@ -57,8 +57,25 @@ a {
   font-family: unquote(map-get($headingtype, font-family));
   font-style: normal;
   font-weight: map-get($headingtype, regular);
-  color: get-element-color('heading-text');
 }
+
+  h1,
+  .heading--alpha,
+  h2,
+  .heading--beta,
+  h3,
+  .heading--gamma,
+  h4,
+  .heading--delta,
+  h5,
+  .heading--epsilon,
+  h6,
+  .heading--zeta,
+  .heading--eta,
+  .heading--theta,
+  .heading--iota {
+    color: get-element-color('heading-text');
+  }
 
 .type__heading--available {
 
@@ -195,7 +212,6 @@ ol {
 
   li {
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    margin-left: 2rem;
 
     @include breakpoint(get-breakpoint(tablet)) {
       margin-left: 0;
