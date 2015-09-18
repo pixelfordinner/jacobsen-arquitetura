@@ -60,6 +60,23 @@ body {
   }
 }
 
+.row--vpadded,
+.row--padded {
+  .column {
+    &--half,
+    &--third,
+    &--fourth {
+      &:not(:last-child) {
+        padding-bottom: get-padding(vertical) * 2;
+
+        @include breakpoint(get-breakpoint('tablet')) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 .column {
   &--half,
   &--third,
@@ -89,5 +106,10 @@ body {
     &--fourth.column--tablet {
       width: percentage(1/4);
     }
+  }
+
+  &.text {
+    padding-top: get-padding(vertical);
+    padding-bottom: get-padding(vertical);
   }
 }
