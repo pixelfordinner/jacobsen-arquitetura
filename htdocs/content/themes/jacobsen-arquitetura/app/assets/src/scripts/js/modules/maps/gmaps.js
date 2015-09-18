@@ -73,10 +73,10 @@ var marker = {
 };
 
 var gmaps = function() {
-  $('[data-gmap-lat][data-gmap-lng]').each(gmaps.iterateMaps);
+  $('[data-gmap-lat][data-gmap-lng]').each(gmaps.iterateElements);
 };
 
-gmaps.iterateMaps = function(i, element) {
+gmaps.iterateElements = function(i, element) {
   var $element = $(element);
   googleMapsLoader = googleMapsLoader || require('google-maps');
 
@@ -88,6 +88,7 @@ gmaps.iterateMaps = function(i, element) {
 
     settings.center = coordinates;
 
+    // Enable marker icon if available
     if ($element.data('gmap-icon')) {
       marker.icon = $element.data('gmap-icon');
       marker.title = $element.data('gmap-icon-title');
