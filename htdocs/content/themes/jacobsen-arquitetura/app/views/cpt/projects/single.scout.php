@@ -67,7 +67,7 @@
 @if($posts['next']['object'])
             <div class="row cover-image cover-image--next cover-image--{{ $posts['next']['object']->post_name }}">
 @include('components.cover-image', ['cover_image' => $posts['next']['fields']['cover_image'], 'selector' => 'cover-image--' . $posts['next']['object']->post_name])
-                <a href="{{ get_permalink($posts['next']['object']->ID) }}" class="next-project" title="{{ $posts['next']['object']->post_title }}">
+                <a href="{{ get_permalink($posts['next']['object']->ID) }}" class="next-project">
                    <span class="heading--zeta heading--light uppercase next-project__label">{{ __('Next project') }}</span>
                    <span class="heading--beta heading--light uppercase next-project__title">{{ $posts['next']['object']->post_title }}</span>
                 </a>

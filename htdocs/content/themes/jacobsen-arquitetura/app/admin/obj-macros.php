@@ -19,7 +19,7 @@ class Macros {
      * @return string The html output.
      */
     public static function symbol($id, $title, $classes = null) {
-        $classes = is_array($classes) ? ' class="'.implode(', ', $classes).'"' : '';
+        $classes = is_array($classes) ? ' class="'.implode(' ', $classes).'"' : '';
         $path = self::get_symbol_path($id);
         $title = __($title, Application::get('textdomain'));
 
