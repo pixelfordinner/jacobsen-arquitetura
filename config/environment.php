@@ -5,7 +5,7 @@
 /*----------------------------------------------------*/
 return array(
 
-    'local'         => 'Jack.local',
+    'local'         => 'Velvet.home',
     'staging'       => 'staging.pixelfordinner.com',
     'production'    => 'jacobsenarquitetura.com'
 
