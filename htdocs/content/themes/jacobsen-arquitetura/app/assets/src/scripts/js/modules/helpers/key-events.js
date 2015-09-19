@@ -7,7 +7,7 @@ var keyEvents = function() {
   // Display horizontal grid (1rem) on keypress
 
   $(window.document.documentElement)
-    .keyup(function (e) {
+    .keyup(function(e) {
       e = e || window.event;
 
       switch (e.keyCode) {

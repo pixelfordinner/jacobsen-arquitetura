@@ -38,7 +38,7 @@ a {
 %type-body {
   font-family: unquote(map-get($bodytype, font-family));
   font-style: normal;
-  font-weight: map-get($bodytype, regular);
+  font-weight: map-get($bodytype, light);
 }
 
 .type__body--available {
@@ -57,8 +57,25 @@ a {
   font-family: unquote(map-get($headingtype, font-family));
   font-style: normal;
   font-weight: map-get($headingtype, regular);
-  color: get-element-color('heading-text');
 }
+
+  h1,
+  .heading--alpha,
+  h2,
+  .heading--beta,
+  h3,
+  .heading--gamma,
+  h4,
+  .heading--delta,
+  h5,
+  .heading--epsilon,
+  h6,
+  .heading--zeta,
+  .heading--eta,
+  .heading--theta,
+  .heading--iota {
+    color: get-element-color('heading-text');
+  }
 
 .type__heading--available {
 
@@ -74,7 +91,10 @@ a {
   h5,
   .heading--epsilon,
   h6,
-  .heading--zeta {
+  .heading--zeta,
+  .heading--eta,
+  .heading--theta,
+  .heading--iota {
     @extend %type-heading;
   }
 
@@ -82,6 +102,14 @@ a {
     font-family: unquote(map-get($headingtype, font-family));
     font-style: normal;
     font-weight: map-get($headingtype, regular);
+  }
+
+  .heading--light {
+    font-weight: map-get($headingtype, light);
+  }
+
+  .heading--bold {
+    font-weight: map-get($headingtype, bold);
   }
 
   // Button component
@@ -125,6 +153,18 @@ h5,
 h6,
 .heading--zeta {
   @include sassline(zeta, $headingtype, 2, 0, all);
+}
+
+.heading--eta {
+  @include sassline(eta, $headingtype, 2, 0, all);
+}
+
+.heading--theta {
+  @include sassline(theta, $headingtype, 2, 0, all);
+}
+
+.heading--iota {
+  @include sassline(iota, $headingtype, 1.5, 0, all);
 }
 
 // Buttons
@@ -172,7 +212,6 @@ ol {
 
   li {
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    margin-left: 2rem;
 
     @include breakpoint(get-breakpoint(tablet)) {
       margin-left: 0;
@@ -204,6 +243,10 @@ small {
 .uppercase {
   letter-spacing: .1rem;
   text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 // Real small caps.

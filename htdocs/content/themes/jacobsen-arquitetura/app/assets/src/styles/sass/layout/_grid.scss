@@ -14,23 +14,33 @@ body {
 
 .container {
   .row {
-    max-width: $container-max-length;
+    max-width: $container-max-width;
     margin-left: auto;
     margin-right: auto;
 
     &--vpadded,
     &--hpadded,
     &--padded {
-      @include breakpoint(screen ($container-max-length + (get-padding('horizontal') * 2))) {
+      $container-total-width: $container-max-width + (get-padding('horizontal') * 2);
+
+      @include breakpoint($container-total-width) {
         padding-left: 0;
         padding-right: 0;
       }
+    }
+
+    &--flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &--stretch {
+      align-items: stretch;
     }
   }
 }
 
 .row {
-
   &--vpadded,
   &--padded {
     padding-top: get-padding(vertical);
@@ -47,5 +57,59 @@ body {
     max-width: $text-max-length;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.row--vpadded,
+.row--padded {
+  .column {
+    &--half,
+    &--third,
+    &--fourth {
+      &:not(:last-child) {
+        padding-bottom: get-padding(vertical) * 2;
+
+        @include breakpoint(get-breakpoint('tablet')) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.column {
+  &--half,
+  &--third,
+  &--fourth {
+    width: 100%;
+  }
+
+  @include breakpoint(get-breakpoint('desktop')) {
+    &--half.column--desktop {
+      width: percentage(1/2);
+    }
+    &--third.column--desktop {
+      width: percentage(1/3);
+    }
+    &--fourth.column--desktop {
+      width: percentage(1/4);
+    }
+  }
+
+  @include breakpoint(get-breakpoint('tablet')) {
+    &--half.column--tablet {
+      width: percentage(1/2);
+    }
+    &--third.column--tablet {
+      width: percentage(1/3);
+    }
+    &--fourth.column--tablet {
+      width: percentage(1/4);
+    }
+  }
+
+  &.text {
+    padding-top: get-padding(vertical);
+    padding-bottom: get-padding(vertical);
   }
 }

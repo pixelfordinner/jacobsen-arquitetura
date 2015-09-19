@@ -1,0 +1,32 @@
+%dl-text-format {
+  padding-left: 2rem;
+}
+
+.dl__title {
+  @extend %dl-text-format;
+
+  height: 3rem;
+  border-bottom: 1px solid get-color('grey-light');
+
+  &:not(:first-of-type) {
+    border-top: 1px solid get-color('grey-light');
+  }
+}
+
+.dl__content {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  background-image: linear-gradient(to right, get-color('grey-light') 1px, rgba(255, 255, 255, 0) 1px);
+  background-repeat: repeat-y;
+  background-size: 1px;
+  background-position: 50%;
+}
+
+.dl__dt,
+.dl__dd {
+  @extend %dl-text-format;
+
+  width: 50%;
+  color: get-color('grey');
+}

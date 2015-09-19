@@ -102,8 +102,7 @@ return array(
                     'deps'                     => array(),
                     'ver'                      => '1.0',
                     'in_footer'                => true,
-                    // Extra can be async|defer|false
-                    'extra'                    => 'async'
+                    'extra'                    => 'async' // Extra can be async|defer|false
                 )
             )
         ),
@@ -119,8 +118,7 @@ return array(
         ),
         'favicons'                             => array(
             'path'                             => getenv('TH_ASSET_BASE') . '/favicons'
-        ),
-        'classes'                              => array()
+        )
     ),
     /*-----------------------------------------------------------------------------------------*/
     // DNS Prefetch
@@ -131,9 +129,77 @@ return array(
     /*-----------------------------------------------------------------------------------------*/
     // Font-related class names
     /*-----------------------------------------------------------------------------------------*/
-    'font-classes'                            => array(
-        'body'                                => 'type__body--available',
-        'headings'                            => 'type__heading--available'
+    'font-classes'                             => array(
+        'body'                                 => 'type__body--available',
+        'headings'                             => 'type__heading--available'
+    ),
+    /*-----------------------------------------------------------------------------------------*/
+    // Browser features
+    /*-----------------------------------------------------------------------------------------*/
+    'browser-features'                         => array('js', 'touch', 'flexbox', 'cssremunit'),
+    /*-----------------------------------------------------------------------------------------*/
+    // Browser features class names
+    /*-----------------------------------------------------------------------------------------*/
+    'browser-features-classes'                 => array(
+        'prefix'                               =>  'feat--'
+    ),
+    /*-----------------------------------------------------------------------------------------*/
+    // Screen breakpoints
+    /*-----------------------------------------------------------------------------------------*/
+    'screen-breakpoints'                       => array(
+      'mobile'                                 => 0,
+      'tablet'                                 => 640,
+      'tablet-large'                           => 800,
+      'desktop'                                => 1024,
+      'desktop-large'                          => 1600
+    ),
+    /*-----------------------------------------------------------------------------------------*/
+    // Cover image sizes
+    /*-----------------------------------------------------------------------------------------*/
+    'cover-image-sizes'                        => array(
+        array(
+            'width'                            => 1920,
+            'height'                           => 1080
+        ),
+        array(
+            'width'                            => 1600,
+            'height'                           => 900
+        ),
+        array(
+            'width'                            => 1280,
+            'height'                           => 720
+        ),
+        array(
+            'width'                            => 1024,
+            'height'                           => 768
+        ),
+        array(
+            'width'                            => 768,
+            'height'                           => 1024
+        ),
+        array(
+            'width'                            => 480,
+            'height'                           => 852
+        ),
+        array(
+            'width'                            => 320,
+            'height'                           => 568
+        ),
+    ),
+    /*-----------------------------------------------------------------------------------------*/
+    // Cover image crop configuration
+    /*-----------------------------------------------------------------------------------------*/
+    'cover-image-crop'                         => array('center', 'top'),
+    /*-----------------------------------------------------------------------------------------*/
+    // Responsive images sizes and media query
+    /*-----------------------------------------------------------------------------------------*/
+    'responsive-image-sizes'                   => array(
+        'fullwidth_image'                      => array(320, 480, 640, 800, 1024, 1344),
+        'halfwidth_images'                     => array(320, 480, 640, 672)
+    ),
+    'responsive-image-mqs'                     => array(
+        'fullwidth_image'                      => '(min-width: 1344px) 1344px, 100vw',
+        'halfwidth_images'                     => '(min-width: 1344px) 672px, (min-width: 640px) 50vw, 100vw'
     ),
     /*-----------------------------------------------------------------------------------------*/
     // Limit global number of revisions.

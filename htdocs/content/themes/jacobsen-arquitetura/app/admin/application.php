@@ -8,6 +8,7 @@ if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
     });
 }
 
+// Append font classes to root element
 function font_classes() {
     $classes = Application::get('font-classes');
 
@@ -19,6 +20,30 @@ function font_classes() {
         echo ' '.$classes['headings'];
     }
 }
+
+// Append detected browser features to root element
+function browser_features_classes() {
+    $features = Application::get('browser-features');
+    $features_classes = Application::get('browser-features-classes');
+    $class_prefix = $features_classes['prefix'];
+    $cookie_prefix = '_feat_';
+    $classes = '';
+
+    foreach ($features as $feature) {
+        if (array_key_exists($cookie_prefix.$feature, $_COOKIE)) {
+            $classes .= ' '.$class_prefix.($_COOKIE[$cookie_prefix.$feature] === 'true' ? '' : 'no-').$feature;
+        } else {
+            return;
+        }
+    }
+
+    echo $classes;
+
+    View::share('_browser_features', true);
+}
+
+// Share screen breakpoint information with all views.
+View::share('_screen_breakpoints', Application::get('screen-breakpoints'));
 
 // Assets
 $assets = Application::get('assets');

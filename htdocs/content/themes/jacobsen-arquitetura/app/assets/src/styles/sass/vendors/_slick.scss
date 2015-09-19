@@ -1,0 +1,38 @@
+@import 'slick-carousel/slick/slick.scss';
+
+.slick-dots {
+  display: inline-block;
+  text-align: center;
+  width: 100%
+}
+
+.slick-dots > li {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 2px solid get-color('grey-light');
+    border-radius: 2px;
+    outline: none;
+    background: transparent;
+    transition: border-color get-transition('normal');
+  }
+
+.slick-slide:focus { outline:0 }
+
+.slick-dots li.slick-active button,
+.slick-dots li:hover button {
+  border-color: get-color('yellow');
+}
