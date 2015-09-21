@@ -8,8 +8,6 @@ class ProjectController extends BaseController {
         if (!function_exists('get_fields')) {
             throw new Exception('This theme requires The ACF Pro plugin.');
         }
-
-        $this->_getPostsData();
     }
 
     protected function _getPostsData() {
@@ -33,8 +31,35 @@ class ProjectController extends BaseController {
         );
     }
 
-    public function index() {
+    protected function _getCategories() {
+        $args = array(
+            'type'                     => 'post',
+            'child_of'                 => 0,
+            'parent'                   => '',
+            'orderby'                  => 'menuorder',
+            'hide_empty'               => false,
+            'hierarchical'             => 1,
+            'exclude'                  => array(1),
+            'include'                  => '',
+            'number'                   => '',
+            'taxonomy'                 => 'project-categories',
+            'pad_counts'               => false
+        );
+
+        $this->_data['categories'] = get_categories($args);
+    }
+
+    public function single() {
+        $this->_getPostsData();
+
         return View::make('cpt.projects.single')
             ->with($this->_data);
     }
-}
+
+    public function archive() {
+        $this->_getCategories();
+
+        return View::make('cpt.projects.archive')
+            ->with($this->_data);
+    }
+ }
