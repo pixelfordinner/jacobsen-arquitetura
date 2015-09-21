@@ -2,9 +2,11 @@
 
 @section('main')
 @loop
-            <div class="row cover-image cover-image--{{ $posts['current']['object']->post_name }}">
+        <article class="project">
+            <time class="project__publication-date" datetime="{{ get_the_date('c') }}">{{ get_the_date() }}</time>
+            <header class="row cover-image cover-image--{{ $posts['current']['object']->post_name }}">
 @include('components.cover-image', ['cover_image' => $posts['current']['fields']['cover_image'], 'selector' => 'cover-image--' . $posts['current']['object']->post_name ])
-            </div>
+            </header>
             <div class="container">
                 <div class="row project-title">
                     <h1 class="heading--alpha heading--light uppercase">{{ Loop::title() }}</h1>
@@ -64,6 +66,8 @@
 @endforeach
                 </div>
             </div>
+        </article>
+@endloop
 @if($posts['next']['object'])
             <div class="row cover-image cover-image--next cover-image--{{ $posts['next']['object']->post_name }}">
 @include('components.cover-image', ['cover_image' => $posts['next']['fields']['cover_image'], 'selector' => 'cover-image--' . $posts['next']['object']->post_name])
@@ -73,5 +77,4 @@
                 </a>
             </div>
 @endif
-@endloop
 @overwrite
