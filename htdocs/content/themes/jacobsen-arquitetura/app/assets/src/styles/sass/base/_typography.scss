@@ -116,6 +116,8 @@ a {
 
   .button {
     @extend %type-heading;
+
+    font-weight: map-get($headingtype, light);
   }
 }
 
