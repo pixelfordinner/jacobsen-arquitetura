@@ -124,7 +124,10 @@ return array(
     // DNS Prefetch
     /*-----------------------------------------------------------------------------------------*/
     'dns-prefetch'                             => array(
-        '//use.typekit.net'
+        '//use.typekit.net',
+        '//maps.googleapis.com',
+        '//maps.gstatic.com',
+        '//fonts.gstatic.com'
     ),
     /*-----------------------------------------------------------------------------------------*/
     // Font-related class names
@@ -202,6 +205,9 @@ return array(
         'fullwidth_image'                      => '(min-width: 1344px) 1344px, 100vw',
         'halfwidth_images'                     => '(min-width: 1344px) 672px, (min-width: 640px) 50vw, 100vw',
         'project_thumbnails'                   => '(min-width: 1920px) 25vw, (min-width: 1440px) 33.3333vw, (min-width: 960px) 50vw, 100vw'
+    ),
+    'responsive-image-ratios'                  => array(
+        'project_thumbnails'                   => array('width' => 480, 'height' => 320)
     ),
     /*-----------------------------------------------------------------------------------------*/
     // Limit global number of revisions.

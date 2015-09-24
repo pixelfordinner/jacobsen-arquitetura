@@ -119,6 +119,7 @@ class Macros {
     public static function responsive_image($img, $size, $classes = array(), $hidpi = true) {
         $mqs = Application::get('responsive-image-mqs');
         $sizes = Application::get('responsive-image-sizes');
+        $ratios = Application::get('responsive-image-ratios');
 
         if (!array_key_exists($size, $mqs) || !array_key_exists($size, $sizes)) {
             throw new Exception('Responsive image size missing from sizes or media queries in app configuration');
@@ -149,10 +150,12 @@ class Macros {
             echo "\n     class=\"" . implode(' ', $classes) . '"';
         }
 
-        $alt = $img->get_alt != '' ? $img->get_alt : $img->get_title;
+        if ($img->get_alt) {
+            echo "\n     alt=\"" . $img->get_alt . '"';
+        }
 
-        if ($alt != '') {
-            echo "\n     alt=\"" . $alt . '"';
+        if (array_key_exists($size, $ratios)) {
+            echo "\n     width=\"" . $ratios[$size]['width'] . '" height="' . $ratios[$size]['height'] . '"';
         }
 
         echo ">\n";
