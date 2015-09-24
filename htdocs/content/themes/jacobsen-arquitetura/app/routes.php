@@ -24,7 +24,7 @@ Route::get('template', array('contact', function(){
 }));
 
 Route::get('postTypeArchive', array('projects', 'uses' => 'ProjectController@archive'));
-
+Route::get('tax', array('project-categories', 'uses' => 'ProjectController@archive'));
 Route::get('singular', array('projects', 'uses' => 'ProjectController@single'));
 
 Route::get('postTypeArchive', array('media', function() {
@@ -33,6 +33,10 @@ Route::get('postTypeArchive', array('media', function() {
 
 Route::get('singular', array('media', function() {
     return View::make('cpt.media.archive');
+}));
+
+Route::get('tax', array('media-categories', function() {
+    return;
 }));
 
 Route::get('template', array('styleguide', 'uses' => 'StyleguideController@index'));

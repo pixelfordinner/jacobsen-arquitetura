@@ -5,7 +5,12 @@
 Taxonomy::make('project-categories', 'projects',
     __('Categories', Application::get('textdomain')),
     __('Category', Application::get('textdomain')))
-->set();
+->set(array(
+    'query_var' => true,
+    'rewrite' => array(
+        'slug' => 'projects/category'
+    )
+));
 
 PostType::make('projects',
     __('Projects', Application::get('textdomain')),
