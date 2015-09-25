@@ -32,16 +32,16 @@
 @if($content['acf_fc_layout'] == 'fullwidth_image')
                     <div class="row row--vpadded">
                         <div class="column">
-                            {{ Macros::responsive_image($content['image'], $content['acf_fc_layout'], array('image--fullwidth')) }}
+                            {{ Macros::responsive_image($content['image'], $content['acf_fc_layout'], array('image--fullwidth', 'image--loading', 'image--fadein')) }}
                         </div>
                     </div>
 @elseif($content['acf_fc_layout'] == 'halfwidth_images')
                     <div class="row row--flex row--vpadded">
                         <div class="column--half column--tablet">
-                            {{ Macros::responsive_image($content['left_image'], $content['acf_fc_layout'], array('image--halfwidth')) }}
+                            {{ Macros::responsive_image($content['left_image'], $content['acf_fc_layout'], array('image--halfwidth', 'image--loading', 'image--fadein')) }}
                         </div>
                         <div class="column--half column--tablet">
-                            {{ Macros::responsive_image($content['right_image'], $content['acf_fc_layout'], array('image--halfwidth')) }}
+                            {{ Macros::responsive_image($content['right_image'], $content['acf_fc_layout'], array('image--halfwidth', 'image--loading', 'image--fadein')) }}
                         </div>
                     </div>
 @elseif($content['acf_fc_layout'] == 'blueprints')
@@ -50,7 +50,7 @@
                             <div class="carousel slick-slider" data-slick='{"arrows":false, "dots": true, "accessibility": false}'>
 @foreach($content['blueprints'] as $blueprint)
                                 <div class="slick-slide">
-                                    {{ Macros::responsive_image($blueprint, 'fullwidth_image', array('image--fullwidth')) }}
+                                    {{ Macros::responsive_image($blueprint, 'fullwidth_image', array('image--fullwidth', 'image--loading', 'image--fadein')) }}
                                 </div>
 @endforeach
                             </div>

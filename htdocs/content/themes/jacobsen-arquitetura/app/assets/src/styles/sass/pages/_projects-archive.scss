@@ -89,6 +89,7 @@
   display: block;
   width: 100%;
   height: auto;
-  transition: transform get-transition('fast') get-easing('natural');
+  transition: transform get-transition('fast') get-easing('natural'),
+              opacity get-transition('fast') get-easing('natural');
   transform: scale(1);
 }

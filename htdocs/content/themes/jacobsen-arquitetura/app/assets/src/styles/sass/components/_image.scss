@@ -5,4 +5,12 @@
     width: 100%;
     height: auto;
   }
+
+  &--fadein {
+    transition: opacity get-transition('fast') get-easing('natural');
+  }
+
+  &--loading {
+    opacity: 0;
+  }
 }

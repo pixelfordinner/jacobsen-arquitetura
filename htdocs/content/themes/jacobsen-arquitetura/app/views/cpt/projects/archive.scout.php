@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <a class="projects-grid__item--link" href="{{ Loop::link() }}">
-                {{ Macros::responsive_image(get_post_thumbnail_id(), 'project_thumbnails', array('project-grid__item__thumbnail')) }}
+                {{ Macros::responsive_image(get_post_thumbnail_id(), 'project_thumbnails', array('project-grid__item__thumbnail', 'image--loading')) }}
             </a>
         </div>
 @endloop
