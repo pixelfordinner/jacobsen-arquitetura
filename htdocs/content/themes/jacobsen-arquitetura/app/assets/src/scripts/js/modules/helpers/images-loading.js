@@ -10,7 +10,6 @@ var imagesLoading = function() {
     if (image.isLoaded) {
       $(image.img).removeClass('image--loading');
     }
-    console.log(image);
   });
 };
 
