@@ -7,7 +7,6 @@
 @endforeach
     </div>
     <section class="row--vpadded row--flex projects-grid">
-@for($i=0; $i < 6; $i++)
 @loop
 <?php $post_fields = get_fields(); ?>
         <div class="projects-grid__item">
@@ -23,6 +22,5 @@
             </a>
         </div>
 @endloop
-@endfor
     </section>
 @overwrite
