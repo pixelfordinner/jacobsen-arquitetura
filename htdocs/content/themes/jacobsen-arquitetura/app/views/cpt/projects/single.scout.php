@@ -45,19 +45,19 @@
                         </div>
                     </div>
 @elseif($content['acf_fc_layout'] == 'blueprints')
+@if (is_array($content['blueprints']))
                     <div class="row row--vpadded">
                         <div class="column">
                             <div class="carousel slick-slider" data-slick='{"arrows":false, "dots": true, "accessibility": false}'>
-@if (is_array($content['blueprints']))
 @foreach($content['blueprints'] as $blueprint)
                                 <div class="slick-slide">
                                     {{ Macros::responsive_image($blueprint, 'fullwidth_image', array('image--fullwidth', 'image--loading', 'image--fadein')) }}
                                 </div>
 @endforeach
-@endif
                             </div>
                         </div>
                     </div>
+@endif
 @elseif($content['acf_fc_layout'] == 'text')
                     <div class="row row--padded">
                         <div class="column text">
