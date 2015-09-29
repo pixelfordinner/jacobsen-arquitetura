@@ -4,11 +4,12 @@ $loader-color: get-color('yellow');
   width: 3rem;
   height: 3rem;
   position: relative;
-  border: 4px solid $loader-color;
+  border-color: $loader-color;
   top: 50%;
   animation: loader 2s infinite ease;
   padding: 0;
   cursor: default;
+  padding: 0;
 
   > span {
     vertical-align: top;

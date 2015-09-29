@@ -13,7 +13,7 @@ var keyEvents = require('helpers/key-events');
 var gmaps = require('maps/gmaps');
 var slickCarousel = require('sliders/slick-carousel');
 var pageTransitions = require('helpers/page-transitions');
-var projectsNav = require('helpers/projects-nav');
+var projectsNav = require('content-grid');
 
 $(document).ready(function() {
   var baseModules = function() {
