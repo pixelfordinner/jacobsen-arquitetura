@@ -8,11 +8,12 @@ var picturefill = require('picturefill');
 // User modules
 var browserFeatures = require('helpers/browser-features');
 var fontloader = require('fonts/loader');
-var imagesLoading = require('helpers/images-loading');
+// var imagesLoading = require('helpers/images-loading');
 var keyEvents = require('helpers/key-events');
 var gmaps = require('maps/gmaps');
 var slickCarousel = require('sliders/slick-carousel');
 var pageTransitions = require('helpers/page-transitions');
+var projectsNav = require('helpers/projects-nav');
 
 $(document).ready(function() {
   var baseModules = function() {
@@ -24,9 +25,10 @@ $(document).ready(function() {
   var contentModules = function() {
     gmaps();
     picturefill();
-    imagesLoading();
+    // imagesLoading();
     slickCarousel();
     pageTransitions();
+    projectsNav();
   };
 
   baseModules();

@@ -7,6 +7,7 @@ var pageTransitions = function() {
   var $body = $('html', 'body');
   var $content = $('#content-wrapper').smoothState({
     debug: true,
+    blacklist: '.page-transition--none',
     //prefetch: true,
     //cacheLength: 4,
     onStart: {

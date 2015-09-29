@@ -19,10 +19,7 @@ $button-background-color: transparent !default;
   padding: .37rem 1rem;
   margin: 1rem 0;
 
-  transition: border-color $button-transition-duration $button-transition-easing,
-              color $button-transition-duration $button-transition-easing,
-              background-color $button-transition-duration $button-transition-easing;
-
+  transition: all $button-transition-duration $button-transition-easing;
   background-color: $button-background-color;
   touch-action: manipulation;
   cursor: pointer;
@@ -46,6 +43,10 @@ $button-background-color: transparent !default;
 
   &--active {
     border: $button-border-size $button-border-style $button-border-color-hover;
+  }
+
+  &--transparent {
+    opacity: 0;
   }
 }
 
