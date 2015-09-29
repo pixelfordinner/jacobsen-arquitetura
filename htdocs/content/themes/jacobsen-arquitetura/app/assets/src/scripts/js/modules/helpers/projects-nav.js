@@ -13,7 +13,7 @@ var projectsNav = function() {
       },
       success: function(data) {
         var $data = $(data);
-        var $nextPage = $data.find('data-next-projects');
+        var $nextPage = $data.find('[data-next-projects]');
 
         $('[data-projects-grid]').append(
           $data.find('[data-projects-grid]').html()
@@ -22,8 +22,9 @@ var projectsNav = function() {
         if ($nextPage.length > 0) {
           $this.removeClass('button--loading')
             .html($nextPage.html())
-            .attr('href', $nextPage.attr('href'))
-            .click(projectsNav);
+            .attr('href', $nextPage.attr('href'));
+
+          $(window).trigger('content-modules');
         } else {
           $this.addClass('button--transparent');
         }
