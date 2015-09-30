@@ -3,7 +3,8 @@
 @section('main')
     <div class="row--padded projects-filters">
 @foreach ($categories as $category)
-        <a href="{{ get_term_link($category) }}" class="button button--small button--filter uppercase @if($category->slug == $current_category)button--active @endif" data-category-id="{{ $category->term_id }}">{{ $category->name }}</a>
+        <a href="{{ get_term_link($category) }}" class="button button--small button--filter uppercase page-transition--none @if($category->slug == $current_category)button--active @endif"
+            data-content-grid-filter="{{ $category->term_id }}">{{ $category->name }}</a>
 @endforeach
     </div>
     <section class="row--vpadded row--flex projects-grid" data-content-grid>
