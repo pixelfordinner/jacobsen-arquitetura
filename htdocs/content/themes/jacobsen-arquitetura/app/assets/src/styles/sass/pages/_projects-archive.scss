@@ -5,7 +5,17 @@
 
 // Grid
 
+.projects-grid {
+  &--loading {
+    .projects-grid__item {
+      opacity: 0;
+    }
+  }
+}
+
 .projects-grid__item {
+  transition: opacity get-transition('normal');
+
   @include breakpoint(960px) {
     width: percentage(1/2);
   }

@@ -15,7 +15,8 @@ contentGrid._data = {
   classes: {
     buttonLoading: 'button--loading',
     buttonTransparent: 'button--transparent',
-    buttonActive: 'button--active'
+    buttonActive: 'button--active',
+    contentGridLoading: 'projects-grid--loading'
   },
   attributes: {
     filter: 'data-content-grid-filter'
@@ -33,14 +34,10 @@ contentGrid.bindButtons = function() {
       e.preventDefault();
 
       // Make the request
-      _this.fetchContent($this.attr('href'), {}, _this.nextPage);
+      _this.fetchContent($this.attr('href'), {}, _this.appendContent);
 
       // Morph the button into loader
-      $this
-        .addClass(_this._data.classes.buttonLoading)
-        .html('<span></span>')
-        .removeAttr('href')
-        .unbind('click');
+      _this.setLoadingState(true);
     });
 
   // Filter buttons
@@ -63,24 +60,55 @@ contentGrid.bindButtons = function() {
           filters.push($(el).attr(_this._data.attributes.filter));
         });
 
+      $(_this._data.selectors.contentGrid)
+        .addClass(_this._data.classes.contentGridLoading)
+        .css('min-height', $(_this._data.selectors.contentGrid).outerHeight());
+
+      // Make the request
+      var data = {'project-categories': filters};
+      _this.fetchContent($this.attr('href'), data, _this.replaceContent);
     });
 };
 
-contentGrid.nextPage = function(data) {
+contentGrid.setLoadingState = function(loading, href, html) {
+  if (loading === true) {
+    $(this._data.selectors.buttonNext)
+      .addClass(this._data.classes.buttonLoading)
+      .html('<span></span>')
+      .removeAttr('href')
+      .unbind('click');
+  } else {
+    $(this._data.selectors.buttonNext)
+      .removeClass(this._data.classes.buttonLoading)
+      .attr('href', href)
+      .html(html);
+  }
+};
+
+contentGrid.nextPage = function(data, replaceContent) {
   var $data = $(data);
   var $buttonNext = $data.find(this._data.selectors.buttonNext);
 
-  // Append new content to the grid
-  this.appendContent($data);
+  // Append/Replace new content
+  if (replaceContent === true) {
+    $(this._data.selectors.contentGrid)
+      .html($data.find(this._data.selectors.contentGrid).html());
+  } else {
+    $(this._data.selectors.contentGrid)
+      .append($data.find(this._data.selectors.contentGrid).html());
+  }
+
+  // Remove loading state on content-grid
+  $(this._data.selectors.contentGrid)
+    .removeClass(this._data.classes.contentGridLoading)
+    .css('min-height', 'auto');
 
   if ($buttonNext.length > 0) {
     // Morph back the button with updated data from new content
-    $(this._data.selectors.buttonNext)
-      .removeClass(this._data.classes.buttonLoading)
-      .html($buttonNext.html())
-      .attr('href', $buttonNext.attr('href'));
-
+    this.setLoadingState(false, $buttonNext.attr('href'), $buttonNext.html());
     this.bindButtons();
+    $(this._data.selectors.buttonNext)
+      .removeClass(this._data.classes.buttonTransparent);
   } else {
     // Hide the button if we're at the last page
     $(this._data.selectors.buttonNext)
@@ -88,14 +116,12 @@ contentGrid.nextPage = function(data) {
   }
 };
 
-contentGrid.appendContent = function($data) {
-  $(this._data.selectors.contentGrid)
-    .append($data.find(this._data.selectors.contentGrid).html());
+contentGrid.appendContent = function(data) {
+  this.nextPage(data, false);
 };
 
-contentGrid.replaceContent = function($data) {
-  $(this._data.selectors.contentGrid)
-    .html($data.find(this._data.selectors.contentGrid).html());
+contentGrid.replaceContent = function(data) {
+  this.nextPage(data, true);
 };
 
 contentGrid.fetchContent = function(url, data, cb) {

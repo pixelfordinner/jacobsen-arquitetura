@@ -4,7 +4,7 @@
     <div class="row--padded projects-filters">
 @foreach ($categories as $category)
         <a href="{{ get_term_link($category) }}" class="button button--small button--filter uppercase page-transition--none @if($category->slug == $current_category)button--active @endif"
-            data-content-grid-filter="{{ $category->term_id }}">{{ $category->name }}</a>
+            data-content-grid-filter="{{ $category->slug }}">{{ $category->name }}</a>
 @endforeach
     </div>
     <section class="row--vpadded row--flex projects-grid" data-content-grid>
@@ -27,7 +27,7 @@
 <?php $matches = array(); ?>
 @if(preg_match("/<a\s+(?:[^>]*?\s+)?href=\"([^\"]*)\"/", get_next_posts_link(), $matches) == 1)
     <div class="row--vpadded project-grid__pagination">
-        <a href="{{ $matches[1] }}" class="button uppercase page-transition--none" data-content-grid-next>{{ Macros::symbol('symbols-download', 'Download', array('button__symbol')) }}{{ __('See more') }}</a>
+        <a href="{{ $matches[1] }}" class="button uppercase page-transition--none" data-content-grid-next>{{ Macros::symbol('symbols-plus', 'Download', array('button__symbol')) }}{{ __('See more') }}</a>
     </div>
 @endif
 @overwrite
