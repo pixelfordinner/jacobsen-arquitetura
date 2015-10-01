@@ -65,8 +65,10 @@ contentGrid.bindButtons = function() {
         .css('min-height', $(_this._data.selectors.contentGrid).outerHeight());
 
       // Make the request
-      var data = {'project-categories': filters};
-      _this.fetchContent($this.attr('href'), data, _this.replaceContent);
+      var data = filters.length > 0 ?
+        {'project-categories': filters.join(',')} : {};
+
+      _this.fetchContent(window.location.href, data, _this.replaceContent);
     });
 };
 
