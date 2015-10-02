@@ -5,15 +5,15 @@ $loader-color: get-color('yellow');
   height: 3rem;
   position: relative;
   border-color: $loader-color;
-  top: 50%;
   animation: loader 2s infinite ease;
-  padding: 0;
   cursor: default;
-  padding: 0;
+  text-indent: -99999rem;
 
-  > span {
-    vertical-align: top;
-    display: inline-block;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: $loader-color;
     animation: loader-inner 2s infinite ease-in;

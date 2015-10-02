@@ -76,14 +76,15 @@ contentGrid.setLoadingState = function(loading, href, html) {
   if (loading === true) {
     $(this._data.selectors.buttonNext)
       .addClass(this._data.classes.buttonLoading)
-      .html('<span></span>')
       .removeAttr('href')
       .unbind('click');
   } else {
-    $(this._data.selectors.buttonNext)
+    setTimeout((function() {
+      $(this._data.selectors.buttonNext)
       .removeClass(this._data.classes.buttonLoading)
       .attr('href', href)
       .html(html);
+    }).bind(this), 500);
   }
 };
 
