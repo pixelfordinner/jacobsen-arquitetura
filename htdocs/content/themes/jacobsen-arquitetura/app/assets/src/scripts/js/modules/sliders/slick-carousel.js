@@ -8,7 +8,7 @@ var slickCarousel = function() {
 };
 
 slickCarousel.iterateElements = function(i, element) {
-  console.log($(element).slick());
+  $(element).slick();
 };
 
 module.exports = slickCarousel;

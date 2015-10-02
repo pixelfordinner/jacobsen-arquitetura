@@ -12,6 +12,7 @@ $button-background-color: transparent !default;
 // Main button styles
 
 .button {
+  overflow: hidden;
   display: inline-block;
   vertical-align: baseline;
   border: $button-border-size $button-border-style $button-border-color;
@@ -19,9 +20,9 @@ $button-background-color: transparent !default;
   padding: .37rem 1rem;
   margin: 1rem 0;
 
-  transition: border-color $button-transition-duration $button-transition-easing,
-              color $button-transition-duration $button-transition-easing,
-              background-color $button-transition-duration $button-transition-easing;
+  transition: opacity $button-transition-duration $button-transition-easing,
+              width $button-transition-duration $button-transition-easing,
+              border-color $button-transition-duration $button-transition-easing;
 
   background-color: $button-background-color;
   touch-action: manipulation;
@@ -46,6 +47,10 @@ $button-background-color: transparent !default;
 
   &--active {
     border: $button-border-size $button-border-style $button-border-color-hover;
+  }
+
+  &--transparent {
+    opacity: 0;
   }
 }
 

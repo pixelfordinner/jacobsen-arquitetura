@@ -28,15 +28,6 @@ body {
         padding-right: 0;
       }
     }
-
-    &--flex {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    &--stretch {
-      align-items: stretch;
-    }
   }
 }
 
@@ -52,6 +43,15 @@ body {
     padding-left: get-padding(horizontal);
     padding-right: get-padding(horizontal);
   }
+
+    &--flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &--stretch {
+      align-items: stretch;
+    }
 
   .text {
     max-width: $text-max-length;
@@ -109,7 +109,7 @@ body {
   }
 
   &.text {
-    padding-top: get-padding(vertical);
-    padding-bottom: get-padding(vertical);
+    padding-top: get-padding(vertical) * 2;
+    padding-bottom: get-padding(vertical) * 2;
   }
 }

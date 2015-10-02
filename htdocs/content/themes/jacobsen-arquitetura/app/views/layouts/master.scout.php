@@ -2,15 +2,17 @@
 <html class="feat--no-js<?php font_classes(); browser_features_classes(); ?>" <?php language_attributes(); ?>>
 @include('layouts.partials.head')
     <body>
-        @include('layouts.partials.header')
+        <div id="content-wrapper" class="page-transition--fadein">
+            @include('layouts.partials.header')
 
-        <main class="main" role="main">
+            <main id="main" class="main" role="main">
 @section('main')
             Default page content
 @show
-        </main>
+            </main>
 
-        @include('layouts.partials.footer')
+            @include('layouts.partials.footer')
+        </div>
         @include('layouts.partials.foot')
     </body>
 </html>

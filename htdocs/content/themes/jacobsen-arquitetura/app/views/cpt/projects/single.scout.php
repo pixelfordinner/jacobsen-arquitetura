@@ -2,9 +2,11 @@
 
 @section('main')
 @loop
-            <div class="row cover-image cover-image--{{ $posts['current']['object']->post_name }}">
+        <article class="project">
+            <time class="project__publication-date" datetime="{{ get_the_date('c') }}">{{ get_the_date() }}</time>
+            <header class="row cover-image cover-image--{{ $posts['current']['object']->post_name }}">
 @include('components.cover-image', ['cover_image' => $posts['current']['fields']['cover_image'], 'selector' => 'cover-image--' . $posts['current']['object']->post_name ])
-            </div>
+            </header>
             <div class="container">
                 <div class="row project-title">
                     <h1 class="heading--alpha heading--light uppercase">{{ Loop::title() }}</h1>
@@ -43,6 +45,7 @@
                         </div>
                     </div>
 @elseif($content['acf_fc_layout'] == 'blueprints')
+@if (is_array($content['blueprints']))
                     <div class="row row--vpadded">
                         <div class="column">
                             <div class="carousel slick-slider" data-slick='{"arrows":false, "dots": true, "accessibility": false}'>
@@ -54,6 +57,7 @@
                             </div>
                         </div>
                     </div>
+@endif
 @elseif($content['acf_fc_layout'] == 'text')
                     <div class="row row--padded">
                         <div class="column text">
@@ -64,6 +68,8 @@
 @endforeach
                 </div>
             </div>
+        </article>
+@endloop
 @if($posts['next']['object'])
             <div class="row cover-image cover-image--next cover-image--{{ $posts['next']['object']->post_name }}">
 @include('components.cover-image', ['cover_image' => $posts['next']['fields']['cover_image'], 'selector' => 'cover-image--' . $posts['next']['object']->post_name])
@@ -73,5 +79,4 @@
                 </a>
             </div>
 @endif
-@endloop
 @overwrite

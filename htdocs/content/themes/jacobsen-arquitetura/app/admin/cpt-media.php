@@ -5,7 +5,12 @@
 Taxonomy::make('media-categories', 'media',
     __('Categories', Application::get('textdomain')),
     __('Category', Application::get('textdomain')))
-->set();
+->set(array(
+    'query_vars' => true,
+    'rewrite' => array(
+        'slug' => 'media/category'
+    )
+));
 
 PostType::make('media',
     __('Media', Application::get('textdomain')),
