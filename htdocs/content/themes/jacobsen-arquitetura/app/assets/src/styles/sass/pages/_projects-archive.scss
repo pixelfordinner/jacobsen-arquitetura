@@ -3,16 +3,6 @@
   text-align: center;
 }
 
-// Grid
-
-.projects-grid {
-  &--loading {
-    .projects-grid__item {
-      opacity: 0;
-    }
-  }
-}
-
 .projects-grid__item {
   transition: opacity get-transition('normal');
 

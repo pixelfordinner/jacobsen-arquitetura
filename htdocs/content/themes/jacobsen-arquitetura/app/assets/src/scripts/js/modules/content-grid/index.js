@@ -10,13 +10,14 @@ contentGrid._data = {
   selectors: {
     buttonNext: '[data-content-grid-next]',
     buttonFilter: '[data-content-grid-filter]',
-    contentGrid: '[data-content-grid]'
+    contentGrid: '[data-content-grid]',
+    filterParameter: '[data-content-grid-filter-parameter]'
   },
   classes: {
     buttonLoading: 'button--loading',
     buttonTransparent: 'button--transparent',
     buttonActive: 'button--active',
-    contentGridLoading: 'projects-grid--loading'
+    contentGridLoading: 'content-grid--loading'
   },
   attributes: {
     filter: 'data-content-grid-filter'
@@ -65,8 +66,13 @@ contentGrid.bindButtons = function() {
         .css('min-height', $(_this._data.selectors.contentGrid).outerHeight());
 
       // Make the request
-      var data = filters.length > 0 ?
-        {'project-categories': filters.join(',')} : {};
+      var filterParameter = $(_this._data.selectors.filterParameter)
+                              .attr('data-content-grid-filter-parameter');
+      var data = {};
+
+      if (filters.length > 0) {
+        data[filterParameter] = filters.join(',');
+      }
 
       _this.fetchContent(window.location.href, data, _this.replaceContent);
     });

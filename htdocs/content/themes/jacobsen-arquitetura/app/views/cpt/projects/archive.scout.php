@@ -1,16 +1,16 @@
 @extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true]])
 
 @section('main')
-    <div class="row--padded projects-filters">
+    <div class="row--padded projects-filters" data-content-grid-filter-parameter="project-categories">
 @foreach ($categories as $category)
         <a href="{{ get_term_link($category) }}" class="button button--small button--filter uppercase page-transition--none @if($category->slug == $current_category)button--active @endif"
             data-content-grid-filter="{{ $category->slug }}">{{ $category->name }}</a>
 @endforeach
     </div>
-    <section class="row--vpadded row--flex projects-grid" data-content-grid>
+    <section class="row--vpadded row--flex projects-grid content-grid" data-content-grid>
 @loop
 <?php $post_fields = get_fields(); ?>
-        <div class="projects-grid__item">
+        <div class="projects-grid__item content-grid__item">
             <div class="projects-grid__item--header">
                 <h2 class="heading--delta heading--light uppercase projects-grid__item--title">{{ Loop::title() }}</h2>
                 <ul class="projects-grid__item__extras">

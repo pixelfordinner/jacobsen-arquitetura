@@ -20,6 +20,8 @@ PostType::make('media',
     'menu_position' => 20,
     'supports'      => array(
         'title',
+        'thumbnail',
+        'revisons',
         'page-attributes'
     ),
     'menu_icon'     => 'dashicons-images-alt2',
