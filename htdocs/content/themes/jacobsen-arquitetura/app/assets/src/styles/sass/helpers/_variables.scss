@@ -55,6 +55,7 @@ $paddings                   : (
 // Max row paragraph length (~80 chars / line)
 $text-max-length            : (960px / $base-font-size) * 1rem;
 $container-max-width        : (1344px / $base-font-size) * 1rem;
+$container-large-max-width  : (1824px / $base-font-size) * 1rem;
 
 // Add typefaces here.
 // Add weight and style details too.
@@ -122,45 +123,3 @@ $button-border-style        : solid;
 $button-border-radius       : 6px;
 $button-transition-duration : get-transition('normal');
 $button-transition-easing   : get-easing('natural');
-
-// $font-sizes              : (
-//   'text'                 : (
-//     null                 : 14px,
-//     'xsmall'             : 15px,
-//     'small'              : 16px,
-//     'large'              : 18px,
-//     'xlarge'             : 20px
-//   ),
-//   'h1'                   : (
-//     null                 : 28px,
-//     'xsmall'             : 32px,
-//     'small'              : 36px,
-//     'large'              : 41px,
-//     'xlarge'             : 46px
-//   ),
-//   'h2'                   : (
-//     null                 : 20px,
-//     'xsmall'             : 22px,
-//     'small'              : 25px,
-//     'large'              : 28px,
-//     'xlarge'             : 32px
-//   ),
-//   'h3'                   : (
-//     null                 : 18px,
-//     'xsmall'             : 20px,
-//     'small'              : 22px,
-//     'large'              : 25px,
-//     'xlarge'             : 28px
-//   ),
-//   'h4'                   : (
-//     null                 : 16px,
-//     'small'              : 18px,
-//     'large'              : 20px,
-//     'xlarge'             : 22px
-//   ),
-//   'h5'                   : (
-//     null                 : 15px,
-//     'small'              : 16px,
-//     'large'              : 18px
-//   )
-// );

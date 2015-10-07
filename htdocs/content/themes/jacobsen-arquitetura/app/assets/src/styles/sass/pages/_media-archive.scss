@@ -1,0 +1,45 @@
+.media-grid  {
+
+}
+
+.media__publication-date {
+  color: get-color('yellow');
+}
+
+.media-grid__item--footer {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-wrap: no-wrap;
+}
+
+.media-grid__item--link {
+  text-align: right;
+}
+
+.media-grid__item {
+  padding-bottom: 2rem;
+
+  @include breakpoint(480px) {
+    width: percentage(1/2);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include breakpoint(1024px) {
+    width: percentage(1/3);
+  }
+
+  @include breakpoint(1280px) {
+    width: percentage(1/4);
+  }
+}
+
+.media-grid__item__thumbnail {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.feat--js .media-grid__item {
+  visibility: hidden;
+}

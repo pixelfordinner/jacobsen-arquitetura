@@ -13,7 +13,7 @@ body {
 @include breakpoint-set('base font size', $base-font-size);
 
 .container {
-  .row {
+  > .row {
     max-width: $container-max-width;
     margin-left: auto;
     margin-right: auto;
@@ -26,6 +26,25 @@ body {
       @include breakpoint($container-total-width) {
         padding-left: 0;
         padding-right: 0;
+      }
+    }
+  }
+
+  &--large {
+    > .row {
+      max-width: $container-large-max-width;
+      margin-left: auto;
+      margin-right: auto;
+
+      &--vpadded,
+      &--hpadded,
+      &--padded {
+        $container-total-width: $container-large-max-width + (get-padding('horizontal') * 2);
+
+        @include breakpoint($container-total-width) {
+          padding-left: 0;
+          padding-right: 0;
+        }
       }
     }
   }
@@ -94,6 +113,9 @@ body {
     &--fourth.column--desktop {
       width: percentage(1/4);
     }
+    &--two-thirds.column--desktop {
+      width: percentage(2/3);
+    }
   }
 
   @include breakpoint(get-breakpoint('tablet')) {
@@ -105,6 +127,9 @@ body {
     }
     &--fourth.column--tablet {
       width: percentage(1/4);
+    }
+    &--two-thirds.column--tablet {
+      width: percentage(2/3);
     }
   }
 
