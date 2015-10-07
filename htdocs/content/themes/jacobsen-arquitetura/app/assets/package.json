@@ -54,6 +54,7 @@
     "jquery": ">=2.1.4",
     "jshint-stylish": ">=1.0.2",
     "lodash": ">=3.8.0",
+    "masonry-layout": "^3.3.2",
     "node-sass": "^3.3.3",
     "picturefill": "^3.0.0-rc1",
     "slick-carousel": "^1.5.8",

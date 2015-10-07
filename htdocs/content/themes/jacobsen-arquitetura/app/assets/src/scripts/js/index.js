@@ -14,6 +14,7 @@ var gmaps = require('maps/gmaps');
 var slickCarousel = require('sliders/slick-carousel');
 var pageTransitions = require('helpers/page-transitions');
 var projectsNav = require('content-grid');
+var layoutMasonry = require('layout/masonry');
 
 $(document).ready(function() {
   var baseModules = function() {
@@ -29,6 +30,7 @@ $(document).ready(function() {
     slickCarousel();
     pageTransitions();
     projectsNav();
+    layoutMasonry();
   };
 
   baseModules();

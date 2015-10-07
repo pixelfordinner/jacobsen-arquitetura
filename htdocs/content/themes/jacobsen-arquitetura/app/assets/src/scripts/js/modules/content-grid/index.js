@@ -107,6 +107,9 @@ contentGrid.nextPage = function(data, replaceContent) {
       .append($data.find(this._data.selectors.contentGrid).html());
   }
 
+  // Trigger item-add event
+  $(window).trigger('content-grid-item-add');
+
   // Remove loading state on content-grid
   $(this._data.selectors.contentGrid)
     .removeClass(this._data.classes.contentGridLoading)
