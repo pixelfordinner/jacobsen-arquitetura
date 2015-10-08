@@ -1,16 +1,44 @@
 .animation--fadein {
   animation: fadein .6s get-easing('switfly');
 }
+.animation--scalein {
+  animation: scalein .75s get-easing('switfly');
+}
 
 @keyframes fadein {
   0% {
     opacity: 0;
-    transform: translateY(-10%);
+    transform: translateY(10%);
   }
 
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scalein {
+  0% {
+    transform: scale(.75);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes scaleout {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(.75);
+    opacity: 0;
   }
 }
 
