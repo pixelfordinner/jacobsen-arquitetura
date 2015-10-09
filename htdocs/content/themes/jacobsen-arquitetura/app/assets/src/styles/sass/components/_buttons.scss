@@ -22,7 +22,8 @@ $button-background-color: transparent !default;
 
   transition: opacity $button-transition-duration $button-transition-easing,
               width $button-transition-duration $button-transition-easing,
-              border-color $button-transition-duration $button-transition-easing;
+              border-color $button-transition-duration $button-transition-easing,
+              transform $button-transition-duration $button-transition-easing;
 
   background-color: $button-background-color;
   touch-action: manipulation;

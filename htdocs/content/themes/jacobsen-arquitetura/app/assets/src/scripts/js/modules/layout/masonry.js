@@ -21,10 +21,11 @@ layoutMasonry.iterateElements = function(i, element) {
   var msnry = new Masonry(element, $element.data('masonry-options'));
 
   layoutMasonry.onComplete($element);
+  setTimeout(function() { msnry.layout(); }, 200);
 
   $(window).on('content-grid-item-add', function() {
     msnry.reloadItems();
-    setTimeout(function() { msnry.layout(); }, 100);
+    setTimeout(function() { msnry.layout(); }, 200);
   });
 
   msnry.on('layoutComplete', function() {

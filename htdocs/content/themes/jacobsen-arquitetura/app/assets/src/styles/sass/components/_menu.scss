@@ -40,11 +40,22 @@
 }
 
 .button {
-  &.menu-toggle--open {
-    border-color: get-color('white');
+  &.menu-toggle {
+    background-color: rgba(get-color('white'), .9);
+    transform: translateY(0);
 
-    &:hover {
-      border-color: get-color('grey-light');
+    &--open {
+      border-color: get-color('white');
+      background-color: get-color('yellow');
+
+      &:hover {
+        border-color: get-color('grey-light');
+      }
+    }
+
+    &--faded:not(.menu-toggle--open) {
+      opacity: 0;
+      transform: translateY(-5rem);
     }
   }
 }
@@ -76,7 +87,7 @@
   }
 }
 
-.menu--fixed {
+.menu-toggle--fixed {
   position: fixed;
   will-change: transform;
   top: .5rem;
@@ -85,11 +96,12 @@
 }
 
 .feat--js .menu-content {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   opacity: 0;
   visibility: hidden;
+  will-change: transform;
 
   &--open {
     opacity: 1;
@@ -105,12 +117,12 @@
 
   &--open {
     z-index: 100;
-    animation: scalein .45s get-easing('switfly');
+    animation: scalein get-transition('slow') get-easing('switfly');
   }
 
   &--close {
     z-index: 100;
-    animation: scaleout .45s get-easing('switfly');
+    animation: fadeout get-transition('slow') get-easing('switfly');
   }
 }
 
@@ -123,12 +135,34 @@
 }
 
 .main-navigation__menu__item {
+  transition: all get-transition('fast') get-easing('natural');
+  transform: translateY(48px);
+  transition-delay: get-transition('slow');
+
   &--active {
     .main-navigation__menu__item--link {
       color: get-color('white');
     }
   }
 }
+
+.feat--js .main-navigation__menu__item {
+  opacity: 0;
+}
+
+.menu-content--open {
+  .main-navigation__menu__item {
+    transform: translateY(0);
+    opacity: 1;
+
+    @for $i from 1 through $menu-total-items {
+      &:nth-child(#{$i}) {
+        transition-delay: .1 + $i * .1s;
+      }
+    }
+  }
+}
+
 
 .main-navigation__menu__item--link {
   @extend %type-heading;
@@ -138,7 +172,7 @@
   font-weight: map-get($headingtype, bold);
   display: inline-block;
   text-decoration: none;
-  transition: color get-transition('fast') get-easing('natural');
+  transition: color get-transition('xfast') get-easing('natural');
 
   &:hover {
     color: get-color('white');

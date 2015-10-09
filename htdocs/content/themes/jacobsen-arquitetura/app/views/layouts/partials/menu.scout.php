@@ -1,4 +1,4 @@
-        <button class="button uppercase menu-toggle menu--fixed" data-menu-toggle>
+        <button class="button uppercase menu-toggle menu-toggle--fixed" data-menu-toggle>
             <span class="button__symbol">
                 <span class="menu-toggle__symbol--left"></span>
                 <span class="menu-toggle__symbol--right"></span>

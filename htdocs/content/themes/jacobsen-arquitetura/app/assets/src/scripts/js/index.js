@@ -22,12 +22,12 @@ $(document).ready(function() {
     fontloader();
     browserFeatures();
     keyEvents();
-    menu();
   };
 
   var contentModules = function() {
     gmaps();
     picturefill();
+    menu();
     // imagesLoading();
     slickCarousel();
     pageTransitions();
