@@ -8,6 +8,7 @@ var imagesLoading = function() {
 
   images.on('progress', function(instance, image) {
     if (image.isLoaded) {
+      console.log(image);
       $(image.img).removeClass('image--loading');
     }
   });

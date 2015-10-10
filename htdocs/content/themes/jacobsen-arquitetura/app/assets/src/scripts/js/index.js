@@ -8,7 +8,7 @@ var picturefill = require('picturefill');
 // User modules
 var browserFeatures = require('helpers/browser-features');
 var fontloader = require('fonts/loader');
-// var imagesLoading = require('helpers/images-loading');
+var imagesLoading = require('helpers/images-loading');
 var keyEvents = require('helpers/key-events');
 var menu = require('helpers/menu');
 var gmaps = require('maps/gmaps');
@@ -28,7 +28,7 @@ $(document).ready(function() {
     gmaps();
     picturefill();
     menu();
-    // imagesLoading();
+    imagesLoading();
     slickCarousel();
     pageTransitions();
     projectsNav();
