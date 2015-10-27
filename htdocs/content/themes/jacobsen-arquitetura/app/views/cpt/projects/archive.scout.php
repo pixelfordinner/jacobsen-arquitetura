@@ -7,7 +7,7 @@
 <?php $post_fields = get_fields(); ?>
         <div class="projects-grid__item content-grid__item animation--fadein">
             <div class="projects-grid__item--header">
-                <h2 class="heading--delta heading--light uppercase projects-grid__item--title">{{ Loop::title() }}</h2>
+                <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}</h2>
                 <ul class="projects-grid__item__extras">
                     <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ $post_fields['date_end'] ? $post_fields['date_end'] : __('In progress') }}</li>
                     <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ is_object($post_fields['category_featured']) ? $post_fields['category_featured']->name : __('None') }}</li>
