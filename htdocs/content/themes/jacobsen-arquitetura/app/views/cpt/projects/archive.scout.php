@@ -11,7 +11,7 @@
                 <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}@if(isset($post_fields['is_new']) && $post_fields['is_new'] == true) <small class="project-grid__item__title--new">{{ __('New') }}</small>@endif</h2>
                 <ul class="projects-grid__item__extras">
                     <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($post_fields['date_end']) && $post_fields['date_end'] ? $post_fields['date_end'] : __('In progress') }}</li>
-                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($category_featured) && is_object($post_fields['category_featured']) ? $post_fields['category_featured']->name : __('None') }}</li>
+                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($post_fields['category_featured']) && is_object($post_fields['category_featured']) ? $post_fields['category_featured']->name : __('None') }}</li>
                 </ul>
             </div>
             <a class="projects-grid__item--link" href="{{ Loop::link() }}">
