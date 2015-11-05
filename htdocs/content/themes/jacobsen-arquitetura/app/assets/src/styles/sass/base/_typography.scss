@@ -14,7 +14,7 @@ body {
 }
 
 // Links.
-a {
+a:not(.no-defaults) {
   transition: color .1s, background-color .1s;
   color: get-element-color('link-text');
   text-decoration: none;
@@ -179,8 +179,8 @@ h6,
 }
 
 // Nice underlines for text links.
-p a,
-li a {
+p a:not(.no-defaults),
+li a:not(.no-defaults) {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten(get-element-color('link-text'), 20%) 50%);
   background-position: 0 93%;
   background-repeat: repeat-x;

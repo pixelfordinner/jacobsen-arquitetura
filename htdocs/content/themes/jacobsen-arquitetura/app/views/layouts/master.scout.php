@@ -4,6 +4,7 @@
     <body>
         <div id="content-wrapper" class="page-transition--fadein">
             @include('layouts.partials.header')
+            @include('layouts.partials.menu')
 
             <main id="main" class="main" role="main">
 @section('main')

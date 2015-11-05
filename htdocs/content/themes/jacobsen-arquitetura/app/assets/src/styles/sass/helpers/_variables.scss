@@ -32,7 +32,8 @@ $colors                     : (
   'yellow'                  : #ffd800,
   'grey-dark'               : #4a4a4a,
   'grey'                    : #9b9b9b,
-  'grey-light'              : #ebebeb
+  'grey-light'              : #ebebeb,
+  'black'                   : #000000
 );
 
 $elements-colors            :(
@@ -123,3 +124,7 @@ $button-border-style        : solid;
 $button-border-radius       : 6px;
 $button-transition-duration : get-transition('normal');
 $button-transition-easing   : get-easing('natural');
+
+// Menu configuration
+
+$menu-total-items           : 4;

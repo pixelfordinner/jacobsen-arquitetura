@@ -1,7 +1,7 @@
 .page-transition--fadein {
-  transition: opacity get-transition('slow');
+  transition: opacity .5s;
+}
 
-  &.page-transition--exiting {
-    opacity: 0
-  }
+.page-transition--exiting {
+  opacity: 0.01;
 }
