@@ -50,6 +50,11 @@
   border-top-right-radius: 8px;
 }
 
+.project-grid__item__title--new {
+  color: get-color('yellow');
+  vertical-align: super;
+}
+
 .projects-grid__item--link {
   display: block;
   overflow: hidden;

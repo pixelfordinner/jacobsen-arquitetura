@@ -51,9 +51,12 @@ class Macros {
         return TimberImageHelper::resize($src, $w, $h, $crop, $force);
     }
 
-    protected static function _mq_build($img, $selector, $w, $h, $mw, $hidpi) {
+    protected static function _mq_build($img, $selector, $w, $h, $mw, $vertical_align, $hidpi) {
         // Get crop configuration
         $crop = Application::get('cover-image-crop');
+        if (in_array($vertical_align, array('top', 'center', 'bottom'))) {
+            $crop  = $vertical_align;
+        }
 
         // Do we need a media query ?
         $mq_max_width = $mw ? '(max-width: ' . $w .'px) ' : null;
@@ -90,7 +93,7 @@ class Macros {
      * @param  bool $hidpi Output hidpi media query
      * @return
      */
-    public static function cover_image_mq($img, $selector, $hidpi = true) {
+    public static function cover_image_mq($img, $selector, $vertical_align, $hidpi = true) {
         self::_timberCheck();
         $cover_image_sizes = Application::get('cover-image-sizes');
         $hidpi_output = $hidpi ? array(false, true) : array(false);
@@ -101,7 +104,7 @@ class Macros {
             foreach ($cover_image_sizes as $dimensions) {
                 self::_mq_build($img, $selector,
                     $dimensions['width'], $dimensions['height'],
-                    $i > 0, $is_hidpi);
+                    $i > 0, $vertical_align, $is_hidpi);
                 ++$i;
             }
         }
