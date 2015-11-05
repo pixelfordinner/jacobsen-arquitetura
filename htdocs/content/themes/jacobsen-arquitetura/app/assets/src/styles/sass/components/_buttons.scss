@@ -2,6 +2,7 @@
 
 $button-border-color: #000 !default;
 $button-border-color-hover: #999 !default;
+$button-background-color-hover: rgba(#fff, .5) !default;
 $button-border-size: 1px !default;
 $button-border-style: solid !default;
 $button-border-radius: .5rem !default;
@@ -93,7 +94,7 @@ $button-background-color: transparent !default;
     &:focus,
     &:active {
       border-color: $button-border-color;
-      background-color: rgba(255, 255, 255, .5);
+      background-color: rgba($button-background-color-hover, .5);
     }
 
     &:first-child:not(:last-child) {
