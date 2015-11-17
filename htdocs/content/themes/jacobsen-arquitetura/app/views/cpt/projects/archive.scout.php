@@ -8,14 +8,14 @@
 @if(get_post_thumbnail_id() != '')
         <div class="projects-grid__item content-grid__item animation--fadein">
             <div class="projects-grid__item--header">
-                <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}@if(isset($post_fields['is_new']) && $post_fields['is_new'] == true) <small class="project-grid__item__title--new">{{ __('New') }}</small>@endif</h2>
+                <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}@if(isset($post_fields['is_new']) && $post_fields['is_new'] == true) <small class="projects-grid__item__title--new">{{ __('New') }}</small>@endif</h2>
                 <ul class="projects-grid__item__extras">
                     <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($post_fields['date_end']) && $post_fields['date_end'] ? $post_fields['date_end'] : __('In progress') }}</li>
                     <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($post_fields['category_featured']) && is_object($post_fields['category_featured']) ? $post_fields['category_featured']->name : __('None') }}</li>
                 </ul>
             </div>
             <a class="projects-grid__item--link" href="{{ Loop::link() }}">
-                {{ Macros::responsive_image(get_post_thumbnail_id(), 'project_thumbnails', array('project-grid__item__thumbnail')) }}
+                {{ Macros::responsive_image(get_post_thumbnail_id(), 'project_thumbnails', array('projects-grid__item__thumbnail')) }}
             </a>
         </div>
 @endif
@@ -23,7 +23,7 @@
     </section>
 <?php $matches = array(); ?>
 @if(preg_match("/<a\s+(?:[^>]*?\s+)?href=\"([^\"]*)\"/", get_next_posts_link(), $matches) == 1)
-    <div class="row--vpadded content-grid__pagination project-grid__pagination">
+    <div class="row--vpadded content-grid__pagination projects-grid__pagination">
         <a href="{{ $matches[1] }}" class="button uppercase page-transition--none" data-content-grid-next>{{ Macros::symbol('symbols-plus',  __('See more'), array('button__symbol')) }}{{ __('See more') }}</a>
     </div>
 @endif

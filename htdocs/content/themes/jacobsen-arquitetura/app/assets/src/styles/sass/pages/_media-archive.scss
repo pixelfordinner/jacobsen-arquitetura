@@ -1,5 +1,9 @@
 .media-grid  {
+  margin-top: 4.5rem;
 
+  @include breakpoint(960px) {
+    margin-top: 0;
+  }
 }
 
 .media__publication-date {
