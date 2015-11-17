@@ -112,7 +112,7 @@ menu.animate = function(time) {
 menu.watcher = function() {
   var wScrollY = $(window).scrollTop();
   if (this._data.states.scrollY !== wScrollY) {
-    if (this._data.states.scrollY === null) {
+    if (this._data.states.scrollY === null || this._data.states.scrollY < 0) {
       this._data.states.scrollY = wScrollY;
     }
 
