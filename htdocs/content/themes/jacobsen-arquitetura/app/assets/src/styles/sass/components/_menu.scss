@@ -119,12 +119,12 @@
 
   &--open {
     z-index: 100;
-    animation: scalein get-transition('slow') get-easing('switfly');
+    animation: scalein get-transition('slow') get-easing('swiftly');
   }
 
   &--close {
     z-index: 100;
-    animation: fadeout get-transition('slow') get-easing('switfly');
+    animation: fadeout get-transition('slow') get-easing('swiftly');
   }
 }
 

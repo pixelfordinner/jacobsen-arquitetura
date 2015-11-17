@@ -21,7 +21,12 @@
 }
 
 @function get-easing($name) {
-  @return unquote(map-get($easings, $name));
+  @if type-of(map-get($easings, $name)) == string {
+    @return unquote(map-get($easings, $name));
+  } @else {
+    @debug 'Easing not found #{$name}';
+    @return map-get($easings, $name);
+  }
 }
 
 @function get-padding($name) {

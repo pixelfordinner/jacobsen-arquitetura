@@ -1,8 +1,8 @@
 .animation--fadein {
-  animation: fadein .6s get-easing('switfly');
+  animation: fadein .6s get-easing('swiftly');
 }
 .animation--scalein {
-  animation: scalein .75s get-easing('switfly');
+  animation: scalein .75s get-easing('swiftly');
 }
 
 @keyframes fadein {
