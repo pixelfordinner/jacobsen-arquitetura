@@ -12,10 +12,15 @@ $button-background-color: transparent !default;
 
 // Main button styles
 
+button::-moz-focus-inner {
+  border:0;
+  padding:0;
+  margin:0;
+}
+
 .button {
-  overflow: hidden;
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: top;
   border: $button-border-size $button-border-style $button-border-color;
   border-radius: $button-border-radius;
   padding: .37rem 1rem;
@@ -32,8 +37,8 @@ $button-background-color: transparent !default;
   user-select: none;
 
   @include breakpoint(screen get-breakpoint('desktop')) {
-    padding-top: .375rem;
-    padding-bottom: .375rem;
+    padding-top: .41rem;
+    padding-bottom: .36rem;
   }
 
   &:hover,

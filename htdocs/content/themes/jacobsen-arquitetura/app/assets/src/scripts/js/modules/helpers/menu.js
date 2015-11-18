@@ -9,7 +9,9 @@ var menu = function() {
     .unbind('click')
     .click(menu.click.bind(menu));
 
-  menu.watcher();
+  if (menu._data.states.watching === false) {
+    menu.watcher();
+  }
 };
 
 menu._data = {
@@ -27,6 +29,7 @@ menu._data = {
     animationDuration: 'menu-content-anim-duration'
   },
   states: {
+    watching: false,
     animating: false,
     scrollY: null
   }
@@ -110,9 +113,11 @@ menu.animate = function(time) {
 };
 
 menu.watcher = function() {
+  this._data.states.watching = true;
   var wScrollY = $(window).scrollTop();
+
   if (this._data.states.scrollY !== wScrollY) {
-    if (this._data.states.scrollY === null) {
+    if (this._data.states.scrollY === null || this._data.states.scrollY < 0) {
       this._data.states.scrollY = wScrollY;
     }
 
