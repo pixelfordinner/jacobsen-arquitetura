@@ -54,6 +54,7 @@ class Macros {
     protected static function _mq_build($img, $selector, $w, $h, $mw, $vertical_align, $hidpi) {
         // Get crop configuration
         $crop = Application::get('cover-image-crop');
+
         if (in_array($vertical_align, array('top', 'center', 'bottom'))) {
             $crop  = $vertical_align;
         }
@@ -70,6 +71,10 @@ class Macros {
 
         // Resize image and define content
         $content = 'background-image: url(\'' . $img_resized . '\');';
+
+        if ($crop !== Application::get('cover-image-crop')) {
+            $content .= ' background-position: center ' . $crop . ';';
+        }
 
         if ($hidpi) {
             echo '@media ' . $mq_hidpi . '{ ';
