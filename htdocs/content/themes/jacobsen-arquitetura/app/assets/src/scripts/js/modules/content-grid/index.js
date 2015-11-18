@@ -125,6 +125,7 @@ contentGrid.nextPage = function(data, replaceContent) {
     // Hide the button if we're at the last page
     $(this._data.selectors.buttonNext)
       .addClass(this._data.classes.buttonTransparent);
+    this.setLoadingState(false, '#', '');
   }
 };
 
