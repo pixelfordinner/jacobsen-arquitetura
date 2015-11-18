@@ -2,7 +2,7 @@
 
 @section('main')
 @if(isset($fields['featured_projects']) && is_array($fields['featured_projects']))
-    <div class="home-carousel slick-slider" data-slick='{"arrows":false, "dots": false, "accessibility": false, "autoplay": true, "autoplaySpeed": 3000, "fade": true}'>
+    <div class="home-carousel slick-slider" data-slick='{"arrows":false, "dots": false, "accessibility": false, "autoplay": true, "pauseOnHover": false, "autoplaySpeed": 3000, "fade": true}'>
 @foreach ($fields['featured_projects'] as $project_object)
 <?php
 $project_id = $project_object->ID;
