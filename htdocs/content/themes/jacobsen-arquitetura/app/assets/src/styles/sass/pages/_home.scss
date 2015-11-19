@@ -3,18 +3,22 @@
 }
 
 .home-carousel__slide {
-  display: block;
   height: 100vh;
 }
 
-.home-logo {
+.home-logo__wrapper {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 10;
-  color: get-color('white');
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+}
+
+.home-logo {
+  margin: auto;
+  color: get-color('white');
 
   @include breakpoint(get-breakpoint('tablet')) {
     width: 80%;
