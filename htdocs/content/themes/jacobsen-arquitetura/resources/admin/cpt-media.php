@@ -3,8 +3,8 @@
 // Project custom post type.
 
 Taxonomy::make('media-categories', 'media',
-    __('Categories', Application::get('textdomain')),
-    __('Category', Application::get('textdomain')))
+    __('Categories', Config::get('application.textdomain')),
+    __('Category', Config::get('application.textdomain')))
 ->set(array(
     'query_vars' => true,
     'rewrite' => array(
@@ -13,8 +13,8 @@ Taxonomy::make('media-categories', 'media',
 ));
 
 PostType::make('media',
-    __('Media', Application::get('textdomain')),
-    __('Media', Application::get('textdomain')))
+    __('Media', Config::get('application.textdomain')),
+    __('Media', Config::get('application.textdomain')))
 ->set(array(
     'public'        => true,
     'menu_position' => 20,

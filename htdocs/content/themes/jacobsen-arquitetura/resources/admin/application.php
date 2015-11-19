@@ -10,7 +10,7 @@ if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
 
 // Append font classes to root element
 function font_classes() {
-    $classes = Application::get('font-classes');
+    $classes = Config::get('application.font-classes');
 
     if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
         echo ' '.$classes['body'];
@@ -23,8 +23,8 @@ function font_classes() {
 
 // Append detected browser features to root element
 function browser_features_classes() {
-    $features = Application::get('browser-features');
-    $features_classes = Application::get('browser-features-classes');
+    $features = Config::get('application.browser-features');
+    $features_classes = Config::get('application.browser-features-classes');
     $class_prefix = $features_classes['prefix'];
     $cookie_prefix = '_feat_';
     $classes = '';
@@ -43,10 +43,10 @@ function browser_features_classes() {
 }
 
 // Share screen breakpoint information with all views.
-View::share('_screen_breakpoints', Application::get('screen-breakpoints'));
+View::share('_screen_breakpoints', Config::get('application.screen-breakpoints'));
 
 // Assets
-$assets = Application::get('assets');
+$assets = Config::get('application.assets');
 
 if (is_array($assets)) {
     // Make asset configuration available for all views
@@ -105,7 +105,7 @@ if (is_array($assets)) {
 // DNS prefetch
 
 add_action('wp_head', function() {
-    $dnsPrefetch = Application::get('dns-prefetch');
+    $dnsPrefetch = Config::get('application.dns-prefetch');
 
     if (is_array($dnsPrefetch)) {
         foreach ($dnsPrefetch as $dns) {
@@ -116,8 +116,8 @@ add_action('wp_head', function() {
 
 // Limit global number of revisions.
 
-if (is_int(Application::get('revisions'))) {
+if (is_int(Config::get('application.revisions'))) {
     add_filter('wp_revisions_to_keep', function($num, $post) {
-        return Application::get('revisions');
+        return Config::get('application.revisions');
     }, 10,2);
 }

@@ -3,10 +3,10 @@
 /*----------------------------------------------------*/
 // Define your environments
 /*----------------------------------------------------*/
-return array(
+return [
 
-    'local'         => 'Velvet.home',
-    'staging'       => 'staging.pixelfordinner.com',
-    'production'    => 'jacobsenarquitetura.com'
+    'local'      => 'Velvet.local',
+    'staging'    => 'staging.pixelfordinner.com',
+    'production' => 'jacobsenarquitetura.com'
 
-);
+];

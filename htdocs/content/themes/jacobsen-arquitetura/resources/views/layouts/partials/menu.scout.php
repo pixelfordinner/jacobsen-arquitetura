@@ -2,7 +2,7 @@
             <span class="button__symbol">
                 <span class="menu-toggle__symbol--left"></span>
                 <span class="menu-toggle__symbol--right"></span>
-            </span>{{ __('Menu', Application::get('textdomain')) }}
+            </span>{{ __('Menu', Config::get('application.textdomain')) }}
         </button>
         <section class="menu-content" data-menu-content data-menu-content-anim-duration="500">
 @if(isset($languages) && is_array($languages))

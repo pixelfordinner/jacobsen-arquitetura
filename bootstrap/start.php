@@ -10,24 +10,24 @@ $webroot_path = $root_path.DS.'htdocs';
 /*----------------------------------------------------*/
 if (file_exists($autoload = $root_path.DS.'vendor'.DS.'autoload.php'))
 {
-	require_once($autoload);
+    require_once($autoload);
 }
 
 /*----------------------------------------------------*/
 // Load environment configuration
 /*----------------------------------------------------*/
-$environments = array();
+$environments = [];
 
 // Return array of environment data
 if (file_exists($file = $root_path.DS.'config'.DS.'environment.php'))
 {
-	$environments = require_once($file);
+    $environments = require_once($file);
 }
 
 // Check if there are environment values
 if (empty($environments) || (!is_array($environments) && !$environments instanceof \Closure))
 {
-	printf('<h1>%s</h1>', 'Unable to load environment data. Please define your environments.');
+    printf('<h1>%s</h1>', 'Unable to load environment data. Please define your environments.');
 }
 
 /*----------------------------------------------------*/
@@ -50,18 +50,18 @@ if (empty($loaded)) printf('<h1>%s</h1>', 'Unable to locate your environment con
 /*----------------------------------------------------*/
 // Check required vars.
 /*----------------------------------------------------*/
-$check = $env->check(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST', 'WP_HOME', 'WP_SITEURL'), $loaded);
+$check = $env->check(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST', 'WP_HOME', 'WP_SITEURL'], $loaded);
 
 /*----------------------------------------------------*/
 // Populate environment vars
 /*----------------------------------------------------*/
 if ($check)
 {
-	$env->populate($loaded);
+    $env->populate($loaded);
 }
 else
 {
-	printf('<h2>%s</h2>', 'Missing environment variables.');
+    printf('<h2>%s</h2>', 'Missing environment variables.');
 }
 
 /*----------------------------------------------------*/
@@ -69,8 +69,13 @@ else
 /*----------------------------------------------------*/
 if (file_exists($config = $root_path.DS.'config'.DS.'environments'.DS.$location.'.php'))
 {
-	require_once($config);
+    require_once($config);
 }
+
+/*----------------------------------------------------*/
+// Storage directory
+/*----------------------------------------------------*/
+define('THEMOSIS_STORAGE', $root_path.DS.'storage');
 
 /*----------------------------------------------------*/
 // Content directory
@@ -84,7 +89,7 @@ define('WP_CONTENT_URL', WP_HOME.'/'.CONTENT_DIR);
 /*----------------------------------------------------*/
 if (file_exists($shared = $root_path.DS.'config'.DS.'shared.php'))
 {
-	require_once($shared);
+    require_once($shared);
 }
 
 /*----------------------------------------------------*/
@@ -92,5 +97,5 @@ if (file_exists($shared = $root_path.DS.'config'.DS.'shared.php'))
 /*----------------------------------------------------*/
 if (!defined('ABSPATH'))
 {
-	define('ABSPATH', $webroot_path.DS.'cms'.DS);
+    define('ABSPATH', $webroot_path.DS.'cms'.DS);
 }
