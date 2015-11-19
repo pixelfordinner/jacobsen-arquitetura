@@ -3,8 +3,8 @@
 // Project custom post type.
 
 Taxonomy::make('project-categories', 'projects',
-    __('Categories', Application::get('textdomain')),
-    __('Category', Application::get('textdomain')))
+    __('Categories', Config::get('application.textdomain')),
+    __('Category', Config::get('application.textdomain')))
 ->set(array(
     'query_var' => true,
     'rewrite' => array(
@@ -13,8 +13,8 @@ Taxonomy::make('project-categories', 'projects',
 ));
 
 PostType::make('projects',
-    __('Projects', Application::get('textdomain')),
-    __('Project', Application::get('textdomain')))
+    __('Projects', Config::get('application.textdomain')),
+    __('Project', Config::get('application.textdomain')))
 ->set(array(
     'public'        => true,
     'menu_position' => 20,

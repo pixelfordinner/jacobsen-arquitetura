@@ -2,12 +2,12 @@
 
 class Macros {
     public static function get_image_path($name) {
-        $assets = Application::get('assets');
+        $assets = Config::get('application.assets');
         return themosis_assets().'/'.$assets['images']['path'].'/'.$name;
     }
 
     public static function get_symbol_path($id) {
-        $assets = Application::get('assets');
+        $assets = Config::get('application.assets');
         return themosis_assets().'/'.$assets['icons']['path'].'/'.$assets['icons']['files'][0].'#'.$id;
     }
     /**
@@ -21,7 +21,7 @@ class Macros {
     public static function symbol($id, $title, $classes = null) {
         $classes = is_array($classes) ? ' class="'.implode(' ', $classes).'"' : '';
         $path = self::get_symbol_path($id);
-        $title = __($title, Application::get('textdomain'));
+        $title = __($title, Config::get('application.textdomain'));
 
         echo '<svg role="img" title="'.$title.'"'.$classes.'><use xlink:href="'.$path.'"></use></svg>';
     }
@@ -53,7 +53,7 @@ class Macros {
 
     protected static function _mq_build($img, $selector, $w, $h, $mw, $vertical_align, $hidpi) {
         // Get crop configuration
-        $crop = Application::get('cover-image-crop');
+        $crop = Config::get('application.cover-image-crop');
 
         if (in_array($vertical_align, array('top', 'center', 'bottom'))) {
             $crop  = $vertical_align;
@@ -72,7 +72,7 @@ class Macros {
         // Resize image and define content
         $content = 'background-image: url(\'' . $img_resized . '\');';
 
-        if ($crop !== Application::get('cover-image-crop')) {
+        if ($crop !== Config::get('application.cover-image-crop')) {
             $content .= ' background-position: center ' . $crop . ';';
         }
 
@@ -100,7 +100,7 @@ class Macros {
      */
     public static function cover_image_mq($img, $selector, $vertical_align, $hidpi = true) {
         self::_timberCheck();
-        $cover_image_sizes = Application::get('cover-image-sizes');
+        $cover_image_sizes = Config::get('application.cover-image-sizes');
         $hidpi_output = $hidpi ? array(false, true) : array(false);
         $img = new TimberImage($img);
 
@@ -125,9 +125,9 @@ class Macros {
      * @return
      */
     public static function responsive_image($img, $size, $classes = array(), $hidpi = true) {
-        $mqs = Application::get('responsive-image-mqs');
-        $sizes = Application::get('responsive-image-sizes');
-        $ratios = Application::get('responsive-image-ratios');
+        $mqs = Config::get('application.responsive-image-mqs');
+        $sizes = Config::get('application.responsive-image-sizes');
+        $ratios = Config::get('application.responsive-image-ratios');
 
         if (!array_key_exists($size, $mqs) || !array_key_exists($size, $sizes)) {
             throw new Exception('Responsive image size missing from sizes or media queries in app configuration');

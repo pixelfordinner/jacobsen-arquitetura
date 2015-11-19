@@ -27,6 +27,9 @@ composer.lock
 /htdocs/content/languages/continents-cities-*
 /htdocs/content/languages/pt_BR*
 
+### Storage
+/storage/*
+!/storage/views/.gitkeep
 
 ### Environment Credentials
 .env.*.php
