@@ -1,4 +1,4 @@
-@extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true]])
+@extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true, 'copyright' => true]])
 
 @section('main')
     @include('cpt.partials.filters', ['categories' => $categories, 'current_category' => $current_category, 'filter_parameter' => 'media-categories'])

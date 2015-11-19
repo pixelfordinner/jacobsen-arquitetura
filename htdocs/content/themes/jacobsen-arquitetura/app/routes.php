@@ -12,7 +12,7 @@
 // Main pages
 
 Route::get('template', array('home', function(){
-    return View::make('pages.home');
+    return View::make('pages.home')->with(array('fields' => get_fields()));
 }));
 
 Route::get('template', array('studio', function(){
