@@ -1,0 +1,48 @@
+.contact-offices__map {
+  background: pink;
+
+  min-height: 28rem;
+}
+
+
+.contact-office {
+  padding-left: 1rem;
+}
+
+.contact-office__location-link {
+  text-decoration: none;
+  display: block;
+
+  &:hover, &--active {
+    .contact-office__location-icon {
+      fill: get-color('yellow');
+      stroke: get-color('white');
+      color: get-color('yellow');
+    }
+  }
+}
+
+.contact-office__location-icon {
+  width: 1.5rem;
+  height: 2rem;
+  color: get-color('grey-light');
+  fill: get-color('white');
+  stroke: get-color('grey-light');
+  display: inline;
+  vertical-align: text-bottom;
+  margin: 0 1rem 0 .5rem;
+  transition: all get-transition('fast') get-easing('natural');
+}
+
+.contact-office__location-name {
+  line-height: 3rem;
+}
+
+.contact-office__location-info {
+  padding-left: 3.15rem;
+}
+
+
+.instagram-content {
+  background: teal;
+}
