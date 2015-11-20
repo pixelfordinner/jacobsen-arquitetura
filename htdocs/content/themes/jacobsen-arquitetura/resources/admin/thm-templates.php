@@ -6,9 +6,9 @@
 add_filter('acf/location/rule_values/page_template', 'addThemosisTemplates');
 function addThemosisTemplates($choices)
 {
-    $key = 'app';
+    $key = 'theme';
     $configFile = 'templates';
-    $configTemplates = include(themosis_path($key).'config'.DS.$configFile.CONFIG_EXT);
+    $configTemplates = include(themosis_path($key).'config'.DS.$configFile.'.config.php');
     $templates = array();
     foreach ($configTemplates as $configTemplate) {
         $prettyTemplateName = str_replace(array('-', '_'), ' ', ucfirst(trim($configTemplate)));
