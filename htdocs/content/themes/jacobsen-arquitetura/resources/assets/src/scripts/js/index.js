@@ -15,6 +15,10 @@ var slickCarousel = require('sliders/slick-carousel');
 var pageTransitions = require('helpers/page-transitions');
 var projectsNav = require('content-grid');
 var layoutMasonry = require('layout/masonry');
+var socialInstagram = require('social/instagram');
+
+// User pages
+var pageContact = require('page/contact');
 
 $(document).ready(function() {
   var baseModules = function() {
@@ -31,6 +35,9 @@ $(document).ready(function() {
     pageTransitions();
     projectsNav();
     layoutMasonry();
+    socialInstagram();
+
+    pageContact();
   };
 
   baseModules();

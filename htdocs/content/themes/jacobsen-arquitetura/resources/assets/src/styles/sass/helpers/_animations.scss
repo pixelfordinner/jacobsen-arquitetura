@@ -1,6 +1,7 @@
 .animation--fadein {
   animation: fadein .6s get-easing('swiftly');
 }
+
 .animation--scalein {
   animation: scalein .75s get-easing('swiftly');
 }
@@ -8,12 +9,10 @@
 @keyframes fadein {
   0% {
     opacity: 0;
-    // transform: translateY(10%);
   }
 
   100% {
     opacity: 1;
-    // transform: translateY(0);
   }
 }
 
@@ -39,6 +38,7 @@
     opacity: 0;
   }
 }
+
 
 @keyframes loader {
   0% {

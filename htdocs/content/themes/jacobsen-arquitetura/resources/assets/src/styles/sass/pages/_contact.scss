@@ -1,7 +1,25 @@
-.contact-offices__map {
-  background: pink;
+.contact-container {
+  padding-top: get-padding(vertical) * 2;
 
+  @include breakpoint(get-breakpoint('desktop')) {
+    padding-bottom: get-padding(vertical) * 4;
+  }
+}
+
+.contact-offices {
+  padding-bottom: get-padding(vertical) * 2;
+}
+
+.contact-offices__map {
   min-height: 28rem;
+
+  .gmnoprint,
+  .gmnoscreen,
+  .gm-style-cc,
+  .gm-style  a {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 
@@ -11,7 +29,7 @@
 
 .contact-office__location-link {
   text-decoration: none;
-  display: block;
+  cursor: pointer;
 
   &:hover, &--active {
     .contact-office__location-icon {
@@ -42,7 +60,27 @@
   padding-left: 3.15rem;
 }
 
+// Social Media
 
-.instagram-content {
-  background: teal;
+.social-media-list.contact__social-media-list {
+  margin: 1rem 0;
+}
+
+.contact__social-media__instagram {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instagram-content__link {
+  width: percentage(1/2);
+
+  @include breakpoint(get-breakpoint('desktop')) {
+    width: percentage(1/3);
+  }
+}
+
+.instagram-content__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
