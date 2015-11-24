@@ -161,11 +161,11 @@ var options = {
         browsers: ['last 10 versions', 'ie 9']
       },
       minifier: true,
-      mqpacker: true,
+      mqpacker: false,
       filters: true,
-      rem: true,
+      rem: false,
       pseudoElements: true,
-      opacity: true
+      opacity: false
     },
     browserify: {
       entries: paths.base.root + '/' + paths.base.src +
