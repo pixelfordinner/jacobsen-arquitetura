@@ -2,7 +2,7 @@
   padding-top: get-padding(vertical) * 2;
 
   @include breakpoint(get-breakpoint('desktop')) {
-    padding-bottom: get-padding(vertical) * 4;
+    padding-bottom: get-padding(vertical) * 2;
   }
 }
 
