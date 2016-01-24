@@ -14,7 +14,7 @@
 
 .header {
   .logo__type--collapsed {
-    @include breakpoint(screen get-breakpoint('desktop')) {
+    @include breakpoint(get-breakpoint('desktop')) {
       display: none;
     }
   }
@@ -22,7 +22,7 @@
   .logo__type--expanded {
     display: none;
 
-    @include breakpoint(screen get-breakpoint('desktop')) {
+    @include breakpoint(get-breakpoint('desktop')) {
       display: block;
     }
   }
@@ -32,11 +32,11 @@
   .logo__type--expanded {
     width: 24rem;
 
-    @include breakpoint(screen get-breakpoint('tablet')) {
+    @include breakpoint(get-breakpoint('tablet')) {
       width: 32rem;
     }
 
-    @include breakpoint(screen get-breakpoint('tablet-large')) {
+    @include breakpoint(get-breakpoint('tablet-large')) {
       width: 40rem;
     }
   }

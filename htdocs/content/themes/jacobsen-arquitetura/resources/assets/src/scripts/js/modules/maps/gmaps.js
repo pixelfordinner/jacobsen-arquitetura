@@ -73,40 +73,72 @@ var marker = {
 };
 
 var gmaps = function() {
-  $('[data-gmap-lat][data-gmap-lng]').each(gmaps.iterateElements);
+  $(window)
+    .unbind('gmap-reload')
+    .on('gmap-reload', gmaps.iterateElements);
+
+  gmaps.iterateElements();
 };
 
-gmaps.iterateElements = function(i, element) {
+gmaps.iterateElements = function() {
+  $('[data-gmap-lat][data-gmap-lng]').each(gmaps.processElement);
+};
+
+gmaps.processElement = function(i, element) {
   var $element = $(element);
   googleMapsLoader = googleMapsLoader || require('google-maps');
 
   googleMapsLoader.load(function(google) {
     var coordinates = new google.maps.LatLng(
-      $element.data('gmap-lat'),
-      $element.data('gmap-lng')
+      $element.attr('data-gmap-lat'),
+      $element.attr('data-gmap-lng')
     );
 
-    settings.center = coordinates;
-
-    // Enable marker icon if available
-    if ($element.data('gmap-icon')) {
-      marker.icon = $element.data('gmap-icon');
-      marker.title = $element.data('gmap-icon-title');
+    if (typeof $element.attr('data-gmap') === 'object') {
+      gmaps.updateMap($element, coordinates);
+    } else {
+      gmaps.createMap($element, google, coordinates);
     }
-
-    var map = new google.maps.Map($element.get(0), settings);
-
-    // Center on resize
-    google.maps.event.addDomListener(window, 'resize', function() {
-      map.setCenter(coordinates);
-    });
-
-    marker.position = coordinates;
-    marker.map = map;
-
-    new google.maps.Marker(marker);
-
   });
+};
+
+gmaps.createMap = function($element, google, coordinates) {
+  settings.center = coordinates;
+
+  // Enable marker icon if available
+  if ($element.attr('data-gmap-icon')) {
+    marker.icon = $element.attr('data-gmap-icon');
+    marker.title = $element.attr('data-gmap-icon-title');
+  }
+
+  var map = new google.maps.Map($element.get(0), settings);
+
+  // Center on resize
+  google.maps.event.addDomListener(window, 'resize', function() {
+    map.setCenter(coordinates);
+  });
+
+  marker.position = coordinates;
+  marker.map = map;
+
+  var mapMarker = new google.maps.Marker(marker);
+
+  $element
+    .data('gmap', {map: map, mapMarker: mapMarker});
+};
+
+gmaps.updateMap = function($element, coordinates) {
+  var gmapData = $element.data('gmap');
+
+  $element
+    .removeClass('animation--fadeinfadeout')
+    .addClass('animation--fadeinfadeout');
+
+  gmapData.mapMarker.setPosition(coordinates);
+  gmapData.mapMarker.setTitle($element.attr('data-gmap-icon-title'));
+  gmapData.mapMarker.setIcon($element.attr('data-gmap-icon'));
+
+  gmapData.map.panTo(coordinates);
 };
 
 module.exports = gmaps;

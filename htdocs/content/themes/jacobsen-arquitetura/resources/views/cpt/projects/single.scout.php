@@ -54,7 +54,7 @@
 @elseif($content['acf_fc_layout'] == 'blueprints')
 @if (is_array($content['blueprints']))
                     <div class="row row--vpadded">
-                        <div class="column">
+                        <div class="column blueprints">
                             <div class="carousel slick-slider" data-slick='{"arrows":false, "dots": true, "accessibility": false}'>
 @foreach($content['blueprints'] as $blueprint)
                                 <div class="slick-slide">

@@ -51,6 +51,7 @@
     "gulp-util": ">=3.0.4",
     "imagemin-pngquant": ">=4.0.0",
     "imagesloaded": ">=3.1.8",
+    "instafeed.js": "^1.4.1",
     "jquery": ">=2.1.4",
     "jshint-stylish": ">=1.0.2",
     "lodash": ">=3.8.0",

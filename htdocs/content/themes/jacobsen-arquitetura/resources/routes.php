@@ -12,7 +12,7 @@
 // Main pages
 
 Route::get('template', array('home', function(){
-    return View::make('pages.home')->with(array('fields' => get_fields()));
+    return View::make('pages.home')->with(['fields' => get_fields()]);
 }));
 
 Route::get('template', array('studio', function(){
@@ -20,7 +20,7 @@ Route::get('template', array('studio', function(){
 }));
 
 Route::get('template', array('contact', function(){
-    return View::make('pages.contact');
+    return View::make('pages.contact')->with(['fields' => get_fields()]);
 }));
 
 Route::get('postTypeArchive', array('projects', 'uses' => 'ProjectController@archive'));

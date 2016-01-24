@@ -37,7 +37,7 @@ button::-moz-focus-inner {
   cursor: pointer;
   user-select: none;
 
-  @include breakpoint(screen get-breakpoint('desktop')) {
+  @include breakpoint(get-breakpoint('desktop')) {
     padding-top: .41rem;
     padding-bottom: .36rem;
   }

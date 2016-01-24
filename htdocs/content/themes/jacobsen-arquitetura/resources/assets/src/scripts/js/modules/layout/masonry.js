@@ -4,7 +4,7 @@ var Masonry = require('masonry-layout');
 var $ = require('jquery');
 
 var layoutMasonry = function() {
-  $('[data-masonry-options]').each(layoutMasonry.iterateElements);
+  $('[data-masonry-options]').each(layoutMasonry.processElement);
 };
 
 layoutMasonry._data = {
@@ -16,17 +16,19 @@ layoutMasonry._data = {
   }
 };
 
-layoutMasonry.iterateElements = function(i, element) {
+layoutMasonry.processElement = function(i, element) {
   var $element = $(element);
   var msnry = new Masonry(element, $element.data('masonry-options'));
 
   element.addEventListener('load', function() { msnry.layout(); }, true);
   layoutMasonry.onComplete($element);
 
-  $(window).on('content-grid-item-add', function() {
-    msnry.reloadItems();
-    element.addEventListener('load', function() { msnry.layout(); }, true);
-  });
+  $(window)
+    .unbind('content-grid-item-add')
+    .on('content-grid-item-add', function() {
+      msnry.reloadItems();
+      element.addEventListener('load', function() { msnry.layout(); }, true);
+    });
 
   msnry.on('layoutComplete', function() {
     layoutMasonry.onComplete($element);

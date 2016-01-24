@@ -71,3 +71,14 @@
 .next-project__title {
   border-top: 2px solid get-color(white);
 }
+
+
+.blueprints {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include breakpoint(get-breakpoint(tablet-large)) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}

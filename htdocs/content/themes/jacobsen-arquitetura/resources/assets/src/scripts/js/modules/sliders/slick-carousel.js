@@ -4,10 +4,10 @@ require('slick-carousel');
 var $ = require('jquery');
 
 var slickCarousel = function() {
-  $('[data-slick]').each(slickCarousel.iterateElements);
+  $('[data-slick]').each(slickCarousel.processElement);
 };
 
-slickCarousel.iterateElements = function(i, element) {
+slickCarousel.processElement = function(i, element) {
   $(element).slick();
 };
 

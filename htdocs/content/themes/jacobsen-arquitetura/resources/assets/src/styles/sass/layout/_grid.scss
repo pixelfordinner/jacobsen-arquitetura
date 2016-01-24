@@ -118,6 +118,21 @@ body {
     }
   }
 
+  @include breakpoint(1280px) {
+    &--half.column--desktop-medium {
+      width: percentage(1/2);
+    }
+    &--third.column--desktop-medium {
+      width: percentage(1/3);
+    }
+    &--fourth.column--desktop-medium {
+      width: percentage(1/4);
+    }
+    &--two-thirds.column--desktop-medium {
+      width: percentage(2/3);
+    }
+  }
+
   @include breakpoint(get-breakpoint('tablet')) {
     &--half.column--tablet {
       width: percentage(1/2);

@@ -3,7 +3,7 @@
 class StyleguideController extends BaseController {
 
     public function index() {
-        $assets = Application::get('assets');
+        $assets = Config::get('application.assets');
 
         if (array_key_exists('styles', $assets)) {
             Asset::add('styleguide', $assets['styles']['path'].'/styleguide.css');
