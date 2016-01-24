@@ -10,30 +10,30 @@ class StyleguideController extends BaseController {
         }
 
         return View::make('pages.styleguide')
-            ->with(array(
+            ->with([
                 'dlist' => $this->_data_dlist()
-            ));
+            ]);
     }
 
     protected function _data_dlist() {
-        return array(
-            array(
+        return [
+            [
                 'title' => 'Credits',
-                'content' => array(
-                    array('name' => 'Studio', 'value' => 'Jacobsen Arquitetura'),
-                    array('name' => 'Authors', 'value' => 'Paulo Jacobsen, Bernardo Jacbosen'),
-                    array('name' => 'Equipe', 'value' => 'Edgar Murata, Christian Rojas')
-                )
-            ),
-            array(
+                'content' => [
+                    ['name' => 'Studio', 'value' => 'Jacobsen Arquitetura'],
+                    ['name' => 'Authors', 'value' => 'Paulo Jacobsen, Bernardo Jacbosen'],
+                    ['name' => 'Equipe', 'value' => 'Edgar Murata, Christian Rojas']
+                ]
+            ],
+            [
                 'title' => 'Technical Data',
-                'content' => array(
-                    array('name' => 'Terrain', 'value' => '746,00m²'),
-                    array('name' => 'Constructed area', 'value' => '708,00m²'),
-                    array('name' => 'Project start', 'value' => '2012'),
-                    array('name' => 'Project end', 'value' => '2014')
-                )
-            )
-        );
+                'content' => [
+                    ['name' => 'Terrain', 'value' => '746,00m²'],
+                    ['name' => 'Constructed area', 'value' => '708,00m²'],
+                    ['name' => 'Project start', 'value' => '2012'],
+                    ['name' => 'Project end', 'value' => '2014']
+                ]
+            ]
+        ];
     }
 }
