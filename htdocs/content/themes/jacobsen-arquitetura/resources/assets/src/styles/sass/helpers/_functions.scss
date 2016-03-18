@@ -8,7 +8,7 @@
   @return map-get($elements-colors, $name);
 }
 
-@function get-breakpoint($name) {
+@function get-site-breakpoint($name) {
   @return map-get($breakpoints, $name) * 1px;
 }
 

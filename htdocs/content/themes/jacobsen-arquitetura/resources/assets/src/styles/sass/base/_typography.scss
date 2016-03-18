@@ -214,7 +214,7 @@ ol {
   li {
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
 
-    @include breakpoint(get-breakpoint(tablet)) {
+    @include breakpoint(get-site-breakpoint(tablet)) {
       margin-left: 0;
     }
   }

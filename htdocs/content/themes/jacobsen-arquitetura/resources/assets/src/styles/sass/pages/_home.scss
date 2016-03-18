@@ -20,15 +20,15 @@
   margin: auto;
   color: get-color('white');
 
-  @include breakpoint(get-breakpoint('tablet')) {
+  @include breakpoint(get-site-breakpoint('tablet')) {
     width: 80%;
   }
 
-  @include breakpoint(get-breakpoint('desktop')) {
+  @include breakpoint(get-site-breakpoint('desktop')) {
     width: 60%;
   }
 
-  @include breakpoint(get-breakpoint('desktop-large')) {
+  @include breakpoint(get-site-breakpoint('desktop-large')) {
     width: 50%;
   }
 

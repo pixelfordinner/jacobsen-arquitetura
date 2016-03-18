@@ -112,7 +112,7 @@ var options = {
     },
     pleeease: {
       autoprefixer: {
-        browsers: ['last 2 versions', 'ie 9']
+        browsers: ['last 2 versions', 'ie 11']
       },
       minifier: false,
       filters: true,

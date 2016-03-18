@@ -22,6 +22,7 @@ composer.lock
 /htdocs/content/uploads/
 /htdocs/content/upgrade/
 /htdocs/content/plugins/*
+/htdocs/content/languages/*
 /htdocs/content/plugins/!.gitkeep
 /htdocs/content/languages/admin-*
 /htdocs/content/languages/continents-cities-*

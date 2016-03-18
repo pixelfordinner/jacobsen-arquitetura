@@ -5,8 +5,8 @@
 /*----------------------------------------------------*/
 return [
 
-    'local'      => 'Velvet.local',
-    'staging'    => 'staging.pixelfordinner.com',
-    'production' => 'jacobsenarquitetura.com'
+    'local'         => 'local',
+    'staging'       => 'staging',
+    'production'    => 'production'
 
 ];

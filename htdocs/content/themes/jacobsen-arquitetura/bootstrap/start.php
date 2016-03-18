@@ -15,12 +15,10 @@ add_filter('themosisConfigPaths', function($paths)
 /*----------------------------------------------------*/
 $loader = new \Composer\Autoload\ClassLoader();
 $classes = \Themosis\Facades\Config::get('loading');
-
 foreach ($classes as $prefix => $path)
 {
     $loader->addPsr4($prefix, $path);
 }
-
 $loader->register();
 
 /*----------------------------------------------------*/
@@ -39,19 +37,6 @@ add_filter('themosisAssetPaths', function($paths)
 {
     $paths[THEMOSIS_ASSETS] = themosis_path('theme').'assets';
     return $paths;
-});
-
-/*----------------------------------------------------*/
-// Theme class aliases.
-/*----------------------------------------------------*/
-add_filter('themosisClassAliases', function($aliases)
-{
-    // application.config.php aliases
-    $themeAliases = Themosis\Facades\Config::get('application.aliases');
-
-    // Allow developer to overwrite an existing alias
-    $aliases = array_merge($aliases, $themeAliases);
-    return $aliases;
 });
 
 /*----------------------------------------------------*/
@@ -117,6 +102,19 @@ $supports = Themosis\Facades\Config::get('supports');
 new Themosis\Configuration\Support($supports);
 
 /*----------------------------------------------------*/
+// Load theme custom class aliases.
+/*----------------------------------------------------*/
+$aliases = Themosis\Facades\Config::get('application.aliases');
+
+if (!empty($aliases) && is_array($aliases))
+{
+    foreach ($aliases as $alias => $fullname)
+    {
+        class_alias($fullname, $alias);
+    }
+}
+
+/*----------------------------------------------------*/
 // Parse application files and include them.
 // Extends the 'functions.php' file by loading
 // files located under the 'admin' folder.
@@ -125,7 +123,7 @@ $adminPath = themosis_path('admin');
 new Themosis\Core\AdminLoader($adminPath);
 
 /*----------------------------------------------------*/
-// Theme widgets.
+// Theme widgets - Autoloaded at 'widgets-init' hook (before many 'init' hooks).
 /*----------------------------------------------------*/
 $widgetPath = themosis_path('theme').'widgets'.DS;
 new Themosis\Core\WidgetLoader($widgetPath);
@@ -167,13 +165,13 @@ function themosisThemeRestrict()
     {
         $user = wp_get_current_user();
         $role = $user->roles;
-        $role = (count($role) > 0) ? $role[0] : '';
+        $valid_role = (bool) array_intersect($access, $role);
 
-        if (!in_array($role, $access) && !(defined('DOING_AJAX') && DOING_AJAX)  && !(defined('WP_CLI') && WP_CLI))
-        {
+        if (!$valid_role && !(defined('DOING_AJAX') && DOING_AJAX)  && !(defined('WP_CLI') && WP_CLI)) {
             wp_redirect(home_url());
             exit;
         }
+
     }
 }
 

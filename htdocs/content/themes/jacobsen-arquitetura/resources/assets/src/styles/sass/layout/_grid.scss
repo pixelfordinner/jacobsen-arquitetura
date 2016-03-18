@@ -88,7 +88,7 @@ body {
       &:not(:last-child) {
         padding-bottom: get-padding(vertical) * 2;
 
-        @include breakpoint(get-breakpoint('tablet')) {
+        @include breakpoint(get-site-breakpoint('tablet')) {
           padding-bottom: 0;
         }
       }
@@ -103,7 +103,7 @@ body {
     width: 100%;
   }
 
-  @include breakpoint(get-breakpoint('desktop')) {
+  @include breakpoint(get-site-breakpoint('desktop')) {
     &--half.column--desktop {
       width: percentage(1/2);
     }
@@ -133,7 +133,7 @@ body {
     }
   }
 
-  @include breakpoint(get-breakpoint('tablet')) {
+  @include breakpoint(get-site-breakpoint('tablet')) {
     &--half.column--tablet {
       width: percentage(1/2);
     }

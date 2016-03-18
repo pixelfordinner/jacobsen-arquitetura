@@ -1,7 +1,7 @@
 .contact-container {
   padding-top: get-padding(vertical) * 2;
 
-  @include breakpoint(get-breakpoint('desktop')) {
+  @include breakpoint(get-site-breakpoint('desktop')) {
     padding-bottom: get-padding(vertical) * 2;
   }
 }
@@ -74,7 +74,7 @@
 .instagram-content__link {
   width: percentage(1/2);
 
-  @include breakpoint(get-breakpoint('desktop')) {
+  @include breakpoint(get-site-breakpoint('desktop')) {
     width: percentage(1/3);
   }
 }

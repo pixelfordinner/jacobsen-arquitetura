@@ -11,7 +11,7 @@ $table_prefix = getenv('DB_PREFIX') ? getenv('DB_PREFIX') : 'wp_';
 // Authentication unique keys and salts
 /*----------------------------------------------------*/
 /**
- * @link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service 
+ * @link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service
  */
 define('AUTH_KEY',         '4eEAEu]iS>?o=2 q=^Zh).]t;Tr7!1f-U:v;tx]bVl6Qr3]C9>Wm76:%B36sk)Ch');
 define('SECURE_AUTH_KEY',  '[1D{DYH5X4-L|;Lm4az^N&)H#WN=GDVW~3D0l5qnA;Qyo>Cdv4-GX}7#<I-/,/C5');
@@ -27,5 +27,23 @@ define('NONCE_SALT',       ':<dK+a6Y_&B&qKvIdrGLcpHQ:FDKw7$EA>MD^b$cERG9K%TWcJ(t
 /*----------------------------------------------------*/
 define('WP_AUTO_UPDATE_CORE', false);
 define('DISALLOW_FILE_EDIT', true);
+define('FS_DIRECT', true);
+
+/*----------------------------------------------------*/
+// Reverse Proxy Detection (Docker)
+/*----------------------------------------------------*/
+
+if (!empty($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+        $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+if (!empty($_SERVER['HTTP_X_REAL_IP']) && (filter_var($_SERVER['HTTP_X_REAL_IP'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== FALSE || filter_var($_SERVER['HTTP_X_REAL_IP'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== FALSE)) {
+        $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_X_REAL_IP'];
+}
+
+if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+        $_SERVER['HTTPS'] = 'on';
+}
+
 
 /* That's all, stop editing! Happy blogging. */
