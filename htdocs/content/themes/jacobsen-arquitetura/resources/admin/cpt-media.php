@@ -2,7 +2,7 @@
 
 // Project custom post type.
 
-Taxonomy::make('media-categories', 'midia',
+Taxonomy::make('media-categories', 'media',
     __('Categories', Config::get('application.textdomain')),
     __('Category', Config::get('application.textdomain')))
 ->set(array(

@@ -2,7 +2,7 @@
 
 // Project custom post type.
 
-Taxonomy::make('project-categories', 'projetos',
+Taxonomy::make('project-categories', 'projects',
     __('Categories', Config::get('application.textdomain')),
     __('Category', Config::get('application.textdomain')))
 ->set(array(
@@ -12,7 +12,7 @@ Taxonomy::make('project-categories', 'projetos',
     )
 ));
 
-PostType::make('projetos',
+PostType::make('projects',
     __('Projects', Config::get('application.textdomain')),
     __('Project', Config::get('application.textdomain')))
 ->set(array(
