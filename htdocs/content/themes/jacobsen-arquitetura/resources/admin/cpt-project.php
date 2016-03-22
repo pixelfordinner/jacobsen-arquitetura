@@ -2,17 +2,17 @@
 
 // Project custom post type.
 
-Taxonomy::make('project-categories', 'projects',
+Taxonomy::make('project-categories', 'projetos',
     __('Categories', Config::get('application.textdomain')),
     __('Category', Config::get('application.textdomain')))
 ->set(array(
     'query_var' => true,
     'rewrite' => array(
-        'slug' => 'projects/category'
+        'slug' => 'projetos/categoria'
     )
 ));
 
-PostType::make('projects',
+PostType::make('projetos',
     __('Projects', Config::get('application.textdomain')),
     __('Project', Config::get('application.textdomain')))
 ->set(array(
@@ -26,7 +26,7 @@ PostType::make('projects',
     ),
     'menu_icon'     => 'dashicons-schedule',
     'rewrite'       => array(
-        'slug'          => 'projects',
+        'slug'          => 'projetos',
         'with_front'    => true
     ),
     'taxonomies'    => array(

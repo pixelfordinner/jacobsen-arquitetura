@@ -2,13 +2,13 @@
 
 // Project custom post type.
 
-Taxonomy::make('media-categories', 'media',
+Taxonomy::make('media-categories', 'midia',
     __('Categories', Config::get('application.textdomain')),
     __('Category', Config::get('application.textdomain')))
 ->set(array(
     'query_vars' => true,
     'rewrite' => array(
-        'slug' => 'media/category'
+        'slug' => 'midia/category'
     )
 ));
 
@@ -26,7 +26,7 @@ PostType::make('media',
     ),
     'menu_icon'     => 'dashicons-images-alt2',
     'rewrite'       => array(
-        'slug'          => 'media',
+        'slug'          => 'midia',
         'with_front'    => true
     ),
     'taxonomies'    => array(
