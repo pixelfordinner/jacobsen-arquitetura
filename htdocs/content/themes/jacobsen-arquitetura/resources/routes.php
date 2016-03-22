@@ -23,13 +23,13 @@ Route::get('template', array('contact', function(){
     return View::make('pages.contact')->with(['fields' => get_fields()]);
 }));
 
-Route::get('postTypeArchive', array('projects', 'uses' => 'ProjectController@archive'));
+Route::get('postTypeArchive', array('projetos', 'uses' => 'ProjectController@archive'));
 Route::get('tax', array('project-categories', 'uses' => 'ProjectController@archive'));
-Route::get('singular', array('projects', 'uses' => 'ProjectController@single'));
+Route::get('singular', array('projetos', 'uses' => 'ProjectController@single'));
 
 Route::get('postTypeArchive', array('media', 'uses' => 'MediaController@archive'));
 
-Route::get('singular', array('media', function() {
+Route::get('singular', array('midia', function() {
     return View::make('cpt.media.archive');
 }));
 
