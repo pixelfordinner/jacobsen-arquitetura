@@ -11,7 +11,7 @@ return array(
 	/* --------------------------------------------------------------- */
 	// Application textdomain
 	/* --------------------------------------------------------------- */
-	'textdomain'                               => 'jarquitetura',
+	'textdomain'                               => 'jacobsen-arquitetura',
 
 	/* --------------------------------------------------------------- */
 	// Global Javascript namespace of your application

@@ -8,7 +8,7 @@ Taxonomy::make('media-categories', 'media',
 ->set(array(
     'query_vars' => true,
     'rewrite' => array(
-        'slug' => 'midia/category'
+        'slug' => 'media/category'
     )
 ));
 
@@ -31,5 +31,6 @@ PostType::make('media',
     ),
     'taxonomies'    => array(
         'media-category'
-    )
+    ),
+    'has_archive'   => true
 ));

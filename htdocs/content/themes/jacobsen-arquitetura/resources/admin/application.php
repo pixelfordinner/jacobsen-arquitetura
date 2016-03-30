@@ -121,3 +121,11 @@ if (is_int(Config::get('application.revisions'))) {
         return Config::get('application.revisions');
     }, 10,2);
 }
+
+// Register
+
+add_action('after_setup_theme', 'register_intl');
+function register_intl(){
+    load_theme_textdomain(Config::get('application.textdomain'), get_template_directory() . '/languages');
+}
+

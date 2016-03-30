@@ -8,7 +8,7 @@ Taxonomy::make('project-categories', 'projects',
 ->set(array(
     'query_var' => true,
     'rewrite' => array(
-        'slug' => 'projetos/categoria'
+        'slug' => 'projects/category'
     )
 ));
 
@@ -31,5 +31,7 @@ PostType::make('projects',
     ),
     'taxonomies'    => array(
         'project-category'
-    )
+    ),
+    'has_archive'   => true
 ));
+
