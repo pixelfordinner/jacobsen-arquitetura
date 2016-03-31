@@ -22,6 +22,7 @@
 
 .projects-grid__item {
   transition: opacity get-transition('normal');
+  will-change: transform;
 
   @include breakpoint(960px) {
     width: percentage(1/2);
@@ -42,6 +43,15 @@
     background-color: get-color('white');
     line-height: 4rem;
     margin-bottom: 0;
+  }
+
+  .projects-grid__item--title,
+  .projects-grid__item__thumbnail {
+    will-change: transform;
+  }
+
+  .projects-grid__item__extras {
+    will-change: opacity;
   }
 
   &:hover {

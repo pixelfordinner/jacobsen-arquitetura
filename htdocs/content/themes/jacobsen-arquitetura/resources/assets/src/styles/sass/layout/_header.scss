@@ -1,3 +1,7 @@
 .header {
   padding: get-padding(vertical) get-padding(vertical);
+
+  @include breakpoint(get-site-breakpoint('desktop')) {
+    padding: 6rem get-padding(vertical);
+  }
 }

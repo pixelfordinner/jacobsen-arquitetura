@@ -1,11 +1,3 @@
-.contact-container {
-  padding-top: get-padding(vertical) * 2;
-
-  @include breakpoint(get-site-breakpoint('desktop')) {
-    padding-bottom: get-padding(vertical) * 2;
-  }
-}
-
 .contact-offices {
   padding-bottom: get-padding(vertical) * 2;
 }
