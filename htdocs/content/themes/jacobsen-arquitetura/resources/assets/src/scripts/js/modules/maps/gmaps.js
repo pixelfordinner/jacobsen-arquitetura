@@ -113,10 +113,12 @@ gmaps.createMap = function($element, google, coordinates) {
 
   var map = new google.maps.Map($element.get(0), settings);
 
+  var centerMap = function() { map.setCenter(coordinates); };
+
   // Center on resize
-  google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(coordinates);
-  });
+  google.maps.event.clearListeners(window);
+  google.maps.event.addDomListener(window, 'resize', centerMap);
+  $(window).on('gmap-center', centerMap);
 
   marker.position = coordinates;
   marker.map = map;

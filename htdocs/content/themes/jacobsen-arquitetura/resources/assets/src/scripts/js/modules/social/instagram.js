@@ -12,7 +12,7 @@ instagram.processElement = function(i, element) {
   var settings = $element.data('instagram');
 
   settings.target = element;
-  settings.after = function() { $(window).trigger('rezise'); };
+  settings.success = function() { $(window).trigger('gmap-center'); };
   settings.KEY = 'AIzaSyDjGDRf-J-EeunUlKzjiowWV6cwjO1l1Pk';
 
   var feed = new Instafeed(settings);
