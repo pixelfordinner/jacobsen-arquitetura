@@ -13,7 +13,7 @@ instagram.processElement = function(i, element) {
 
   settings.target = element;
   settings.success = function() {
-    setTimeout(function() { $(window).trigger('gmap-center'); }, 200);
+    setTimeout(function() { $(window).trigger('gmap-center'); }, 500);
   };
 
   var feed = new Instafeed(settings);
