@@ -9,32 +9,36 @@
  *
  */
 
-// Main pages
+// Home Page
 
-Route::get('template', array('home', function(){
+Route::get('template', ['home', function(){
     return View::make('pages.home')->with(['fields' => get_fields()]);
-}));
+}]);
 
-Route::get('template', array('studio', function(){
+// Studio Page
+
+Route::get('template', ['studio', function(){
     return View::make('pages.studio');
-}));
+}]);
 
-Route::get('template', array('contact', function(){
+// Contact Page
+
+Route::get('template', ['contact', function(){
     return View::make('pages.contact')->with(['fields' => get_fields()]);
-}));
+}]);
 
-Route::get('postTypeArchive', array('projects', 'uses' => 'ProjectController@archive'));
-Route::get('tax', array('project-categories', 'uses' => 'ProjectController@archive'));
-Route::get('singular', array('projects', 'uses' => 'ProjectController@single'));
+// Project CTP
 
-Route::get('postTypeArchive', array('media', 'uses' => 'MediaController@archive'));
+Route::get('postTypeArchive', ['projects', 'uses' => 'ProjectController@archive']);
+Route::get('tax', ['project-categories', 'uses' => 'ProjectController@archive']);
+Route::get('singular', ['projects', 'uses' => 'ProjectController@single']);
 
-Route::get('singular', array('media', function() {
-    return View::make('cpt.media.archive');
-}));
+// Media CPT
 
-Route::get('tax', array('media-categories', function() {
-    return;
-}));
+Route::get('postTypeArchive', ['media', 'uses' => 'MediaController@archive']);
+Route::get('tax', ['media-categories', function() { wp_redirect(get_post_type_archive_link('media'), 301); }]);
+Route::get('singular', ['media', function() { wp_redirect(get_post_type_archive_link('media'), 301); }]);
 
-Route::get('template', array('styleguide', 'uses' => 'StyleguideController@index'));
+// Styleguide
+
+Route::get('template', ['styleguide', 'uses' => 'StyleguideController@index']);
