@@ -22,7 +22,7 @@
                         <h2 class="heading--zeta heading--light uppercase media-grid__item--title">{{ Loop::title() }}</h2>
                     </div>
                     <div class="column--tablet column--third media-grid__item--link">
-                        <a href="{{ $post_fields['pdf'] }}" class="button button--small uppercase" target="_blank">{{ Macros::symbol('symbols-download', __('Download PDF'), array('button__symbol')) }}{{ __('PDF') }}</a>
+                        <a href="{{ $post_fields['pdf'] }}" class="button button--small uppercase" target="_blank">{{ Macros::symbol('symbols-download', __('Baixar PDF', Config::get('application.textdomain')), array('button__symbol')) }}{{ __('PDF', Config::get('application.textdomain')) }}</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
 <?php $matches = array(); ?>
 @if(preg_match("/<a\s+(?:[^>]*?\s+)?href=\"([^\"]*)\"/", get_next_posts_link(), $matches) == 1)
     <div class="row--vpadded content-grid__pagination media-grid__pagination">
-        <a href="{{ $matches[1] }}" class="button uppercase page-transition--none" data-content-grid-next>{{ Macros::symbol('symbols-plus',  __('See more'), array('button__symbol')) }}{{ __('See more') }}</a>
+        <a href="{{ $matches[1] }}" class="button uppercase page-transition--none" data-content-grid-next>{{ Macros::symbol('symbols-plus',  __('Ver mais', Config::get('application.textdomain')), array('button__symbol')) }}{{ __('Ver mais', Config::get('application.textdomain')) }}</a>
     </div>
 @endif
     </div>

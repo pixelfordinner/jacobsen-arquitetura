@@ -83,10 +83,10 @@
 @include('components.cover-image', [
     'cover_image' => $posts['next']['fields']['cover_image'],
     'selector' => 'cover-image--' . $posts['next']['object']->post_name,
-    'vertical_align' => isset($post['next']['fields']['vertical_align']) ? $post['next']['fields']['vertical_align'] : ''
+    'vertical_align' => isset($posts['next']['fields']['vertical_align']) ? $posts['next']['fields']['vertical_align'] : ''
 ])
                 <a href="{{ get_permalink($posts['next']['object']->ID) }}" class="next-project">
-                   <span class="heading--zeta heading--light uppercase next-project__label">{{ __('Next project') }}</span>
+                   <span class="heading--zeta heading--light uppercase next-project__label">{{ __('Próximo projeto', Config::get('application.textdomain')) }}</span>
                    <span class="heading--beta heading--light uppercase next-project__title">{{ $posts['next']['object']->post_title }}</span>
                 </a>
             </div>
