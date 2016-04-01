@@ -12,8 +12,9 @@ instagram.processElement = function(i, element) {
   var settings = $element.data('instagram');
 
   settings.target = element;
-  settings.success = function() { $(window).trigger('gmap-center'); };
-  settings.KEY = 'AIzaSyDjGDRf-J-EeunUlKzjiowWV6cwjO1l1Pk';
+  settings.success = function() {
+    setTimeout(function() { $(window).trigger('gmap-center'); }, 200);
+  };
 
   var feed = new Instafeed(settings);
   feed.run();
