@@ -71,6 +71,14 @@
                             {{ $content['text'] }}
                         </div>
                     </div>
+@elseif($content['acf_fc_layout'] == 'video')
+                    <div class="row row--vpadded">
+                        <div class="column">
+                            <div class="video-embed">
+                                {{ Macros::responsive_video_embed($content['video_provider'], $content['video_id']) }}
+                            </div>
+                        </div>
+                    </div>
 @endif
 @endforeach
 @endif

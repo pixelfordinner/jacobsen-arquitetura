@@ -169,4 +169,30 @@ class Macros {
         echo ">\n";
 
     }
+
+    /**
+     * Outputs markup for responsive image
+     *
+     * @param  string $img The video provider name (e.g. youtube)
+     * @param  string $id The video id
+     * @return
+     */
+    public static function responsive_video_embed($provider, $id) {
+        $output = '';
+
+        switch ($provider) {
+            case 'youtube':
+                $output = <<<HTML
+<iframe src="https://www.youtube.com/embed/{$id}" frameborder="0" allowfullscreen></iframe>
+HTML;
+                break;
+            case 'vimeo':
+                $output = <<<HTML
+<iframe src="https://player.vimeo.com/video/{$id}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+HTML;
+                break;
+        }
+
+        return $output;
+    }
 }
