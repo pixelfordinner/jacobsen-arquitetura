@@ -87,7 +87,6 @@ gmaps.iterateElements = function() {
 gmaps.processElement = function(i, element) {
   var $element = $(element);
   googleMapsLoader = googleMapsLoader || require('google-maps');
-
   googleMapsLoader.KEY = 'AIzaSyDjGDRf-J-EeunUlKzjiowWV6cwjO1l1Pk';
 
   googleMapsLoader.load(function(google) {

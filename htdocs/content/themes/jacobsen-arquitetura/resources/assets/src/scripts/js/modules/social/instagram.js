@@ -12,8 +12,8 @@ instagram.processElement = function(i, element) {
   var settings = $element.data('instagram');
 
   settings.target = element;
-  settings.success = function() {
-    setTimeout(function() { $(window).trigger('gmap-center'); }, 500);
+  settings.after = function() {
+    setTimeout(function() { $(window).trigger('gmap-center'); }, 1000);
   };
 
   var feed = new Instafeed(settings);
