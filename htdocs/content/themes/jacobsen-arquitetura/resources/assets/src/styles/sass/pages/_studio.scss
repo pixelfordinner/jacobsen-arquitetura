@@ -1,0 +1,65 @@
+// Content
+
+.studio-content {
+  padding-bottom: 1rem;
+}
+
+// Dlist
+
+.dl--studio {
+  .dl__content {
+    background: none;
+  }
+
+  .dl__dt {
+    width: 2rem;
+    padding-left: 0;
+  }
+  .dl__dd {
+    width: calc(100% - 2rem);
+
+    span {
+      padding-left: 2rem;
+      display: inline-block;
+      width: 100%;
+      border-left: 1px solid get-color('grey-light');
+    }
+  }
+
+  @include breakpoint(get-site-breakpoint(tablet)) {
+    .dl__content {
+      background-position: 10%;
+    }
+  }
+}
+
+.team-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.team-member {
+  width: 50%;
+  border: 2px solid transparent;
+  transition: border-color get-easing('swiftly') get-transition('xfast');
+  margin: 1rem 0;
+
+  @include breakpoint(get-site-breakpoint(tablet-large)) {
+    width: 25%;
+  }
+
+  &:hover {
+    border-color: get-color('yellow');
+  }
+}
+
+.team-member__picture {
+  width: 100%;
+  display: block;
+}
+
+.team-member__description {
+  margin: 1rem;
+  padding-bottom: 1rem;
+}

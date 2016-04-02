@@ -200,13 +200,15 @@ return array(
         'fullwidth_image'                      => array(320, 480, 640, 800, 1024, 1344),
         'halfwidth_images'                     => array(320, 480, 640, 672),
         'project_thumbnails'                   => array(320, 480),
-        'media_thumbnails'                     => array(320, 432)
+        'media_thumbnails'                     => array(320, 432),
+        'team_portraits'                       => array(160, 200, 320, 256, 336)
     ),
     'responsive-image-mqs'                     => array(
         'fullwidth_image'                      => '(min-width: 1344px) 1344px, 100vw',
         'halfwidth_images'                     => '(min-width: 1344px) 672px, (min-width: 640px) 50vw, 100vw',
         'project_thumbnails'                   => '(min-width: 1920px) 25vw, (min-width: 1440px) 33.3333vw, (min-width: 960px) 50vw, 100vw',
-        'media_thumbnails'                     => '(min-width: 1920px) calc(25vw - 4.5rem), (min-width: 1440px) 33.3333vw, (min-width: 960px) 50vw, 100vw'
+        'media_thumbnails'                     => '(min-width: 1920px) calc(25vw - 4.5rem), (min-width: 1440px) 33.3333vw, (min-width: 960px) 50vw, 100vw',
+        'team_portraits'                       => '(min-width: 1344px) 336px, (min-width: 800px) 25vw, 50vw'
     ),
     'responsive-image-ratios'                  => array(
         'project_thumbnails'                   => array('width' => 480, 'height' => 320)

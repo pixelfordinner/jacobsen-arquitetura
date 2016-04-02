@@ -111,6 +111,34 @@ a:not(.no-defaults) {
     font-weight: map-get($headingtype, bold);
   }
 
+  .heading--strikethrough {
+    text-align: center;
+    overflow: hidden;
+    color: get-color('grey-dark');
+
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 50%;
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-top-color: get-color('grey-light');
+    }
+
+    &::before {
+      right: 2em;
+      margin-left: -50%;
+    }
+
+    &::after {
+      left: 2em;
+      margin-right: -50%;
+    }
+  }
+
   // Button component
 
   .button {
@@ -265,3 +293,4 @@ small {
 .oldstyle-numerals {
   font-feature-settings: 'onum' 1, 'kern' 1;
 }
+

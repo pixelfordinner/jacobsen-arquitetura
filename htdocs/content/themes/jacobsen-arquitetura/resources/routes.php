@@ -18,7 +18,7 @@ Route::get('template', ['home', function(){
 // Studio Page
 
 Route::get('template', ['studio', function(){
-    return View::make('pages.studio');
+    return View::make('pages.studio')->with(['fields' => get_fields()]);;
 }]);
 
 // Contact Page

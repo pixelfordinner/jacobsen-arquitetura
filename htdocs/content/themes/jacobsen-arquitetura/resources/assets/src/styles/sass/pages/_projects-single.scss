@@ -38,6 +38,19 @@
   }
 }
 
+// Dlist
+
+.dl--project {
+  .dl__content {
+    background-position: 50%;
+  }
+
+  .dl__dt,
+  .dl__dd {
+    width: 50%;
+  }
+}
+
 // Content
 
 .project-content {

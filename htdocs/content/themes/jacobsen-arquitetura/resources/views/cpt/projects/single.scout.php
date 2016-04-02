@@ -29,7 +29,7 @@
                     </div>
                     <div class="column--half column--desktop project-details">
 @if (is_array($posts['current']['fields']['technical_data']))
-@include('components.dlist', ['dlist' => $posts['current']['fields']['technical_data']])
+@include('components.dlist', ['dlist' => $posts['current']['fields']['technical_data'], 'classes' => ['dl--projects']])
 @endif
                     </div>
                 </div>
