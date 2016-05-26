@@ -1,9 +1,12 @@
-        <button class="button uppercase menu-toggle menu-toggle--fixed" data-menu-toggle>
+        <button class="button uppercase menu-toggle menu-toggle--fixed" data-menu-toggle data-menu-autohide>
             <span class="button__symbol">
                 <span class="menu-toggle__symbol--left"></span>
                 <span class="menu-toggle__symbol--right"></span>
             </span>{{ __('Menu', Config::get('application.textdomain')) }}
         </button>
+@if(isset($menu) && $menu['projects_grid'] === true)
+        <a href="{{ get_post_type_archive_link('projects') }}" class="button no-defaults uppercase menu-projects menu-projects--fixed" data-menu-autohide>{{ Macros::symbol('symbols-grid', __('Back to project grid', Config::get('application.textdomain')), array('button__symbol')) }}{{ __('Projects', Config::get('application.textdomain')) }}</a>
+@endif
         <section class="menu-content" data-menu-content data-menu-content-anim-duration="500">
 <?php
 if (has_filter('wpml_active_languages')) {

@@ -8,8 +8,8 @@ var pageTransitions = function() {
   var $content = $('#content-wrapper').smoothState({
     debug: true,
     blacklist: '.page-transition--none',
-    //prefetch: true,
-    //cacheLength: 4,
+    // prefetch: true,
+    // cacheLength: 16,
     onStart: {
       duration: 500,
       render: function() {

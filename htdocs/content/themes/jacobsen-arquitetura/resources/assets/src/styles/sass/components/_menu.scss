@@ -40,9 +40,18 @@
 }
 
 .button {
-  &.menu-toggle {
+  &.menu-toggle,
+  &.menu-projects {
     background-color: rgba(get-color('white'), .9);
     transform: translateY(0);
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: get-element-color('link-text-hover');
+      text-decoration: none;
+    }
 
     &--open {
       border-color: get-color('white');
@@ -92,6 +101,14 @@
   will-change: transform;
   top: .5rem;
   right: 1.5rem;
+  z-index: 200;
+}
+
+.menu-projects--fixed {
+  position: fixed;
+  will-change: transform;
+  top: .5rem;
+  left: 1.5rem;
   z-index: 200;
 }
 

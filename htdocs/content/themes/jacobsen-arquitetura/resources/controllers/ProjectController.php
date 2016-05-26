@@ -17,7 +17,7 @@ class ProjectController extends BaseController {
             throw new Exception('Unable to retrieve current post data.');
         }
 
-        $nextPost = get_next_post();
+        $nextPost = get_previous_post();
 
         $this->_data['posts'] = array(
             'current' => array(

@@ -11,7 +11,8 @@ contentGrid._data = {
     buttonNext: '[data-content-grid-next]',
     buttonFilter: '[data-content-grid-filter]',
     contentGrid: '[data-content-grid]',
-    filterParameter: '[data-content-grid-filter-parameter]'
+    filterParameter: '[data-content-grid-filter-parameter]',
+    filterGroup: '[data-content-grid-filter-group]'
   },
   classes: {
     buttonLoading: 'button--loading',
@@ -20,7 +21,8 @@ contentGrid._data = {
     contentGridLoading: 'content-grid--loading'
   },
   attributes: {
-    filter: 'data-content-grid-filter'
+    filter: 'data-content-grid-filter',
+    filterGroup: 'data-content-grid-filter-group'
   }
 };
 
@@ -48,6 +50,15 @@ contentGrid.bindButtons = function() {
       var $this = $(this);
       var filters = [];
       e.preventDefault();
+
+      // Unset active state for buttons of the same group
+      var groupData = $this.attr(_this._data.attributes.filterGroup);
+      if (typeof groupData !== 'undefined') {
+        if ($this.hasClass(_this._data.classes.buttonActive) === false) {
+          $('[' + _this._data.attributes.filterGroup + '="' + groupData + '"]')
+            .removeClass(_this._data.classes.buttonActive);
+        }
+      }
 
       // Set/Unset active state
       $this

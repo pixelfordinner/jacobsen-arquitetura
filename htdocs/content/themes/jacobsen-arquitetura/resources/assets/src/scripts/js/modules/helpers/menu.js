@@ -17,7 +17,8 @@ var menu = function() {
 menu._data = {
   selectors: {
     menuContent: '[data-menu-content]',
-    menuToggle: '[data-menu-toggle]'
+    menuToggle: '[data-menu-toggle]',
+    menuHide: '[data-menu-autohide]'
   },
   classes: {
     menuContentClose: 'menu-content--close',
@@ -122,10 +123,10 @@ menu.watcher = function() {
     }
 
     if (this._data.states.scrollY >= wScrollY) {
-      $(menu._data.selectors.menuToggle)
+      $(menu._data.selectors.menuHide)
         .removeClass(this._data.classes.menuToggleFaded);
     } else {
-      $(menu._data.selectors.menuToggle)
+      $(menu._data.selectors.menuHide)
         .addClass(this._data.classes.menuToggleFaded);
     }
 

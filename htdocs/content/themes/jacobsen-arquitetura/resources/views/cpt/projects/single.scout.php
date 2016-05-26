@@ -1,4 +1,4 @@
-@extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true, 'copyright' => true]])
+@extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true, 'copyright' => true], 'menu' => ['projects_grid' => true]])
 
 @section('main')
 @loop

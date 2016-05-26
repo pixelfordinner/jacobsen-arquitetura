@@ -67,7 +67,7 @@ class Macros {
         $mq_hidpi .= ($mq_max_width ? $mq_max_width . ' and ' : '') . '(min-resolution: 144dpi) ';
 
         // Get resized image URL
-        $img_resized = self::image_resize($img->url, $hidpi ? $w * 2 : $w, $hidpi ? $h * 2 : $h, $crop);
+        $img_resized = self::image_resize($img->src, $hidpi ? $w * 2 : $w, $hidpi ? $h * 2 : $h, $crop);
 
         // Resize image and define content
         $content = 'background-image: url(\'' . $img_resized . '\');';
