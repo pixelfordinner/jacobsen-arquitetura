@@ -16,6 +16,7 @@ var pageTransitions = require('helpers/page-transitions');
 var projectsNav = require('content-grid');
 var layoutMasonry = require('layout/masonry');
 var socialInstagram = require('social/instagram');
+var svg4everybody = require('svg4everybody');
 
 // User pages
 var pageContact = require('page/contact');
@@ -36,7 +37,7 @@ $(document).ready(function() {
     projectsNav();
     layoutMasonry();
     socialInstagram();
-
+    svg4everybody();
     pageContact();
   };
 

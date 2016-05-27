@@ -95,3 +95,41 @@
     padding-right: 5rem;
   }
 }
+
+// Share
+
+.project-share {
+  text-align: right;
+  padding: 0 5rem;
+
+  .social-media-list {
+    width: auto;
+    margin: 2rem 0 2rem 1rem;
+    text-align: right;
+    display: inline-block;
+  }
+
+  .social-media-list__item {
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+  }
+
+  .social-media-list__item__link {
+
+    .social-media-list__item__symbol {
+      fill: get-color('grey-light');
+    }
+
+    &:hover {
+      .social-media-list__item__symbol {
+        fill: get-color('yellow');
+        color: get-color('white');
+      }
+    }
+  }
+}
+
+.project-share__text {
+  display: inline-block;
+}

@@ -1,5 +1,6 @@
 'use strict';
 
+require('es6-promise').polyfill();
 var typekit = require('./services/typekit');
 var self = require('./services/self');
 

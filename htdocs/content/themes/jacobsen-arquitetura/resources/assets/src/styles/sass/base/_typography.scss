@@ -16,8 +16,12 @@ body {
 // Links.
 a:not(.no-defaults) {
   transition: color .1s, background-color .1s;
-  color: get-element-color('link-text');
   text-decoration: none;
+
+  &,
+  &:visited {
+    color: get-element-color('link-text');
+  }
 
   &:hover,
   &:active,
