@@ -1,17 +1,21 @@
-@extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true, 'copyright' => true]])
+@extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true, 'copyright' => true], 'no_caching' => true])
 
 @section('main')
-    @include('cpt.partials.filters', ['categories' => $categories, 'current_category' => $current_category, 'filter_parameter' => 'project-categories'])
-    <section class="row row--vpadded row--flex projects-grid content-grid" data-content-grid>
+    @include('cpt.partials.filters', ['categories' => $categories, 'current_category' => $currentCategory, 'filter_parameter' => 'project-categories'])
+    <section class="row row--vpadded row--flex projects-grid content-grid" data-content-grid="projects">
 @loop
-<?php $post_fields = get_fields(); ?>
+<?php
+    $is_new = get_field('is_new');
+    $date_end = get_field('date_end');
+    $category_featured = get_field('category_featured');
+?>
 @if(get_post_thumbnail_id() != '')
-        <div class="projects-grid__item content-grid__item animation--fadein">
+        <div class="projects-grid__item content-grid__item animation--fadein" id="project-{{ Loop::id() }}">
             <div class="projects-grid__item--header">
-                <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}@if(isset($post_fields['is_new']) && $post_fields['is_new'] == true) <small class="projects-grid__item__title--new">{{ __('Novo', Config::get('application.textdomain')) }}</small>@endif</h2>
+                <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}@if(isset($is_new) && $is_new == true) <small class="projects-grid__item__title--new">{{ __('Novo', Config::get('application.textdomain')) }}</small>@endif</h2>
                 <ul class="projects-grid__item__extras">
-                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($post_fields['date_end']) && $post_fields['date_end'] ? $post_fields['date_end'] : __('Em Andamento', Config::get('application.textdomain')) }}</li>
-                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($post_fields['category_featured']) && is_object($post_fields['category_featured']) ? $post_fields['category_featured']->name : '&mdash;' }}</li>
+                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($date_end) ? $date_end : __('Em Andamento', Config::get('application.textdomain')) }}</li>
+                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($category_featured) && is_object($category_featured) ? $category_featured->name : '&mdash;' }}</li>
                 </ul>
             </div>
             <a class="projects-grid__item--link" href="{{ Loop::link() }}">
@@ -22,9 +26,12 @@
 @endloop
     </section>
 <?php $matches = array(); ?>
-@if(preg_match("/<a\s+(?:[^>]*?\s+)?href=\"([^\"]*)\"/", get_next_posts_link(), $matches) == 1)
     <div class="row--vpadded content-grid__pagination projects-grid__pagination">
-        <a href="{{ $matches[1] }}" class="button uppercase page-transition--none" data-content-grid-next>{{ Macros::symbol('symbols-plus',  __('Ver mais', Config::get('application.textdomain')), array('button__symbol')) }}{{ __('Ver mais', Config::get('application.textdomain')) }}</a>
-    </div>
+@if($nextPageLink)
+        <a href="{{ $nextPageLink }}" class="button uppercase page-transition--none" data-content-grid-next="{{ $currentPage + 1 }}">{{ Macros::symbol('symbols-plus',  __('Ver mais', Config::get('application.textdomain')), array('button__symbol')) }}{{ __('Ver mais', Config::get('application.textdomain')) }}</a>
+@else
+        <a href="#" class="button uppercase page-transition--none button--transparent" data-content-grid-next></a>
 @endif
+    </div>
+
 @overwrite

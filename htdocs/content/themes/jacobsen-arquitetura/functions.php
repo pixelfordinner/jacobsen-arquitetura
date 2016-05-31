@@ -12,10 +12,29 @@
 /*----------------------------------------------------*/
 defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
 
+// If using CDN for media, let's set it up to serve assets too.
+if (getenv('WP_CDN')) {
+    $upload_dir_name = basename(wp_upload_dir()['basedir']);
+    $upload_baseurl = getenv('WP_CDN') . '/' . $upload_dir_name;
+
+    if (get_option('upload_url_path') !== $upload_baseurl) {
+        update_option('upload_url_path', $upload_baseurl, true);
+    }
+
+    $GLOBALS['themosis_paths']['assets'] = themosis_assets();
+    $GLOBALS['themosis_paths']['assets_cdn'] = str_replace(content_url(), getenv('WP_CDN'), themosis_assets());
+
+    if (!function_exists('themosis_theme_assets') && !is_multisite() && !defined('SUBDOMAIN_INSTALL')) {
+        function themosis_theme_assets($cdn = true) {
+            return $GLOBALS['themosis_paths'][($cdn ? 'assets_cdn' : 'assets')];
+        }
+    }
+}
+
 /**
  * Helper function to setup assets URL
  */
-if (!function_exists('themosis_theme_assets'))
+if (!function_exists('themosis_theme_assets') && is_multisite() && !defined('SUBDOMAIN_INSTALL'))
 {
     /**
      * Return the application theme assets directory URL.
@@ -24,14 +43,9 @@ if (!function_exists('themosis_theme_assets'))
      */
     function themosis_theme_assets()
     {
-        if (is_multisite() && SUBDOMAIN_INSTALL)
-        {
-            $segments = explode('themes', get_template_directory_uri());
-            $theme = (strpos($segments[1], DS) !== false) ? substr($segments[1], 1) : $segments[1];
-            return get_site_url().'/'.CONTENT_DIR.'/themes/'.$theme.'/resources/assets';
-        }
-
-        return get_template_directory_uri().'/resources/assets';
+        $segments = explode('themes', get_template_directory_uri());
+        $theme = (strpos($segments[1], DS) !== false) ? substr($segments[1], 1) : $segments[1];
+        return get_site_url().'/'.CONTENT_DIR.'/themes/'.$theme.'/resources/assets';
     }
 }
 

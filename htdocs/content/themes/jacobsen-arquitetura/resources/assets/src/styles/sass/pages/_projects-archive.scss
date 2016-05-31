@@ -2,6 +2,7 @@
 .projects-filters {
   display: none;
   text-align: center;
+  align-items: flex-start;
 
   @include breakpoint(960px) {
     display: block;
@@ -22,7 +23,6 @@
 
 .projects-grid__item {
   transition: opacity get-transition('normal');
-  will-change: transform;
 
   @include breakpoint(960px) {
     width: percentage(1/2);
@@ -89,7 +89,11 @@
 
 .projects-grid__item--link {
   display: block;
+  position: relative;
+  padding-bottom: 66.66666667%;
+  height: 0;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .projects-grid__item--header {
@@ -129,6 +133,7 @@
   display: block;
   width: 100%;
   height: auto;
+  background-color: get-color('white');
   transition: transform get-transition('fast') get-easing('natural'),
               opacity get-transition('fast') get-easing('natural');
   transform: scale(1);

@@ -6,7 +6,7 @@
             @include('layouts.partials.header')
             @include('layouts.partials.menu')
 
-            <main id="main" class="main" role="main">
+            <main id="main" class="main @if(isset($no_caching) && $no_caching === true) no-caching @endif" role="main">
 @section('main')
             Default page content
 @show

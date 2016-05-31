@@ -95,7 +95,7 @@
     'vertical_align' => isset($posts['next']['fields']['vertical_align']) ? $posts['next']['fields']['vertical_align'] : ''
 ])
                 <a href="{{ get_permalink($posts['next']['object']->ID) }}" class="next-project">
-                   <span class="heading--zeta heading--light uppercase next-project__label">{{ __('Next project', Config::get('application.textdomain')) }}</span>
+                   <span class="heading--zeta heading--light uppercase next-project__label">{{ __('Próximo projeto', Config::get('application.textdomain')) }}</span>
                    <span class="heading--beta heading--light uppercase next-project__title">{{ $posts['next']['object']->post_title }}</span>
                 </a>
             </div>

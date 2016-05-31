@@ -107,6 +107,10 @@ if (is_array($assets)) {
 add_action('wp_head', function() {
     $dnsPrefetch = Config::get('application.dns-prefetch');
 
+    if (getenv('WP_CDN')) {
+        $dnsPrefetch[] = '//' . parse_url(getenv('WP_CDN'), PHP_URL_HOST);
+    }
+
     if (is_array($dnsPrefetch)) {
         foreach ($dnsPrefetch as $dns) {
             echo '<link ref="dns-prefetch" href="'.$dns.'">'."\n";

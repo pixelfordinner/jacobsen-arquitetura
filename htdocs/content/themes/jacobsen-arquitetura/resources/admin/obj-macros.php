@@ -8,7 +8,8 @@ class Macros {
 
     public static function get_symbol_path($id) {
         $assets = Config::get('application.assets');
-        return themosis_assets().'/'.$assets['icons']['path'].'/'.$assets['icons']['files'][0].'#'.$id;
+        $baseurl = function_exists('themosis_theme_assets') ? themosis_theme_assets(false) : themosis_assets();
+        return $baseurl.'/'.$assets['icons']['path'].'/'.$assets['icons']['files'][0].'#'.$id;
     }
     /**
      * Outputs an <svg> tag that uses a symbol in global svg file

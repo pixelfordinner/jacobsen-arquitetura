@@ -1,9 +1,9 @@
 @extends('layouts.master', ['header' => ['display' => false], 'footer' => ['logo' => true, 'copyright' => true]])
 
 @section('main')
-    @include('cpt.partials.filters', ['categories' => $categories, 'current_category' => $current_category, 'filter_parameter' => 'media-categories'])
+    @include('cpt.partials.filters', ['categories' => $categories, 'current_category' => $currentCategory, 'filter_parameter' => 'media-categories'])
     <div class="container--large">
-        <section class="row row--vpadded media-grid content-grid" data-masonry-options='{ "itemSelector": ".content-grid__item", "columnWidth": ".content-grid__item", "percentPosition": true }' data-content-grid>
+        <section class="row row--vpadded media-grid content-grid" data-masonry-options='{ "itemSelector": ".content-grid__item", "columnWidth": ".content-grid__item", "percentPosition": true }' data-content-grid="media">
 @loop
 <?php
     $post_fields = get_fields();

@@ -41,17 +41,11 @@
 
 .button {
   &.menu-toggle,
-  &.menu-projects {
+  &.menu-projects,
+  &--nav {
     background-color: rgba(get-color('white'), .9);
     transform: translateY(0);
-    text-decoration: none;
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: get-element-color('link-text-hover');
-      text-decoration: none;
-    }
+    will-change: transform, opacity;
 
     &--open {
       border-color: get-color('white');
@@ -118,7 +112,8 @@
   left: 0;
   opacity: 0;
   visibility: hidden;
-  will-change: transform;
+  will-change: transform, opacity;
+  transition: opacity .5s;
 
   &--open {
     opacity: 1;
@@ -276,9 +271,9 @@
 
 .menu-content__language-list {
   position: fixed;
-  will-change: transform;
   top: 1.1rem;
   left: 1.5rem;
+  z-index: 110;
 
   @include breakpoint(get-site-breakpoint('tablet')) {
     top: 5rem;

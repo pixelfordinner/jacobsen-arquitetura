@@ -14,6 +14,8 @@ instagram.processElement = function(i, element) {
   settings.target = element;
   settings.after = function() {
     setTimeout(function() { $(window).trigger('gmap-center'); }, 800);
+    setTimeout(function() { $(window).trigger('gmap-center'); }, 1200);
+    setTimeout(function() { $(window).trigger('gmap-center'); }, 1800);
   };
 
   var feed = new Instafeed(settings);

@@ -2,7 +2,7 @@
 
 class MediaController extends BaseController {
 
-    protected $_data = array();
+    protected static $_data = array();
 
     public function __construct() {
         if (!function_exists('get_fields')) {
@@ -25,14 +25,15 @@ class MediaController extends BaseController {
             'pad_counts'               => false
         );
 
-        $this->_data['categories'] = get_categories($args);
+        self::$_data['categories'] = get_categories($args);
     }
 
     protected function _getCurrentCategory($query) {
-        $this->_data['current_category'] = null;
+        self::$_data['currentCategory'] = [];
+        $tax_query = $query->get('tax_query');
 
-        if (array_key_exists('media-categories', $query->query)) {
-            $this->_data['current_category'] = $query->query['media-categories'];
+        if (is_array($tax_query) && count($tax_query) > 0) {
+            self::$_data['currentCategory'] = $tax_query[0]['terms'];
         }
     }
 
@@ -41,6 +42,6 @@ class MediaController extends BaseController {
         $this->_getCurrentCategory($query);
 
         return View::make('cpt.media.archive')
-            ->with($this->_data);
+            ->with(self::$_data);
     }
  }
