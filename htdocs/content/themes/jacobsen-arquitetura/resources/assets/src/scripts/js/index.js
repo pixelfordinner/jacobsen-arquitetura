@@ -26,6 +26,7 @@ $(document).ready(function() {
     fontloader();
     browserFeatures();
     keyEvents();
+    pageTransitions();
   };
 
   var contentModules = function() {
@@ -33,7 +34,6 @@ $(document).ready(function() {
     picturefill();
     menu();
     slickCarousel();
-    pageTransitions();
     projectsNav();
     layoutMasonry();
     socialInstagram();

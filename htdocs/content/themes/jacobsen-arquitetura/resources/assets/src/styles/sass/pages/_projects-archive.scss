@@ -22,8 +22,6 @@
 // Grid Items
 
 .projects-grid__item {
-  transition: opacity get-transition('normal');
-
   @include breakpoint(960px) {
     width: percentage(1/2);
   }

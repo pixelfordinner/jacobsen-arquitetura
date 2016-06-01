@@ -1,5 +1,5 @@
 .page-transition--fadein {
-  transition: opacity .3s;
+  transition: opacity .4s get-easing('swiftly');
 }
 
 .page-transition--exiting {

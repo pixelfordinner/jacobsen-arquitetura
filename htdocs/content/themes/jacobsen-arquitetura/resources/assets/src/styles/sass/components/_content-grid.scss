@@ -1,4 +1,10 @@
-.content-grid--loading {
+.content-grid__item {
+  transition: opacity get-transition('normal') get-easing('swiftly');
+  opacity: 1;
+}
+
+.content-grid--loading,
+.page-transition--exiting {
   .content-grid__item {
     opacity: 0;
   }

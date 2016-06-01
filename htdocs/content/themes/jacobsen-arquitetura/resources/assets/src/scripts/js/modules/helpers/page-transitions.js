@@ -29,14 +29,14 @@ var pageTransitions = function() {
       }
     },
     onStart: {
-      duration: 300,
+      duration: 400,
       render: function() {
         $content.addClass('page-transition--exiting');
         $body.css('overflow', 'visible');
       }
     },
     onReady: {
-      duration: 0,
+      duration: 100,
       render: function($container, $newContent) {
         $container.html($newContent);
         $container.removeClass('page-transition--exiting');
@@ -49,6 +49,22 @@ var pageTransitions = function() {
       if ($('#main').hasClass('no-caching')) {
         smoothstate.clear(window.location);
       }
+
+      if (typeof window.ga !== 'undefined' &&
+          typeof window.location.pathname !== 'undefined') {
+        window.ga('send', 'pageview',window.location.pathname);
+      }
+
+      $('[data-preload]').each(function(i, element) {
+        var $element = $(element);
+        var delay = parseInt($element.attr('data-preload'));
+
+        if (delay > 0) {
+          setTimeout(function() {
+            smoothstate.fetch($element.attr('href'));
+          }, delay);
+        }
+      });
     }
   }).data('smoothState');
 };

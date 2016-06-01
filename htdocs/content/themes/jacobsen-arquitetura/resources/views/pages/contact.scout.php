@@ -31,6 +31,7 @@
 <?php
 $instagram_settings = json_encode([
     'clientId' => $theme_options['instagram_client_id'],
+    'accessToken' => $theme_options['instagram_access_token'],
     'userId' => $theme_options['instagram_user_id'],
     'get' => 'user',
     'limit' => $theme_options['instagram_photo_count'],
