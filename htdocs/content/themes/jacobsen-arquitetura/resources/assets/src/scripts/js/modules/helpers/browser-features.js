@@ -1,6 +1,6 @@
 'use strict';
 
-var cookies = require('cookies-js');
+var cookies = window.Cookies;
 var $ = require('jquery');
 
 var browserFeatures = function() {

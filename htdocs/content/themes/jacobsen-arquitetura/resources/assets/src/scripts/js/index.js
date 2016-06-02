@@ -6,7 +6,6 @@ window.jQuery = $;
 var picturefill = require('picturefill');
 
 // User modules
-var browserFeatures = require('helpers/browser-features');
 var fontloader = require('fonts/loader');
 var keyEvents = require('helpers/key-events');
 var menu = require('helpers/menu');
@@ -24,7 +23,6 @@ var pageContact = require('page/contact');
 $(document).ready(function() {
   var baseModules = function() {
     fontloader();
-    browserFeatures();
     keyEvents();
     pageTransitions();
   };

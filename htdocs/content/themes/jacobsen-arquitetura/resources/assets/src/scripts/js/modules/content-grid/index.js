@@ -1,7 +1,16 @@
 'use strict';
 
 var $ = require('jquery');
-var cookies = require('cookies-js');
+var cookies = window.Cookies;
+
+$.extend($.easing, {
+  easeInOutCubic: function(x, t, b, c, d) {
+    if ((t /= d / 2) < 1) {
+      return c / 2 * t * t * t + b;
+    }
+    return c / 2 * ((t -= 2) * t * t + 2) + b;
+  }
+});
 
 var contentGrid = function() {
   if ($(contentGrid._data.selectors.contentGrid).length > 0) {

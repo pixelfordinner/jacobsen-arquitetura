@@ -2,7 +2,7 @@
 'use strict';
 
 require('fontfaceobserver');
-var cookies = require('cookies-js');
+var cookies = window.Cookies;
 
 var selfService = function(availableClass, unavailableClass) {
   var availableFonts = selfService._data.element.className.split(' ');
@@ -35,7 +35,7 @@ selfService.observeFonts = function(availableClass, unavailableClass) {
 
 selfService.cacheCSS = function() {
   if (cookies.enabled) {
-    cookies.set(this._data.key, true, {expires: 604800});
+    cookies.set(this._data.key, true , {expires: 604800});
   }
 };
 

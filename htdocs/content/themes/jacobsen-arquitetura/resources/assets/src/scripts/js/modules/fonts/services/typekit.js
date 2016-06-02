@@ -1,7 +1,7 @@
 /* global Typekit */
 'use strict';
 
-var cookies = require('cookies-js');
+var cookies = window.Cookies;
 var loadJS = require('helpers/load-js');
 
 var typekitService = function(availableClass, unavailableClass) {

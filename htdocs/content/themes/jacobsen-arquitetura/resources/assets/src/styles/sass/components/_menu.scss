@@ -132,6 +132,10 @@
   &--open {
     z-index: 100;
     animation: scalein get-transition('slow') get-easing('swiftly');
+
+    & ~ .main {
+      opacity: 0;
+    }
   }
 
   &--close {

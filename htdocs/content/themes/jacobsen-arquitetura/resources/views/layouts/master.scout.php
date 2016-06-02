@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="feat--no-js<?php font_classes(); browser_features_classes(); ?>" <?php language_attributes(); ?>>
+<html class="feat--no-js" <?php language_attributes(); ?>>
 @include('layouts.partials.head')
     <body>
         <div id="content-wrapper" class="page-transition--fadein">

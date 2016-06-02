@@ -1,12 +1,12 @@
 <?php
 
 // Typekit CSS retrieval from cookie.
-if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
-    add_action('wp_enqueue_scripts', function() {
-        $typekitUrl = strip_tags($_COOKIE['_fonts_typekit_url']);
-        wp_enqueue_style('typekit-styles', $typekitUrl, array(), '', 'all');
-    });
-}
+// if (array_key_exists('_fonts_typekit_url', $_COOKIE)) {
+//     add_action('wp_enqueue_scripts', function() {
+//         $typekitUrl = strip_tags($_COOKIE['_fonts_typekit_url']);
+//         wp_enqueue_style('typekit-styles', $typekitUrl, array(), '', 'all');
+//     });
+// }
 
 // Append font classes to root element
 function font_classes() {

@@ -3,31 +3,15 @@
 var $ = require('jquery');
 require('smoothstate');
 
-$.extend($.easing, {
-  easeInOutCubic: function(x, t, b, c, d) {
-    if ((t /= d / 2) < 1) {
-      return c / 2 * t * t * t + b;
-    }
-    return c / 2 * ((t -= 2) * t * t + 2) + b;
-  }
-});
-
 var pageTransitions = function() {
   var $body = $('body');
   var $content = $('#content-wrapper');
-  var anchor = null;
 
   var smoothstate = $content.smoothState({
     debug: true,
     blacklist: '.page-transition--none',
     prefetch: false,
     cacheLength: 16,
-    onBefore: function($currentTarget) {
-      var targetAnchor = $currentTarget.attr('data-page-transition-anchor');
-      if (targetAnchor !== 'undefined') {
-        anchor = targetAnchor;
-      }
-    },
     onStart: {
       duration: 400,
       render: function() {
