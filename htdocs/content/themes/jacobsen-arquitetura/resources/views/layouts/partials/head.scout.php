@@ -40,17 +40,6 @@
 
             document.addEventListener('DOMContentLoaded', function() {
                 if (Cookies.enabled) {
-                    var typekitUrl = Cookies.get('_fonts_typekit_url')
-
-                    if (typeof typekitUrl !== 'undefined') {
-                        var sheet = document.createElement('link');
-                        sheet.type  = 'text/css';
-                        sheet.rel = 'stylesheet'
-                        sheet.href = typekitUrl;
-                        document.head.appendChild(sheet);
-                        document.documentElement.className += ' type__body--available';
-                    }
-
                     if (typeof Cookies.get('_language_detected') === 'undefined') {
                         Cookies.set('_language_detected', true, 10800);
                         var browserLanguage = navigator.language || navigator.browserLanguage;
@@ -62,6 +51,21 @@
                                 }
                             }
                         }
+                    }
+
+                    var typekitUrl = Cookies.get('_fonts_typekit_url')
+
+                    if (typeof typekitUrl !== 'undefined') {
+                        var sheet = document.createElement('link');
+                        sheet.type  = 'text/css';
+                        sheet.rel = 'stylesheet'
+                        sheet.href = typekitUrl;
+                        document.head.appendChild(sheet);
+                        document.documentElement.className += ' type__body--available';
+                    }
+
+                    if (Cookies.get('_fonts_self_loaded') !== 'undefined') {
+                        document.documentElement.className += ' type__heading--available';
                     }
                 }
             }, false);
