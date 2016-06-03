@@ -14,7 +14,7 @@
             <div class="projects-grid__item--header">
                 <h2 class="heading--epsilon heading--light uppercase projects-grid__item--title">{{ Loop::title() }}@if(isset($is_new) && $is_new == true) <small class="projects-grid__item__title--new">{{ __('Novo', Config::get('application.textdomain')) }}</small>@endif</h2>
                 <ul class="projects-grid__item__extras">
-                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($date_end) ? $date_end : __('Em Andamento', Config::get('application.textdomain')) }}</li>
+                    <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($date_end) && strlen($date_end) > 0 ? $date_end : __('Em Andamento', Config::get('application.textdomain')) }}</li>
                     <li class="projects-grid__item__extras__item heading--iota heading--light uppercase">{{ isset($category_featured) && is_object($category_featured) ? $category_featured->name : '&mdash;' }}</li>
                 </ul>
             </div>
