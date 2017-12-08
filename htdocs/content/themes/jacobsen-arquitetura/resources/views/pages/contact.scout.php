@@ -28,6 +28,20 @@
                 </div>
             </section>
             <section class="row column--half column--desktop-medium contact__social-media">
+                <style>
+                    .instagram-content__link::before {
+                        display: block;
+                        content: "";
+                        width: 100%;
+                        height: 0;
+                        padding-bottom: 100%;
+                    }
+
+                    .instagram-content__link {
+                        background-size: cover;
+                        background-position: center center;
+                    }
+                </style>
 <?php
 $instagram_settings = json_encode([
     'clientId' => $theme_options['instagram_client_id'],
@@ -36,7 +50,7 @@ $instagram_settings = json_encode([
     'get' => 'user',
     'limit' => $theme_options['instagram_photo_count'],
     'resolution' => 'standard_resolution',
-    'template' => '<a class="instagram-content__link" href="{{link}}" target="_blank"><img class="instagram-content__image" src="{{image}}" width="{{width}}" height="{{height}}" /></a>'
+    'template' => '<a class="instagram-content__link" href="{{link}}" target="_blank" style="background-image: url({{image}})"></a>'
 ]);
 ?>
                 <div class="contact__social-media__instagram" data-instagram='{{ $instagram_settings }}'></div>
