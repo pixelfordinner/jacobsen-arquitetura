@@ -40,18 +40,6 @@
 
             document.addEventListener('DOMContentLoaded', function() {
                 if (Cookies.enabled) {
-                    if (typeof Cookies.get('_language_detected') === 'undefined') {
-                        Cookies.set('_language_detected', true, 10800);
-                        var browserLanguage = navigator.language || navigator.browserLanguage;
-                        if (document.documentElement.lang !== browserLanguage) {
-                            var alternateLinks = document.head.querySelectorAll('link[rel="alternate"]');
-                            for (var i = 0; i < alternateLinks.length; ++i) {
-                                if (alternateLinks[i].hreflang.toLowerCase() === browserLanguage.toLowerCase()) {
-                                    window.location = alternateLinks[i].href;
-                                }
-                            }
-                        }
-                    }
 
                     var typekitUrl = Cookies.get('_fonts_typekit_url')
 
