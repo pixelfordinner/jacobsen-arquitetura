@@ -87,7 +87,7 @@ gmaps.iterateElements = function() {
 gmaps.processElement = function(i, element) {
   var $element = $(element);
   googleMapsLoader = googleMapsLoader || require('google-maps');
-  googleMapsLoader.KEY = 'AIzaSyDjGDRf-J-EeunUlKzjiowWV6cwjO1l1Pk';
+  googleMapsLoader.KEY = 'AIzaSyDn2-8djSEe3QYLURqcIFY27rqTD3AWMpI';
 
   googleMapsLoader.load(function(google) {
     var coordinates = new google.maps.LatLng(
